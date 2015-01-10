@@ -74,10 +74,10 @@
             <configuration>
                 <assembleDirectory>target</assembleDirectory>
                 <programs>
-                    <program>
+               <!--     <program>
                         <mainClass>launch.Main</mainClass>
                         <name>webapp</name>
-                    </program>
+                    </program>-->
                 </programs>
             </configuration>
             <executions>

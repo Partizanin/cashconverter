@@ -1,6 +1,6 @@
 package servlet;
 
-import classes.SiteFilter;
+import launch.SiteFilter;
 import org.json.JSONException;
 import org.json.JSONObject;
 

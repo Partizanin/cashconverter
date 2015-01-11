@@ -179,6 +179,7 @@ public class SiteFilter {
                     temp += source.charAt(i);
                 }
             }
+ /*conflict zone*/
             return String.valueOf(df.format(Double.parseDouble(temp)));
 
         }
@@ -418,6 +419,7 @@ public class SiteFilter {
                     temp += source.charAt(i);
                 }
             }
+ /*conflict zone*/
             return String.valueOf(df.format(Double.parseDouble(temp)));
 
         }

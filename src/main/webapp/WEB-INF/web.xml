@@ -25,6 +25,6 @@
         <welcome-file>autorefreshpage.jsp</welcome-file>-->
     </welcome-file-list>
 
-<!--    <display-name>Archetype Created Web Application</display-name>-->
+    <display-name>Archetype Created Web Application</display-name>
 
 </web-app>

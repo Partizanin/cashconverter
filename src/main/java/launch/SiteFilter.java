@@ -1,8 +1,6 @@
 package launch;
 
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.Locale;
 
 /**
  * Created with Intellij IDEA.
@@ -18,15 +16,8 @@ public class SiteFilter {
 
     private static String siteSource = sd.getSource();
 
-    NumberFormat nf = NumberFormat.getNumberInstance(Locale.GERMAN);
+    private static DecimalFormat df = new DecimalFormat("#.####");
 
-    private static DecimalFormat df = (DecimalFormat)
-            NumberFormat.getNumberInstance(new Locale("en"));
-
-    public SiteFilter() {
-
-        df.applyPattern("#.####");
-    }
 
     public static class UAH {
 
@@ -188,8 +179,8 @@ public class SiteFilter {
                     temp += source.charAt(i);
                 }
             }
-           String s = String.valueOf(df.format(Double.parseDouble(temp)));
-            return s;
+
+            return String.valueOf(df.format(Double.parseDouble(temp)));
 
         }
 

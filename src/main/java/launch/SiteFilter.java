@@ -179,8 +179,7 @@ public class SiteFilter {
                     temp += source.charAt(i);
                 }
             }
-           String s = String.valueOf(df.format(Double.parseDouble(temp)));
-            return s;
+            return String.valueOf(df.format(Double.parseDouble(temp)));
 
         }
 
@@ -419,8 +418,7 @@ public class SiteFilter {
                     temp += source.charAt(i);
                 }
             }
-           String s = String.valueOf(df.format(Double.parseDouble(temp)));
-            return s;
+            return String.valueOf(df.format(Double.parseDouble(temp)));
 
         }
 

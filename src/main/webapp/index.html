@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Конвертер валют</title>
+    <script src="//cdn.jsdelivr.net/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/cashvalue.js"></script>
+    <link type="text/css" rel="stylesheet" href="styles/buttonStyle.css"/>
+    <link type="text/css" rel="stylesheet" href="styles/mainStyle.css"/>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/ico">
+</head>
+<body>
+
+<div class="Converter">
+    <h2>Конвертер валют</h2>
+    Я хочу <input class="button" onclick="changeOperation(this.value)" type="button" value="Купить" id="buy">
+    <input class="button" onclick="changeOperation(this.value)" type="button" value="Продать" id="sell">
+    <hr>
+    На сумму  <label for="inputValue"></label><input type="text" value="0.00" onkeypress="return isNumberKey(event)"
+                                                    onkeyup="count(this.value)"
+                                                    onfocus="if (this.value == '0.00') this.value='';"
+                                                    onblur="if (this.value == '') {this.value = '0.00'; }"
+                                                    id="inputValue">
+
+    <select id="selectExchange" onchange="changeExchange(this.value)">
+        <hr>
+        <option value="usd">USD</option>
+        <option value="eur">EUR</option>
+        <option value="rub">RUB</option>
+        <option value="pln">PLN</option>
+        <option selected="" value="uah">UAH</option>
+    </select>
+    <hr>
+    <p>Результат</p>
+    <ul>
+        <li><input type="text" readonly value="0.00"
+                   onblur="if (this.value == '') {this.value = '0.00'; }" id="conventUSD">
+            <input type="text" id="value1" readonly size="1" value="USD">
+            <input  readonly id="exchange1"></li>
+        <li><input type="text" readonly value="0.00"
+                   onblur="if (this.value == '') {this.value = '0.00'; }" id="conventRUB">
+            <input type="text" id="value2" readonly size="1" value="RUB">
+            <input readonly id="exchange2"></li>
+        <li><input type="text" readonly value="0.00"
+                   onblur="if (this.value == '') {this.value = '0.00'; }" id="conventEUR">
+            <input type="text" id="value3" readonly size="1" value="EUR" >
+            <input  readonly id="exchange3"></li>
+        <li><input type="text" readonly value="0.00"
+                   onblur="if (this.value == '') {this.value = '0.00'; }" id="conventUAH">
+            <input type="text" id="value4" readonly size="1" value="PLN" >
+            <input readonly id="exchange4"></li>
+    </ul>
+</div>
+</body>
+</html>

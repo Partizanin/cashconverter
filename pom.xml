@@ -70,7 +70,7 @@
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>appassembler-maven-plugin</artifactId>
             <version>1.1.1</version>
-            <configuration>
+           <!-- <configuration>
                 <assembleDirectory>target</assembleDirectory>
                 <programs>
                     <program>
@@ -78,7 +78,7 @@
                         <name>webapp</name>
                     </program>
                 </programs>
-            </configuration>
+            </configuration>-->
             <executions>
                 <execution>
                     <phase>package</phase>

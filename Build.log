@@ -1,0 +1,113 @@
+Deploying 'cashconverter'...
+Fetching repository, done.
+Counting objects: 20, done.
+Delta compression using up to 4 threads.
+Compressing objects:   8% (1/12)
+Compressing objects:  16% (2/12)
+Compressing objects:  25% (3/12)
+Compressing objects:  33% (4/12)
+Compressing objects:  41% (5/12)
+Compressing objects:  50% (6/12)
+Compressing objects:  58% (7/12)
+Compressing objects:  66% (8/12)
+Compressing objects:  75% (9/12)
+Compressing objects:  83% (10/12)
+Compressing objects:  91% (11/12)
+Compressing objects: 100% (12/12)
+Compressing objects: 100% (12/12), done.
+Writing objects:   7% (1/14)
+Writing objects:  14% (2/14)
+Writing objects:  21% (3/14)
+Writing objects:  28% (4/14)
+Writing objects:  35% (5/14)
+Writing objects:  42% (6/14)
+Writing objects:  50% (7/14)
+Writing objects:  57% (8/14)
+Writing objects:  64% (9/14)
+Writing objects:  71% (10/14)
+Writing objects:  78% (11/14)
+Writing objects:  85% (12/14)
+Writing objects:  92% (13/14)
+Writing objects: 100% (14/14)
+Writing objects: 100% (14/14), 1.13 KiB | 0 bytes/s, done.
+Total 14 (delta 4), reused 0 (delta 0)
+
+-----> Java app detected
+-----> Installing OpenJDK 1.8... done
+-----> executing /app/tmp/cache/.maven/bin/mvn -B -Duser.home=/tmp/build_6b249b584d058437e4fc915fb94df457 -Dmaven.repo.local=/app/tmp/cache/.m2/repository  -DskipTests=true clean install
+       [INFO] Scanning for projects...
+       [INFO]
+       [INFO] ------------------------------------------------------------------------
+       [INFO] Building embeddedTomcatSample Maven Webapp 1.0-SNAPSHOT
+       [INFO] ------------------------------------------------------------------------
+       [INFO]
+       [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ embeddedTomcatSample ---
+       [INFO]
+       [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ embeddedTomcatSample ---
+       [WARNING] Using platform encoding (ANSI_X3.4-1968 actually) to copy filtered resources, i.e. build is platform dependent!
+       [INFO] skip non existing resourceDirectory /tmp/build_6b249b584d058437e4fc915fb94df457/src/main/resources
+       [INFO]
+       [INFO] --- maven-compiler-plugin:3.2:compile (default-compile) @ embeddedTomcatSample ---
+       [INFO] Changes detected - recompiling the module!
+       [WARNING] File encoding has not been set, using platform encoding ANSI_X3.4-1968, i.e. build is platform dependent!
+       [INFO] Compiling 5 source files to /tmp/build_6b249b584d058437e4fc915fb94df457/target/classes
+       [INFO]
+       [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ embeddedTomcatSample ---
+       [WARNING] Using platform encoding (ANSI_X3.4-1968 actually) to copy filtered resources, i.e. build is platform dependent!
+       [INFO] skip non existing resourceDirectory /tmp/build_6b249b584d058437e4fc915fb94df457/src/test/resources
+       [INFO]
+       [INFO] --- maven-compiler-plugin:3.2:testCompile (default-testCompile) @ embeddedTomcatSample ---
+       [INFO] No sources to compile
+       [INFO]
+       [INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ embeddedTomcatSample ---
+       [INFO] Tests are skipped.
+       [INFO]
+       [INFO] --- maven-war-plugin:2.2:war (default-war) @ embeddedTomcatSample ---
+       [INFO] Packaging webapp
+       [INFO] Assembling webapp [embeddedTomcatSample] in [/tmp/build_6b249b584d058437e4fc915fb94df457/target/embeddedTomcatSample]
+       [INFO] Processing war project
+       [INFO] Copying webapp resources [/tmp/build_6b249b584d058437e4fc915fb94df457/src/main/webapp]
+       [INFO] Webapp assembled in [178 msecs]
+       [INFO] Building war: /tmp/build_6b249b584d058437e4fc915fb94df457/target/embeddedTomcatSample.war
+       [INFO] WEB-INF/web.xml already added, skipping
+       [INFO]
+       [INFO] --- appassembler-maven-plugin:1.1.1:assemble (default) @ embeddedTomcatSample ---
+       [INFO] Installing /app/tmp/cache/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/7.0.34/tomcat-embed-core-7.0.34.jar to /tmp/build_6b249b584d058437e4fc915fb94df457/target/repo/org/apache/tomcat/embed/tomcat-embed-core/7.0.34/tomcat-embed-core-7.0.34.jar
+       [INFO] Installing /app/tmp/cache/.m2/repository/org/apache/tomcat/embed/tomcat-embed-logging-juli/7.0.34/tomcat-embed-logging-juli-7.0.34.jar to /tmp/build_6b249b584d058437e4fc915fb94df457/target/repo/org/apache/tomcat/embed/tomcat-embed-logging-juli/7.0.34/tomcat-embed-logging-juli-7.0.34.jar
+       [INFO] Installing /app/tmp/cache/.m2/repository/org/apache/tomcat/embed/tomcat-embed-jasper/7.0.34/tomcat-embed-jasper-7.0.34.jar to /tmp/build_6b249b584d058437e4fc915fb94df457/target/repo/org/apache/tomcat/embed/tomcat-embed-jasper/7.0.34/tomcat-embed-jasper-7.0.34.jar
+       [INFO] Installing /app/tmp/cache/.m2/repository/org/eclipse/jdt/core/compiler/ecj/3.7.2/ecj-3.7.2.jar to /tmp/build_6b249b584d058437e4fc915fb94df457/target/repo/org/eclipse/jdt/core/compiler/ecj/3.7.2/ecj-3.7.2.jar
+       [INFO] Installing /app/tmp/cache/.m2/repository/org/apache/tomcat/tomcat-jasper/7.0.34/tomcat-jasper-7.0.34.jar to /tmp/build_6b249b584d058437e4fc915fb94df457/target/repo/org/apache/tomcat/tomcat-jasper/7.0.34/tomcat-jasper-7.0.34.jar
+       [INFO] Installing /app/tmp/cache/.m2/repository/org/apache/tomcat/tomcat-servlet-api/7.0.34/tomcat-servlet-api-7.0.34.jar to /tmp/build_6b249b584d058437e4fc915fb94df457/target/repo/org/apache/tomcat/tomcat-servlet-api/7.0.34/tomcat-servlet-api-7.0.34.jar
+       [INFO] Installing /app/tmp/cache/.m2/repository/org/apache/tomcat/tomcat-juli/7.0.34/tomcat-juli-7.0.34.jar to /tmp/build_6b249b584d058437e4fc915fb94df457/target/repo/org/apache/tomcat/tomcat-juli/7.0.34/tomcat-juli-7.0.34.jar
+       [INFO] Installing /app/tmp/cache/.m2/repository/org/apache/tomcat/tomcat-el-api/7.0.34/tomcat-el-api-7.0.34.jar to /tmp/build_6b249b584d058437e4fc915fb94df457/target/repo/org/apache/tomcat/tomcat-el-api/7.0.34/tomcat-el-api-7.0.34.jar
+       [INFO] Installing /app/tmp/cache/.m2/repository/org/apache/tomcat/tomcat-api/7.0.34/tomcat-api-7.0.34.jar to /tmp/build_6b249b584d058437e4fc915fb94df457/target/repo/org/apache/tomcat/tomcat-api/7.0.34/tomcat-api-7.0.34.jar
+       [INFO] Installing /app/tmp/cache/.m2/repository/org/apache/tomcat/tomcat-util/7.0.34/tomcat-util-7.0.34.jar to /tmp/build_6b249b584d058437e4fc915fb94df457/target/repo/org/apache/tomcat/tomcat-util/7.0.34/tomcat-util-7.0.34.jar
+       [INFO] Installing /app/tmp/cache/.m2/repository/org/json/json/20090211/json-20090211.jar to /tmp/build_6b249b584d058437e4fc915fb94df457/target/repo/org/json/json/20090211/json-20090211.jar
+       [INFO] Installing /app/tmp/cache/.m2/repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar to /tmp/build_6b249b584d058437e4fc915fb94df457/target/repo/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar
+       [INFO] Installing /app/tmp/cache/.m2/repository/org/apache/tomcat/tomcat-jasper-el/7.0.34/tomcat-jasper-el-7.0.34.jar to /tmp/build_6b249b584d058437e4fc915fb94df457/target/repo/org/apache/tomcat/tomcat-jasper-el/7.0.34/tomcat-jasper-el-7.0.34.jar
+       [INFO] Installing /app/tmp/cache/.m2/repository/org/apache/tomcat/tomcat-jsp-api/7.0.34/tomcat-jsp-api-7.0.34.jar to /tmp/build_6b249b584d058437e4fc915fb94df457/target/repo/org/apache/tomcat/tomcat-jsp-api/7.0.34/tomcat-jsp-api-7.0.34.jar
+       [INFO] Installing /tmp/build_6b249b584d058437e4fc915fb94df457/target/embeddedTomcatSample.war to /tmp/build_6b249b584d058437e4fc915fb94df457/target/repo/com/heroku/sample/embeddedTomcatSample/1.0-SNAPSHOT/embeddedTomcatSample-1.0-SNAPSHOT.war
+       [INFO]
+       [INFO] --- maven-install-plugin:2.4:install (default-install) @ embeddedTomcatSample ---
+       [INFO] Installing /tmp/build_6b249b584d058437e4fc915fb94df457/target/embeddedTomcatSample.war to /app/tmp/cache/.m2/repository/com/heroku/sample/embeddedTomcatSample/1.0-SNAPSHOT/embeddedTomcatSample-1.0-SNAPSHOT.war
+       [INFO] Installing /tmp/build_6b249b584d058437e4fc915fb94df457/pom.xml to /app/tmp/cache/.m2/repository/com/heroku/sample/embeddedTomcatSample/1.0-SNAPSHOT/embeddedTomcatSample-1.0-SNAPSHOT.pom
+       [INFO] ------------------------------------------------------------------------
+       [INFO] BUILD SUCCESS
+       [INFO] ------------------------------------------------------------------------
+       [INFO] Total time: 10.004s
+       [INFO] Finished at: Tue Jan 13 15:36:48 UTC 2015
+       [INFO] Final Memory: 19M/520M
+       [INFO] ------------------------------------------------------------------------
+-----> Discovering process types
+       Procfile declares types -> web
+
+-----> Compressing... done, 73.2MB
+-----> Launching... done, v12
+       https://cashconverter.herokuapp.com/ deployed to Heroku
+
+To git@heroku.com:cashconverter.git
+ 	refs/heads/master:refs/heads/master	9ed3a52..19f5e56
+Done
+Access your application using Bash session...
+Application is available at https://cashconverter.herokuapp.com/
+'cashconverter' has been deployed successfully.

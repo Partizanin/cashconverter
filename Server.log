@@ -1,0 +1,106 @@
+2015-01-12T15:11:14.568416+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS: -Xmx384m  -Djava.rmi.server.useCodebaseOnly=true
+2015-01-12T15:11:15.675404+00:00 app[web.1]: Error: Could not find or load main class launch.SiteDownload
+2015-01-12T15:11:16.433979+00:00 heroku[web.1]: Process exited with status 1
+2015-01-12T15:11:16.445109+00:00 heroku[web.1]: State changed from starting to crashed
+2015-01-12T18:23:23.493680+00:00 heroku[web.1]: State changed from crashed to starting
+2015-01-12T18:23:28.747793+00:00 heroku[web.1]: Starting process with command `sh target/bin/webapp`
+2015-01-12T18:23:31.277460+00:00 heroku[web.1]: Process exited with status 1
+2015-01-12T18:23:31.288546+00:00 heroku[web.1]: State changed from starting to crashed
+2015-01-12T18:23:29.532540+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS: -Xmx384m  -Djava.rmi.server.useCodebaseOnly=true
+2015-01-12T18:23:30.281635+00:00 app[web.1]: Error: Could not find or load main class launch.SiteDownload
+2015-01-13T01:25:00.857388+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/robots.txt" host=cashconverter.herokuapp.com request_id=92845b9f-aa7f-4165-ae82-a2b3f402d93b fwd="66.249.64.115" dyno= connect= service= status=503 bytes=
+2015-01-13T04:56:44.788121+00:00 heroku[web.1]: State changed from crashed to starting
+2015-01-13T04:56:50.022938+00:00 heroku[web.1]: Starting process with command `sh target/bin/webapp`
+2015-01-13T04:56:50.853790+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS: -Xmx384m  -Djava.rmi.server.useCodebaseOnly=true
+2015-01-13T04:56:51.428489+00:00 app[web.1]: Error: Could not find or load main class launch.SiteDownload
+2015-01-13T04:56:52.349754+00:00 heroku[web.1]: Process exited with status 1
+2015-01-13T04:56:52.367918+00:00 heroku[web.1]: State changed from starting to crashed
+2015-01-13T07:24:58.842528+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/robots.txt" host=cashconverter.herokuapp.com request_id=4f79a11a-a80e-4826-a45b-dda48628d8a4 fwd="66.249.64.115" dyno= connect= service= status=503 bytes=
+2015-01-13T10:57:01.934812+00:00 heroku[web.1]: State changed from crashed to starting
+2015-01-13T10:57:06.545854+00:00 heroku[web.1]: Starting process with command `sh target/bin/webapp`
+2015-01-13T10:57:08.092726+00:00 app[web.1]: Error: Could not find or load main class launch.SiteDownload
+2015-01-13T10:57:07.967142+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS: -Xmx384m  -Djava.rmi.server.useCodebaseOnly=true
+2015-01-13T10:57:08.894973+00:00 heroku[web.1]: Process exited with status 1
+2015-01-13T10:57:08.904914+00:00 heroku[web.1]: State changed from starting to crashed
+2015-01-13T15:12:17.384769+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=cashconverter.herokuapp.com request_id=5fb1ca16-af59-4d21-a68c-47a66c1756c9 fwd="46.185.15.47" dyno= connect= service= status=503 bytes=
+2015-01-13T15:12:14.831556+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=cashconverter.herokuapp.com request_id=74ef6c31-add0-4079-b92f-5181a6c0280e fwd="46.185.15.47" dyno= connect= service= status=503 bytes=
+2015-01-13T15:12:24.391765+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=cashconverter.herokuapp.com request_id=524ffca1-2b43-4e5e-85f9-4a581fb164fb fwd="46.185.15.47" dyno= connect= service= status=503 bytes=
+2015-01-13T15:12:25.697994+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=cashconverter.herokuapp.com request_id=31a34d6d-2abc-4e63-a42c-f1bf77bdb3da fwd="46.185.15.47" dyno= connect= service= status=503 bytes=
+2015-01-13T15:12:34.030284+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=cashconverter.herokuapp.com request_id=66ba6392-9caf-4f85-8abb-f8ae445726f3 fwd="46.185.15.47" dyno= connect= service= status=503 bytes=
+2015-01-13T15:12:26.222485+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=cashconverter.herokuapp.com request_id=45c637af-7837-40cf-b0c7-617d305ef9fd fwd="46.185.15.47" dyno= connect= service= status=503 bytes=
+2015-01-13T15:12:34.999305+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=cashconverter.herokuapp.com request_id=f3834adf-aba0-4359-be2f-d7294fb22331 fwd="46.185.15.47" dyno= connect= service= status=503 bytes=
+2015-01-13T15:15:06.219099+00:00 heroku[api]: Starting process with command `bash` by topiciv141@gmail.com
+2015-01-13T15:15:13.939437+00:00 heroku[run.5979]: Awaiting client
+2015-01-13T15:15:13.978285+00:00 heroku[run.5979]: Starting process with command `bash`
+2015-01-13T15:15:14.353461+00:00 heroku[run.5979]: State changed from starting to up
+2015-01-13T15:15:32.965300+00:00 heroku[run.5979]: Process exited with status 127
+2015-01-13T15:15:32.975184+00:00 heroku[run.5979]: State changed from up to complete
+2015-01-13T15:18:43.023716+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=cashconverter.herokuapp.com request_id=7ed63883-b42c-4a40-b4d3-727b05608d41 fwd="46.185.15.47" dyno= connect= service= status=503 bytes=
+2015-01-13T15:18:44.796934+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=cashconverter.herokuapp.com request_id=18e3e1ef-0c76-4f88-9d68-7b9ce2d0616d fwd="46.185.15.47" dyno= connect= service= status=503 bytes=
+2015-01-13T15:19:06.196263+00:00 heroku[api]: Deploy c660cf9 by topiciv141@gmail.com
+2015-01-13T15:19:06.196291+00:00 heroku[api]: Release v7 created by topiciv141@gmail.com
+2015-01-13T15:19:06.801149+00:00 heroku[web.1]: State changed from crashed to starting
+2015-01-13T15:19:12.678504+00:00 heroku[web.1]: Starting process with command `sh target/bin/webapp`
+2015-01-13T15:19:13.426347+00:00 app[web.1]: Error: Could not find or load main class launch.SiteDownload
+2015-01-13T15:19:13.254296+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS: -Xmx384m  -Djava.rmi.server.useCodebaseOnly=true
+2015-01-13T15:19:14.107776+00:00 heroku[web.1]: Process exited with status 1
+2015-01-13T15:19:14.119707+00:00 heroku[web.1]: State changed from starting to crashed
+2015-01-13T15:19:14.120760+00:00 heroku[web.1]: State changed from crashed to starting
+2015-01-13T15:19:18.745123+00:00 heroku[web.1]: Starting process with command `sh target/bin/webapp`
+2015-01-13T15:19:20.351613+00:00 app[web.1]: Error: Could not find or load main class launch.SiteDownload
+2015-01-13T15:19:20.210370+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS: -Xmx384m  -Djava.rmi.server.useCodebaseOnly=true
+2015-01-13T15:19:21.125299+00:00 heroku[web.1]: Process exited with status 1
+2015-01-13T15:19:21.137970+00:00 heroku[web.1]: State changed from starting to crashed
+2015-01-13T15:19:45+00:00 heroku[slug-compiler]: Slug compilation started
+2015-01-13T15:19:52.705296+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=cashconverter.herokuapp.com request_id=8fa8439e-07a3-459e-80ef-6412912d5923 fwd="46.185.15.47" dyno= connect= service= status=503 bytes=
+2015-01-13T15:19:54.406158+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=cashconverter.herokuapp.com request_id=b34356c1-09e0-4bda-a64f-502789df337a fwd="46.185.15.47" dyno= connect= service= status=503 bytes=
+2015-01-13T15:20:39.902589+00:00 heroku[api]: Deploy c660cf9 by topiciv141@gmail.com
+2015-01-13T15:20:39.902635+00:00 heroku[api]: Release v8 created by topiciv141@gmail.com
+2015-01-13T15:20:40.016145+00:00 heroku[web.1]: State changed from crashed to starting
+2015-01-13T15:20:45.196486+00:00 heroku[web.1]: Starting process with command `sh target/bin/webapp`
+2015-01-13T15:20:45.934656+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS: -Xmx384m  -Djava.rmi.server.useCodebaseOnly=true
+2015-01-13T15:20:46.227916+00:00 app[web.1]: Error: Could not find or load main class launch.SiteDownload
+2015-01-13T15:20:47.059411+00:00 heroku[web.1]: Process exited with status 1
+2015-01-13T15:20:47.076354+00:00 heroku[web.1]: State changed from starting to crashed
+2015-01-13T15:24:06+00:00 heroku[slug-compiler]: Slug compilation started
+2015-01-13T15:24:28.285770+00:00 heroku[web.1]: State changed from crashed to starting
+2015-01-13T15:24:28.185959+00:00 heroku[api]: Deploy 9ed3a52 by topiciv141@gmail.com
+2015-01-13T15:24:28.185987+00:00 heroku[api]: Release v9 created by topiciv141@gmail.com
+2015-01-13T15:24:33.619986+00:00 heroku[web.1]: Starting process with command `sh target/bin/webapp`
+2015-01-13T15:24:35.045768+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS: -Xmx384m  -Djava.rmi.server.useCodebaseOnly=true
+2015-01-13T15:24:35.679832+00:00 app[web.1]: Error: Could not find or load main class launch.Main
+2015-01-13T15:24:36.496723+00:00 heroku[web.1]: Process exited with status 1
+2015-01-13T15:24:38.363026+00:00 heroku[web.1]: State changed from starting to crashed
+2015-01-13T15:24:50.811984+00:00 heroku[api]: Deploy 9ed3a52 by topiciv141@gmail.com
+2015-01-13T15:24:50.812065+00:00 heroku[api]: Release v10 created by topiciv141@gmail.com
+2015-01-13T15:24:51.346033+00:00 heroku[web.1]: State changed from crashed to starting
+2015-01-13T15:24:55.811623+00:00 heroku[web.1]: Starting process with command `sh target/bin/webapp`
+2015-01-13T15:24:56.416983+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS: -Xmx384m  -Djava.rmi.server.useCodebaseOnly=true
+2015-01-13T15:24:56.567914+00:00 app[web.1]: Error: Could not find or load main class launch.Main
+2015-01-13T15:24:57.297669+00:00 heroku[web.1]: Process exited with status 1
+2015-01-13T15:24:57.310944+00:00 heroku[web.1]: State changed from starting to crashed
+2015-01-13T15:28:23.701787+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=cashconverter.herokuapp.com request_id=762e4e71-c399-4e62-b60b-7c55d9988002 fwd="46.185.15.47" dyno= connect= service= status=503 bytes=
+2015-01-13T15:28:25.383847+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=cashconverter.herokuapp.com request_id=4d87eb32-ec12-4796-b036-3de5d533851b fwd="46.185.15.47" dyno= connect= service= status=503 bytes=
+2015-01-13T15:32:16.207654+00:00 heroku[api]: Deploy 9ed3a52 by topiciv141@gmail.com
+2015-01-13T15:32:16.207685+00:00 heroku[api]: Release v11 created by topiciv141@gmail.com
+2015-01-13T15:32:16.539376+00:00 heroku[web.1]: State changed from crashed to starting
+2015-01-13T15:32:20.937236+00:00 heroku[web.1]: Starting process with command `sh target/bin/webapp`
+2015-01-13T15:32:22.472674+00:00 app[web.1]: Error: Could not find or load main class launch.Main
+2015-01-13T15:32:22.323868+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS: -Xmx384m  -Djava.rmi.server.useCodebaseOnly=true
+2015-01-13T15:32:23.260128+00:00 heroku[web.1]: Process exited with status 1
+2015-01-13T15:32:23.270082+00:00 heroku[web.1]: State changed from starting to crashed
+2015-01-13T15:32:23.270722+00:00 heroku[web.1]: State changed from crashed to starting
+2015-01-13T15:32:28.044565+00:00 heroku[web.1]: Starting process with command `sh target/bin/webapp`
+2015-01-13T15:32:28.829797+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS: -Xmx384m  -Djava.rmi.server.useCodebaseOnly=true
+2015-01-13T15:32:29.089136+00:00 app[web.1]: Error: Could not find or load main class launch.Main
+2015-01-13T15:32:29.976714+00:00 heroku[web.1]: Process exited with status 1
+2015-01-13T15:32:29.986556+00:00 heroku[web.1]: State changed from starting to crashed
+2015-01-13T15:36:30+00:00 heroku[slug-compiler]: Slug compilation started
+2015-01-13T15:37:32.801827+00:00 heroku[api]: Deploy 19f5e56 by topiciv141@gmail.com
+2015-01-13T15:37:32.801858+00:00 heroku[api]: Release v12 created by topiciv141@gmail.com
+2015-01-13T15:37:32.971688+00:00 heroku[web.1]: State changed from crashed to starting
+2015-01-13T15:37:38.277862+00:00 heroku[web.1]: Starting process with command `sh target/bin/webapp`
+2015-01-13T15:37:39.148059+00:00 app[web.1]: Error: Could not find or load main class launch.Main
+2015-01-13T15:37:38.984718+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS: -Xmx384m  -Djava.rmi.server.useCodebaseOnly=true
+2015-01-13T15:37:39.970035+00:00 heroku[web.1]: State changed from starting to crashed
+2015-01-13T15:37:39.956005+00:00 heroku[web.1]: Process exited with status 1

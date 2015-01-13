@@ -74,7 +74,7 @@
                 <assembleDirectory>target</assembleDirectory>
                 <programs>
                     <program>
-                        <mainClass>launch.SiteDownload</mainClass>
+                        <mainClass>launch.Main</mainClass>
                         <name>webapp</name>
                     </program>
                 </programs>

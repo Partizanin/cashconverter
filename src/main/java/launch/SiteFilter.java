@@ -132,7 +132,6 @@ public class SiteFilter {
             int start = source.indexOf("<Ask>") + 4;
             int finish = source.indexOf("</Ask>");
 
-
             String temp = "";
 
             for (int i = start; i < source.length(); i++) {
@@ -179,7 +178,7 @@ public class SiteFilter {
                     temp += source.charAt(i);
                 }
             }
- /*conflict zone*/
+
             return String.valueOf(df.format(Double.parseDouble(temp)));
 
         }
@@ -419,7 +418,7 @@ public class SiteFilter {
                     temp += source.charAt(i);
                 }
             }
- /*conflict zone*/
+
             return String.valueOf(df.format(Double.parseDouble(temp)));
 
         }

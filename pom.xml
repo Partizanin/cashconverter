@@ -54,7 +54,6 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>embeddedTomcatSample</finalName>
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>

@@ -5,7 +5,8 @@
 $(document).ready(function () {
 
     $('#buy').addClass('disabled');
-    $("#buy").attr('disabled', true);
+    $('#buy').attr('disabled', true);
+    $('#inputValue').focus();
     callServeToChangeExchange("uah", "buy");
 });
 

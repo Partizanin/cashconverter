@@ -1,15 +1,138 @@
 
+/*horizontal line*/
+
+#mainLabelHr{
+    margin-top: -5px;
+    margin-bottom: 25px;
+    border: none;
+    color: #71cff4;
+    background-color: #71cff4;
+    height: 3px;
+}
+
+/*hr {
+    border: none; *//* Убираем границу *//*
+    background-color: #9c9c9c; *//* Цвет линии *//*
+    color: #9c9c9c; *//* Цвет линии для IE6-7 *//*
+    height: 1px; *//* Толщина линии *//*
+}*/
+
+/*main div*/
+.Converter {
+    text-align: center;
+    width: 40%;
+    border: 2px solid #71cff4;
+    border-radius: 55px;
+    margin: 7.5% auto;
+}
+
+
+/*transpet input box*/
+
+#inputValue{
+    background-color:rgba(0, 0, 0, 0);
+    color:white;
+    outline:none;
+    border: 2px solid #71cff4;
+    border-radius: 25px;
+    transition:height 1s;
+    -webkit-transition:height 1s;
+}
+
+/*spinner style*/
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+   /* visibility: hidden;*/
+}
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #3498db;
+
+    -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #e74c3c;
+
+    -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #f9c922;
+
+    -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+/*main style*/
 h2{
     color: white;
     font-family: "Gotham Rounded", Arial, sans-serif;
 }
-#mainLabel{
 
-    width: 20%;
-    border: 2px solid #71cff4;
-    border-radius: 25px;
-    margin: 12px auto;
+#mainLabelH2{
+    font-family: PLAYBILL, serif;
+    color: #63ff0f;
 }
+
+
 
 body{
     background: url(../images/background8small.jpg)no-repeat;
@@ -65,30 +188,31 @@ margin-top: 5px;
 #value1{
 color: #9c9c9c;
 border:none;
-font-family:Arial; 
+    font-family: Arial, serif;
 }
 
 
 #value2{
 color: #9c9c9c;
 border:none;
-font-family:Arial; 
+    font-family: Arial, serif;
 }
 
 
 #value3{
 color: #9c9c9c;
 border:none;
-font-family:Arial; 
+    font-family: Arial, serif;
 }
 
 
 #value4{
 color: #9c9c9c;
 border:none;
-font-family:Arial; 
+    font-family: Arial, serif;
 }
 
 #exchange1,#exchange2,#exchange3,#exchange4{
 width: 50px;
 }
+

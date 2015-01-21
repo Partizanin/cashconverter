@@ -10,6 +10,16 @@ $(document).ready(function () {
     callServeToChangeExchange("uah", "buy");
 });
 
+function loader(action){
+
+    if (action == "show") {
+
+        $('#loader-wrapper').show();
+    }else {/*hide*/
+        $('#loader-wrapper').hide();
+    }
+}
+
 function isNumberKey(evt) {
     var charCode = ((evt.which) ? evt.which : event.keyCode);
     return !(charCode > 31 && (charCode != 46 && charCode != 44 && (charCode < 48 || charCode > 57)));
@@ -99,6 +109,8 @@ function callServeToChangeExchange(exchange, operation) {
 
     var myData = {"operationCall": operation, "exchange": exchange};
 
+    loader('show');
+
     $.ajax({
         type: "GET",
         url: "/ConventerServlet",
@@ -112,7 +124,9 @@ function callServeToChangeExchange(exchange, operation) {
             document.getElementById('exchange3').value = data.exchange3;
             document.getElementById('exchange4').value = data.exchange4;
             count($("#inputValue").val());
+            loader('hide')
         }
+
     });
 
 }

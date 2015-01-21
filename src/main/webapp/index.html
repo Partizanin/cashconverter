@@ -13,7 +13,8 @@
 
 <div class="Converter">
     <div id="mainLabel" >
-    <h2>Конвертер валют</h2>
+    <h2 id="mainLabelH2">Конвертер валют</h2>
+    <hr id="mainLabelHr">
     </div>
     Я хочу <input class="button" onclick="changeOperation(this.value)" type="button" value="Купить" id="buy">
     <input class="button" onclick="changeOperation(this.value)" type="button" value="Продать" id="sell">
@@ -33,6 +34,9 @@
         <option selected="" value="uah">UAH</option>
     </select>
     <hr>
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+    </div>
     <p>Результат</p>
     <ul>
         <li><input type="text" readonly value="0.00"

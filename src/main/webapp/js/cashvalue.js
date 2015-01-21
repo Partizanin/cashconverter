@@ -49,11 +49,19 @@ function disableButtonOnClick(buttonValue) {
     return value;
 }
 
-function changeExchange(exchange) {
-    var operation = "sell";
+function howButtonActive(){
+
     if (document.getElementById('buy').disabled) {
-        operation = "buy";
+     return "buy";
+    }else{
+        return "sell";
     }
+
+}
+
+function changeExchange(exchange) {
+    var operation = howButtonActive();
+
     changeShowLable(exchange);
     callServeToChangeExchange(exchange, operation);
 

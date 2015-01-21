@@ -61,13 +61,5 @@
 
 }
 
-hr {
-    border: none; /* Убираем границу */
-    background-color: #9c9c9c; /* Цвет линии */
-    color: #9c9c9c; /* Цвет линии для IE6-7 */
-    height: 1px; /* Толщина линии */
-}
 
-.Converter {
-    text-align: center;
-}
+

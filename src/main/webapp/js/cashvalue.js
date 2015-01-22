@@ -10,12 +10,12 @@ $(document).ready(function () {
     callServeToChangeExchange("uah", "buy");
 });
 
-function loader(action){
+function loader(action) {
 
     if (action == "show") {
 
         $('#loader-wrapper').show();
-    }else {/*hide*/
+    } else {/*hide*/
         $('#loader-wrapper').hide();
     }
 }
@@ -49,11 +49,11 @@ function disableButtonOnClick(buttonValue) {
     return value;
 }
 
-function howButtonActive(){
+function howButtonActive() {
 
     if (document.getElementById('buy').disabled) {
-     return "buy";
-    }else{
+        return "buy";
+    } else {
         return "sell";
     }
 
@@ -63,7 +63,10 @@ function changeExchange(exchange) {
     var operation = howButtonActive();
 
     changeShowLable(exchange);
-    callServeToChangeExchange(exchange, operation);
+
+    if (validation()) {
+        callServeToChangeExchange(exchange, operation);
+    }
 
 }
 
@@ -90,7 +93,7 @@ function changeShowLable(exchange) {
         $('#value3').val("EUR");
         $('#value4').val("PLN");
 
-    }  else if(exchange == "pln"){
+    } else if (exchange == "pln") {
 
 
         $('#value1').val("USD");
@@ -139,9 +142,41 @@ function callServeToChangeExchange(exchange, operation) {
 
 }
 
-function count(inputValue) {
+function validation() {
 
-    if (inputValue != "" && inputValue != "0.00") {
+    var booll = parserFloat();
+    var $myForm = $('#form');
+    if (!$myForm[0].checkValidity()) {
+        console.log($myForm[0].checkValidity());
+        // If the form is invalid, submit it. The form won't actually submit;
+        // this will just cause the browser to display the native HTML5 error messages.
+        $myForm.find(':submit').click();
+    }
+
+    if (booll) {
+        count($("#inputValue").val());
+    }else{
+        setDefaultValues();
+    }
+
+    return booll;
+
+}
+
+function parserFloat() {
+
+    var inputVal = $("#inputValue").val();
+    var float = parseFloat(inputVal);
+
+    if (inputVal == "") {
+        return false;
+    }
+
+    return !!(!isNaN(float) && float != null);
+}
+
+function count(inputValue) {
+    if (inputValue != "" && inputValue != "0.00" && parserFloat() && inputValue != "0,00") {
 
         $('#conventUSD').val(($("#exchange1").val() * inputValue).toFixed(4));
         $('#conventEUR').val(($("#exchange3").val() * inputValue).toFixed(4));
@@ -158,3 +193,14 @@ function count(inputValue) {
     }
 
 }
+
+function setDefaultValues(){
+    var defaultValue = "0.00";
+    $('#conventUSD').val(defaultValue);
+    $('#conventEUR').val(defaultValue);
+    $('#conventRUB').val(defaultValue);
+    $('#conventUAH').val(defaultValue);
+}
+
+
+

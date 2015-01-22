@@ -73,40 +73,38 @@ function changeExchange(exchange) {
 function changeShowLable(exchange) {
 
     if (exchange == "usd") {
-
-        $('#value1').val("UAH");
-        $('#value2').val("RUB");
-        $('#value3').val("EUR");
-        $('#value4').val("PLN");
-
+        $("label[id = value1]").text("UAH");
+        $("label[id = value2]").text("RUB");
+        $("label[id = value3]").text("EUR");
+        $("label[id = value4]").text("PLN");
     } else if (exchange == "eur") {
 
-        $('#value1').val("UAH");
-        $('#value2').val("RUB");
-        $('#value3').val("USD");
-        $('#value4').val("PLN");
+        $("label[id = value1]").text("UAH");
+        $("label[id = value2]").text("RUB");
+        $("label[id = value2]").text("USD");
+        $("label[id = value2]").text("PLN");
 
     } else if (exchange == "rub") {
 
-        $('#value1').val("UAH");
-        $('#value2').val("USD");
-        $('#value3').val("EUR");
-        $('#value4').val("PLN");
+        $("label[id = value2]").text("UAH");
+        $("label[id = value2]").text("USD");
+        $("label[id = value2]").text("EUR");
+        $("label[id = value2]").text("PLN");
 
     } else if (exchange == "pln") {
 
 
-        $('#value1').val("USD");
-        $('#value2').val("RUB");
-        $('#value3').val("EUR");
-        $('#value4').val("UAH");
+        $("label[id = value2]").text("USD");
+        $("label[id = value2]").text("RUB");
+        $("label[id = value2]").text("EUR");
+        $("label[id = value2]").text("UAH");
 
     } else {
         /*uah*/
-        $('#value1').val("USD");
-        $('#value2').val("RUB");
-        $('#value3').val("EUR");
-        $('#value4').val("PLN");
+        $("label[id = value2]").text("USD");
+        $("label[id = value2]").text("RUB");
+        $("label[id = value2]").text("EUR");
+        $("label[id = value2]").text("PLN");
     }
 }
 
@@ -155,7 +153,7 @@ function validation() {
 
     if (booll) {
         count($("#inputValue").val());
-    }else{
+    } else {
         setDefaultValues();
     }
 
@@ -194,7 +192,7 @@ function count(inputValue) {
 
 }
 
-function setDefaultValues(){
+function setDefaultValues() {
     var defaultValue = "0.00";
     $('#conventUSD').val(defaultValue);
     $('#conventEUR').val(defaultValue);

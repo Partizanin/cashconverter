@@ -77,22 +77,24 @@ function changeShowLable(exchange) {
         $("label[id = value2]").text("RUB");
         $("label[id = value3]").text("EUR");
         $("label[id = value4]").text("PLN");
-    } else if (exchange == "eur") {
+    } else
+    if (exchange == "eur") {
 
         $("label[id = value1]").text("UAH");
         $("label[id = value2]").text("RUB");
         $("label[id = value2]").text("USD");
         $("label[id = value2]").text("PLN");
 
-    } else if (exchange == "rub") {
+    } else
+    if (exchange == "rub") {
 
         $("label[id = value2]").text("UAH");
         $("label[id = value2]").text("USD");
         $("label[id = value2]").text("EUR");
         $("label[id = value2]").text("PLN");
 
-    } else if (exchange == "pln") {
-
+    } else
+    if (exchange == "pln") {
 
         $("label[id = value2]").text("USD");
         $("label[id = value2]").text("RUB");

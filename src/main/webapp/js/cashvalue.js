@@ -73,40 +73,42 @@ function changeExchange(exchange) {
 function changeShowLable(exchange) {
 
     if (exchange == "usd") {
+
         $("label[id = value1]").text("UAH");
         $("label[id = value2]").text("RUB");
         $("label[id = value3]").text("EUR");
         $("label[id = value4]").text("PLN");
+
     } else
     if (exchange == "eur") {
 
         $("label[id = value1]").text("UAH");
         $("label[id = value2]").text("RUB");
-        $("label[id = value2]").text("USD");
-        $("label[id = value2]").text("PLN");
+        $("label[id = value3]").text("USD");
+        $("label[id = value4]").text("PLN");
 
     } else
     if (exchange == "rub") {
 
-        $("label[id = value2]").text("UAH");
+        $("label[id = value1]").text("UAH");
         $("label[id = value2]").text("USD");
-        $("label[id = value2]").text("EUR");
-        $("label[id = value2]").text("PLN");
+        $("label[id = value3]").text("EUR");
+        $("label[id = value4]").text("PLN");
 
     } else
     if (exchange == "pln") {
 
-        $("label[id = value2]").text("USD");
+        $("label[id = value1]").text("USD");
         $("label[id = value2]").text("RUB");
-        $("label[id = value2]").text("EUR");
-        $("label[id = value2]").text("UAH");
+        $("label[id = value3]").text("EUR");
+        $("label[id = value4]").text("UAH");
 
     } else {
         /*uah*/
-        $("label[id = value2]").text("USD");
+        $("label[id = value1]").text("USD");
         $("label[id = value2]").text("RUB");
-        $("label[id = value2]").text("EUR");
-        $("label[id = value2]").text("PLN");
+        $("label[id = value3]").text("EUR");
+        $("label[id = value4]").text("PLN");
     }
 }
 

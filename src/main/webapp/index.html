@@ -8,6 +8,7 @@
     <link type="text/css" rel="stylesheet" href="styles/buttonStyle.css"/>
     <link type="text/css" rel="stylesheet" href="styles/mainStyle.css"/>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/ico">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Dancing+Script|Antic+Slab" />
 </head>
 <body>
 <form id="form">
@@ -17,29 +18,29 @@
     <hr id="mainLabelHr">
     </div>
     <input  style="visibility: hidden" type="submit" class="hide" id="inputButton">
-    Я хочу <input class="button" onclick="changeOperation(this.value)" type="button" value="Купить" id="buy">
+   <p id="p1">Я хочу</p> <input class="button" onclick="changeOperation(this.value)" type="button" value="Купить" id="buy">
     <input class="button" onclick="changeOperation(this.value)" type="button" value="Продать" id="sell">
-    <hr>
-    На сумму  <label for="inputValue"></label><input value="0.00" onkeypress="return isNumberKey(event)"
+    <hr id="someHr1">
+    <p id="p2">На сумму</p> <label for="inputValue"></label><input value="0.00" onkeypress="return isNumberKey(event)"
                                                     onkeyup="validation(this.value)"
                                                     onfocus="if (this.value == '0.00') this.value='';"
                                                     onblur="if (this.value == '') {this.value = '0.00'; }"
-                                                    id="inputValue" type="number" step="any"
+                                                    id="inputValue" type="text"
                                                     oninvalid="setCustomValidity('Введите число в правильном формате!!!')">
-
+    <div class="list">
     <select id="selectExchange" onchange="changeExchange(this.value)">
-        <hr>
         <option value="usd">USD</option>
         <option value="eur">EUR</option>
         <option value="rub">RUB</option>
         <option value="pln">PLN</option>
         <option selected="" value="uah">UAH</option>
     </select>
-    <hr>
+    </div>
+    <hr id="someHr2">
     <div id="loader-wrapper">
         <div id="loader"></div>
     </div>
-    <p>Результат</p>
+    <p id="p3">Результат</p>
     <ul>
         <li><input type="text" readonly value="0.00"
                    onblur="if (this.value == '') {this.value = '0.00'; }" id="conventUSD">

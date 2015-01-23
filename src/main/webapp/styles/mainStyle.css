@@ -24,6 +24,7 @@ select#selectExchange, select#selectExchange {
     position: absolute;
     display: inline;
     margin-top: -2px;
+    margin-left: 20px;
     margin-bottom: auto;
 }
 
@@ -276,6 +277,7 @@ ul {
 #p2 {
 
     margin-right: 20px;
+    margin-left: -110px;
 }
 
 #p3 {

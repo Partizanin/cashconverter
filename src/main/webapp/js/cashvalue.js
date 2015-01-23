@@ -184,6 +184,7 @@ function parserFloat() {
 }
 
 function count(inputValue) {
+
     if (inputValue != "" && inputValue != "0.00" && parserFloat() && inputValue != "0,00") {
 
         $('#conventUSD').val(($("#exchange1").val() * inputValue).toFixed(4));
@@ -194,6 +195,7 @@ function count(inputValue) {
     } else {
         setDefaultValues();
     }
+    $('#inputValue').focus();
 }
 
 function setDefaultValues() {

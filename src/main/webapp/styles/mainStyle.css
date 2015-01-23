@@ -21,8 +21,9 @@ select#selectExchange, select#selectExchange {
 }
 
 .list{
+    position: absolute;
     display: inline;
-    margin-top: 12px;
+    margin-top: -2px;
     margin-bottom: auto;
 }
 
@@ -87,7 +88,7 @@ li > input {
 /*main div*/
 .Converter {
     text-align: center;
-    width: 40%;
+    width: 550px;
     border: 5px solid #71cff4;
     border-radius: 55px;
     margin: 7.5% auto;

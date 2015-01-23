@@ -134,6 +134,14 @@ function callServeToChangeExchange(exchange, operation) {
             document.getElementById('exchange4').value = data.exchange4;
             count($("#inputValue").val());
             loader('hide')
+        },
+
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+        },
+
+        complete: function () {
+            loader('hide')
         }
 
     });
@@ -143,13 +151,16 @@ function callServeToChangeExchange(exchange, operation) {
 function validation() {
 
     var booll = parserFloat();
-    var $myForm = $('#form');
+
+    /*не коректно работает*/
+
+   /* var $myForm = $('#form');
     if (!$myForm[0].checkValidity()) {
         console.log($myForm[0].checkValidity());
         // If the form is invalid, submit it. The form won't actually submit;
         // this will just cause the browser to display the native HTML5 error messages.
         $myForm.find(':submit').click();
-    }
+    }*/
 
     if (booll) {
         count($("#inputValue").val());
@@ -169,7 +180,6 @@ function parserFloat() {
     if (inputVal == "") {
         return false;
     }
-
     return !!(!isNaN(float) && float != null);
 }
 
@@ -182,14 +192,8 @@ function count(inputValue) {
         $('#conventUAH').val(($("#exchange4").val() * inputValue).toFixed(4));
 
     } else {
-        var defaultValue = "0.00";
-        $('#conventUSD').val(defaultValue);
-        $('#conventEUR').val(defaultValue);
-        $('#conventRUB').val(defaultValue);
-        $('#conventUAH').val(defaultValue);
-
+        setDefaultValues();
     }
-
 }
 
 function setDefaultValues() {

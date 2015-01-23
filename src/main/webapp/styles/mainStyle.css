@@ -38,15 +38,6 @@ select#selectExchange {
     padding-left: 15px;
 }
 
-/*dancing script font*/
-
-@font-face {
-    font-family: 'Dancing Script';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Dancing Script'), local('DancingScript'), url(http://themes.googleusercontent.com/static/fonts/dancingscript/v3/DK0eTGXiZjN6yA8zAEyM2bDH3ri20rYH10B2w3wbVeU.woff) format('woff');
-}
-
 /*Input fields style*/
 
 li > input {
@@ -256,7 +247,7 @@ ul {
 #value1, #value2, #value3, #value4 {
     color: #bdd264;
     border: none;
-    font: normal normal 20px 'Dancing Script', 'Segoe UI', sans-serif;
+    font: normal normal 20px  sans-serif;
     font-weight: 100;
 }
 

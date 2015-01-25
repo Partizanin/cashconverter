@@ -2,7 +2,6 @@ package launch;
 
 import java.io.*;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -123,6 +122,6 @@ public class SiteDownload {
     private static String readFromFile() throws IOException {
 
         byte[] encoded = Files.readAllBytes(Paths.get("source.txt"));
-        return new String(encoded, StandardCharsets.UTF_8);
+        return new String(encoded, "UTF-8");
     }
 }

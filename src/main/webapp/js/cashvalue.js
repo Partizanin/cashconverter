@@ -5,9 +5,20 @@
 $(document).ready(function () {
 
     $('#buy').addClass('disabled');
-    $("#buy").attr('disabled', true);
+    $('#buy').attr('disabled', true);
+    $('#inputValue').focus();
     callServeToChangeExchange("uah", "buy");
 });
+
+function loader(action) {
+
+    if (action == "show") {
+
+        $('#loader-wrapper').show();
+    } else {/*hide*/
+        $('#loader-wrapper').hide();
+    }
+}
 
 function isNumberKey(evt) {
     var charCode = ((evt.which) ? evt.which : event.keyCode);
@@ -38,13 +49,24 @@ function disableButtonOnClick(buttonValue) {
     return value;
 }
 
-function changeExchange(exchange) {
-    var operation = "sell";
+function howButtonActive() {
+
     if (document.getElementById('buy').disabled) {
-        operation = "buy";
+        return "buy";
+    } else {
+        return "sell";
     }
+
+}
+
+function changeExchange(exchange) {
+    var operation = howButtonActive();
+
     changeShowLable(exchange);
-    callServeToChangeExchange(exchange, operation);
+
+    if (validation()) {
+        callServeToChangeExchange(exchange, operation);
+    }
 
 }
 
@@ -52,39 +74,41 @@ function changeShowLable(exchange) {
 
     if (exchange == "usd") {
 
-        $('#value1').val("UAH");
-        $('#value2').val("RUB");
-        $('#value3').val("EUR");
-        $('#value4').val("PLN");
+        $("label[id = value1]").text("UAH");
+        $("label[id = value2]").text("RUB");
+        $("label[id = value3]").text("EUR");
+        $("label[id = value4]").text("PLN");
 
-    } else if (exchange == "eur") {
+    } else
+    if (exchange == "eur") {
 
-        $('#value1').val("UAH");
-        $('#value2').val("RUB");
-        $('#value3').val("USD");
-        $('#value4').val("PLN");
+        $("label[id = value1]").text("UAH");
+        $("label[id = value2]").text("RUB");
+        $("label[id = value3]").text("USD");
+        $("label[id = value4]").text("PLN");
 
-    } else if (exchange == "rub") {
+    } else
+    if (exchange == "rub") {
 
-        $('#value1').val("UAH");
-        $('#value2').val("USD");
-        $('#value3').val("EUR");
-        $('#value4').val("PLN");
+        $("label[id = value1]").text("UAH");
+        $("label[id = value2]").text("USD");
+        $("label[id = value3]").text("EUR");
+        $("label[id = value4]").text("PLN");
 
-    }  else if(exchange == "pln"){
+    } else
+    if (exchange == "pln") {
 
-
-        $('#value1').val("USD");
-        $('#value2').val("RUB");
-        $('#value3').val("EUR");
-        $('#value4').val("UAH");
+        $("label[id = value1]").text("USD");
+        $("label[id = value2]").text("RUB");
+        $("label[id = value3]").text("EUR");
+        $("label[id = value4]").text("UAH");
 
     } else {
         /*uah*/
-        $('#value1').val("USD");
-        $('#value2').val("RUB");
-        $('#value3').val("EUR");
-        $('#value4').val("PLN");
+        $("label[id = value1]").text("USD");
+        $("label[id = value2]").text("RUB");
+        $("label[id = value3]").text("EUR");
+        $("label[id = value4]").text("PLN");
     }
 }
 
@@ -97,6 +121,8 @@ function changeOperation(changeValue) {
 function callServeToChangeExchange(exchange, operation) {
 
     var myData = {"operationCall": operation, "exchange": exchange};
+
+    loader('show');
 
     $.ajax({
         type: "GET",
@@ -111,14 +137,65 @@ function callServeToChangeExchange(exchange, operation) {
             document.getElementById('exchange3').value = data.exchange3;
             document.getElementById('exchange4').value = data.exchange4;
             count($("#inputValue").val());
+            loader('hide')
+        },
+
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+        },
+
+        complete: function () {
+            loader('hide')
         }
+
     });
 
 }
 
+function validation() {
+
+    var booll = ""/*parserFloat()*/;
+
+
+    var input = document.getElementById("inputValue"),
+        inputButton =  document.getElementById("inputButton");
+
+    if (!input.checkValidity()) {
+
+        inputButton.click();
+
+        booll = false;
+        console.log("false");
+    }else{
+        booll = true;
+
+        console.log("true");
+    }
+
+    if (booll) {
+        count($("#inputValue").val());
+    } else {
+        setDefaultValues();
+    }
+
+    return booll;
+
+}
+
+function parserFloat() {
+
+    var inputVal = $("#inputValue").val();
+    var float = parseFloat(inputVal);
+
+    if (inputVal == "") {
+        return false;
+    }
+    return !!(!isNaN(float) && float != null);
+}
+
 function count(inputValue) {
 
-    if (inputValue != "" && inputValue != "0.00") {
+    if (inputValue != "" && inputValue != "0.00" && parserFloat() && inputValue != "0,00") {
 
         $('#conventUSD').val(($("#exchange1").val() * inputValue).toFixed(4));
         $('#conventEUR').val(($("#exchange3").val() * inputValue).toFixed(4));
@@ -126,12 +203,18 @@ function count(inputValue) {
         $('#conventUAH').val(($("#exchange4").val() * inputValue).toFixed(4));
 
     } else {
-        var defaultValue = "0.00";
-        $('#conventUSD').val(defaultValue);
-        $('#conventEUR').val(defaultValue);
-        $('#conventRUB').val(defaultValue);
-        $('#conventUAH').val(defaultValue);
-
+        setDefaultValues();
     }
-
+    $('#inputValue').focus();
 }
+
+function setDefaultValues() {
+    var defaultValue = "0.00";
+    $('#conventUSD').val(defaultValue);
+    $('#conventEUR').val(defaultValue);
+    $('#conventRUB').val(defaultValue);
+    $('#conventUAH').val(defaultValue);
+}
+
+
+

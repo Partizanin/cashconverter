@@ -1,3 +1,22 @@
+/* Invalid validation style*/
+.inputValueInvalid{
+    background: #fff url(../images/invalid.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535;
+    background-size: 19px 19px;
+    outline: none;
+
+}
+
+/* valid validation style*/
+.inputValueValid{
+    background: #fff url(../images/valid.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+    background-size: 19px 19px;
+    outline: none;
+}
+
 /*select box style*/
 
 select#selectExchange, select#selectExchange {
@@ -24,7 +43,7 @@ select#selectExchange, select#selectExchange {
     position: absolute;
     display: inline;
     margin-top: -2px;
-    margin-left: 20px;
+    margin-left: 40px;
     margin-bottom: auto;
 }
 
@@ -89,11 +108,17 @@ li > input {
 /*transpet input box*/
 
 #inputValue {
+    margin-bottom: 15px;
+    margin-right: 2px;
+    clear: both;
+}
+
+#inputValue {
     border: 1px solid #B5C9D4;
     padding: 6px 15px;
     background: #ECF1F4;
-    width: 235px;
-    font-size: 22px;
+    width: 120px;
+    font-size: 15px;
     color: #3E7EA0;
     height: 18px;
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
@@ -214,13 +239,7 @@ body {
     background-size: 100%; /* Современные браузеры */
 }
 
-#inputValue {
-    width: 100px;
-    margin-bottom: 15px;
-    margin-right: 10px;
-    clear: both;
-    padding: 5px;
-}
+
 
 p {
     display: inline;

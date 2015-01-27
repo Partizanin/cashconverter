@@ -3,29 +3,28 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Конвертер валют</title>
-    <script src="//cdn.jsdelivr.net/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/cashvalue.js"></script>
     <link type="text/css" rel="stylesheet" href="styles/buttonStyle.css"/>
     <link type="text/css" rel="stylesheet" href="styles/mainStyle.css"/>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/ico">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Dancing+Script|Antic+Slab" />
 </head>
 <body>
+<form id="form" onsubmit="return false">
 <div class="Converter">
     <div id="mainLabel" >
     <h2 id="mainLabelH2">Конвертер валют</h2>
     <hr id="mainLabelHr">
     </div>
-    <input  style="visibility: hidden" type="submit" class="hide" id="inputButton">
+    <input style="visibility: hidden" type="submit" class="hide" id="inputButton">
    <p id="p1">Я хочу</p> <input class="button" onclick="changeOperation(this.value)" type="button" value="Купить" id="buy">
     <input class="button" onclick="changeOperation(this.value)" type="button" value="Продать" id="sell">
     <hr id="someHr1">
     <p id="p2">На сумму</p> <label for="inputValue"></label><input value="0.00" onkeypress="return isNumberKey(event)"
                                                     onkeyup="validation(this.value)"
                                                     onfocus="if (this.value == '0.00') this.value='';"
-                                                    onblur="if (this.value == '') {this.value = '0.00'; }"
-                                                    id="inputValue" type="text"
-                                                    oninvalid="setCustomValidity('Введите число в правильном формате!!!')">
+                                                    onblur="if (this.value == '') {this.value = '0.00'; }  blure()"
+                                                    id="inputValue" type="text" pattern="\d+\.?\d{0,10}"/>
     <div class="list">
     <select id="selectExchange" onchange="changeExchange(this.value)">
         <option value="usd">USD</option>
@@ -59,5 +58,6 @@
             <input readonly id="exchange4"></li>
     </ul>
 </div>
+    </form>
 </body>
 </html>

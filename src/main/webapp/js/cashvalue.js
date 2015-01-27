@@ -4,9 +4,9 @@
 
 $(document).ready(function () {
 
-    $('#buy').addClass('disabled');
-    $('#buy').attr('disabled', true);
-    $('#inputValue').focus();
+    $("#buy").addClass("disabled");
+    $("#buy").attr("disabled", true);
+    $("#inputValue").focus();
     callServeToChangeExchange("uah", "buy");
 });
 
@@ -14,9 +14,9 @@ function loader(action) {
 
     if (action == "show") {
 
-        $('#loader-wrapper').show();
+        $("#loader-wrapper").show();
     } else {/*hide*/
-        $('#loader-wrapper').hide();
+        $("#loader-wrapper").hide();
     }
 }
 
@@ -30,17 +30,18 @@ function disableButtonOnClick(buttonValue) {
 
     var value = "";
     if (buttonValue == "Купить") {
-        $('#buy').addClass('disabled');
-        $("#buy").attr('disabled', true);
-        $("#sell").attr('disabled', false);
-        $('#sell').removeClass('disabled');
+
+        $("#buy").addClass("disabled");
+        $("#buy").attr("disabled", true);
+        $("#sell").attr("disabled", false);
+        $("#sell").removeClass("disabled");
 
         value = "buy";
     } else {
-        $("#buy").attr('disabled', false);
-        $("#sell").attr('disabled', true);
-        $('#sell').addClass('disabled');
-        $('#buy').removeClass('disabled');
+        $("#buy").attr("disabled", false);
+        $("#sell").attr("disabled", true);
+        $("#sell").addClass("disabled");
+        $("#buy").removeClass("disabled");
 
         value = "sell";
     }
@@ -51,7 +52,7 @@ function disableButtonOnClick(buttonValue) {
 
 function howButtonActive() {
 
-    if (document.getElementById('buy').disabled) {
+    if (document.getElementById("buy").disabled) {
         return "buy";
     } else {
         return "sell";
@@ -115,14 +116,14 @@ function changeShowLable(exchange) {
 function changeOperation(changeValue) {
 
     changeValue = disableButtonOnClick(changeValue);
-    changeExchange($('#selectExchange').val(), changeValue);
+    changeExchange($("#selectExchange").val(), changeValue);
 }
 
 function callServeToChangeExchange(exchange, operation) {
 
     var myData = {"operationCall": operation, "exchange": exchange};
 
-    loader('show');
+    loader("show");
 
     $.ajax({
         type: "GET",
@@ -132,12 +133,12 @@ function callServeToChangeExchange(exchange, operation) {
 
         //if received a response from the server
         success: function (data) {
-            document.getElementById('exchange1').value = data.exchange1;
-            document.getElementById('exchange2').value = data.exchange2;
-            document.getElementById('exchange3').value = data.exchange3;
-            document.getElementById('exchange4').value = data.exchange4;
+            document.getElementById("exchange1").value = data.exchange1;
+            document.getElementById("exchange2").value = data.exchange2;
+            document.getElementById("exchange3").value = data.exchange3;
+            document.getElementById("exchange4").value = data.exchange4;
             count($("#inputValue").val());
-            loader('hide')
+            loader("hide")
         },
 
         error: function(jqXHR, textStatus, errorThrown) {
@@ -145,7 +146,7 @@ function callServeToChangeExchange(exchange, operation) {
         },
 
         complete: function () {
-            loader('hide')
+            loader("hide")
         }
 
     });
@@ -154,17 +155,19 @@ function callServeToChangeExchange(exchange, operation) {
 
 function validation() {
 
-    var booll = parserFloat();
+    var booll = ""/*parserFloat()*/;
 
-    /*не коректно работает*/
+    var input = document.getElementById("inputValue"),
+        inputButton = document.getElementById("inputButton");
 
-   /* var $myForm = $('#form');
-    if (!$myForm[0].checkValidity()) {
-        console.log($myForm[0].checkValidity());
-        // If the form is invalid, submit it. The form won't actually submit;
-        // this will just cause the browser to display the native HTML5 error messages.
-        $myForm.find(':submit').click();
-    }*/
+    if (!input.checkValidity()) {
+
+        inputButton.click();
+
+        booll = false;
+    }else{
+        booll = true;
+    }
 
     if (booll) {
         count($("#inputValue").val());
@@ -172,42 +175,65 @@ function validation() {
         setDefaultValues();
     }
 
+    changeIcon(booll);
+
     return booll;
 
 }
 
-function parserFloat() {
+function blure(){
 
-    var inputVal = $("#inputValue").val();
-    var float = parseFloat(inputVal);
+    if (validation()) {
 
-    if (inputVal == "") {
-        return false;
+        $('#inputValue').removeClass('validationValid');
+    }else{
+
+        $('#inputValue').removeClass('validationInvalid');
     }
-    return !!(!isNaN(float) && float != null);
 }
+
+
+function changeIcon(bool) {
+
+    if (bool) {
+
+        $('#inputValue').removeClass('inputValueInvalid');
+
+        $("#inputValue").addClass("inputValueValid");
+
+        console.log("bool in method: " + bool);
+    } else if (!bool) {
+
+        $('#inputValue').removeClass('inputValueValid');
+
+        $('#inputValue').addClass('inputValueInvalid');
+
+        console.log("bool in method: " + bool);
+    }
+}
+
 
 function count(inputValue) {
 
-    if (inputValue != "" && inputValue != "0.00" && parserFloat() && inputValue != "0,00") {
+    if (inputValue != "" && inputValue != "0.00" && inputValue != "0,00") {
 
-        $('#conventUSD').val(($("#exchange1").val() * inputValue).toFixed(4));
-        $('#conventEUR').val(($("#exchange3").val() * inputValue).toFixed(4));
-        $('#conventRUB').val(($("#exchange2").val() * inputValue).toFixed(4));
-        $('#conventUAH').val(($("#exchange4").val() * inputValue).toFixed(4));
+        $("#conventUSD").val(($("#exchange1").val() * inputValue).toFixed(4));
+        $("#conventEUR").val(($("#exchange3").val() * inputValue).toFixed(4));
+        $("#conventRUB").val(($("#exchange2").val() * inputValue).toFixed(4));
+        $("#conventUAH").val(($("#exchange4").val() * inputValue).toFixed(4));
 
     } else {
         setDefaultValues();
     }
-    $('#inputValue').focus();
+    $("#inputValue").focus();
 }
 
 function setDefaultValues() {
     var defaultValue = "0.00";
-    $('#conventUSD').val(defaultValue);
-    $('#conventEUR').val(defaultValue);
-    $('#conventRUB').val(defaultValue);
-    $('#conventUAH').val(defaultValue);
+    $("#conventUSD").val(defaultValue);
+    $("#conventEUR").val(defaultValue);
+    $("#conventRUB").val(defaultValue);
+    $("#conventUAH").val(defaultValue);
 }
 
 

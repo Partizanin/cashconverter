@@ -1,0 +1,300 @@
+/* Invalid validation style*/
+.inputValueInvalid{
+    background: #fff url(../images/invalid.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535;
+    background-size: 19px 19px;
+    outline: none;
+
+}
+
+/* valid validation style*/
+.inputValueValid{
+    background: #fff url(../images/valid.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+    background-size: 19px 19px;
+    outline: none;
+}
+
+/*select box style*/
+
+select#selectExchange, select#selectExchange {
+    -webkit-appearance: button;
+    -webkit-border-radius: 2px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    -webkit-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -webkit-user-select: none;
+    background-image: url(../images/arrowDown.png) , -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    border: 1px solid #AAA;
+    color: #555;
+    font-size: inherit;
+    overflow: hidden;
+    padding: 5px 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 120px;
+}
+
+.list{
+    position: absolute;
+    display: inline;
+    margin-top: -2px;
+    margin-left: 40px;
+    margin-bottom: auto;
+}
+
+select#selectExchange {
+    color: #fff;
+    background-image: url(../images/arrowDown.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+    background-color: #779126;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    padding-left: 15px;
+}
+
+/*Input fields style*/
+
+li > input {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    outline: none;
+    border: 2px solid #71cff4;
+    border-radius: 25px;
+    transition: height 1s;
+    -webkit-transition: height 1s;
+}
+
+/*horizontal line*/
+
+#mainLabelHr {
+    margin-top: -5px;
+    margin-bottom: 25px;
+    border: none;
+    color: #71cff4;
+    background-color: #71cff4;
+    height: 3px;
+}
+
+#someHr1, #someHr2 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: none;
+    color: #71cff4;
+    background-color: #71cff4;
+    height: 2px;
+}
+
+/*hr {
+    border: none; *//* Убираем границу *//*
+    background-color: #9c9c9c; *//* Цвет линии *//*
+    color: #9c9c9c; *//* Цвет линии для IE6-7 *//*
+    height: 1px; *//* Толщина линии *//*
+}*/
+
+/*main div*/
+.Converter {
+    text-align: center;
+    width: 550px;
+    border: 5px solid #71cff4;
+    border-radius: 55px;
+    margin: 7.5% auto;
+}
+
+/*transpet input box*/
+
+#inputValue {
+    margin-bottom: 15px;
+    margin-right: 2px;
+    clear: both;
+}
+
+#inputValue {
+    border: 1px solid #B5C9D4;
+    padding: 6px 15px;
+    background: #ECF1F4;
+    width: 120px;
+    font-size: 15px;
+    color: #3E7EA0;
+    height: 18px;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2), 0 1px 3px rgba(25, 62, 83, 0.1) inset, 0 0 0 8px rgba(155, 180, 195, 0.3);
+}
+
+#inputValue {
+    /*
+background: url(../images/inputIcon.png) no-repeat scroll -10px -10px;
+padding-left:30px;input icon*/
+}
+
+#inputValue:focus {
+    outline: none;
+}
+
+/*spinner style*/
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    /* visibility: hidden;*/
+}
+
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #3498db;
+
+    -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #e74c3c;
+
+    -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #f9c922;
+
+    -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg); /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg); /* IE 9 */
+        transform: rotate(0deg); /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg); /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg); /* IE 9 */
+        transform: rotate(360deg); /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg); /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg); /* IE 9 */
+        transform: rotate(0deg); /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg); /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg); /* IE 9 */
+        transform: rotate(360deg); /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+/*main style*/
+
+#mainLabelH2 {
+    font-family: helvetica, serif;
+    font-style: normal;
+    font-size: 25px;
+    color: #d4a1ea;
+}
+
+body {
+    background: url(../images/background8small.jpg) no-repeat;
+    -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%; /* Современные браузеры */
+}
+
+
+
+p {
+    display: inline;
+    font-family: 'Brush Script MT', cursive;
+    color: #fe7aaa;
+    font-size: 18px;
+}
+
+ul {
+    margin-left: 150px;
+    margin-top: -25px;
+    list-style-type: none;
+}
+
+#conventUSD, #conventEUR, #conventRUB, #conventUAH {
+    width: 170px;
+    height: 25px;
+    margin-right: 1px;
+    font-size: 20px;
+    margin-top: 5px;
+    padding-left: 5px;
+}
+
+#value1, #value2, #value3, #value4 {
+    color: #bdd264;
+    border: none;
+    font: normal normal 20px  sans-serif;
+    font-weight: 100;
+}
+
+#exchange1, #exchange2, #exchange3, #exchange4 {
+    margin-left: 1px;
+    width: 76px;
+    height: 25px;
+    font-size: 20px;
+    padding-left: 5px;
+}
+
+#p1 {
+
+    margin-left: -125px;
+    margin-right: 20px;
+}
+
+#p2 {
+
+    margin-right: 20px;
+    margin-left: -110px;
+}
+
+#p3 {
+    margin-right: 255px;
+}
+
+label {
+    margin-right: 1px;
+    margin-left: 1px;
+}

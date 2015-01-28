@@ -54,6 +54,7 @@
   <build>
     <finalName>embeddedTomcatSample</finalName>
     <plugins>
+
         <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>appassembler-maven-plugin</artifactId>

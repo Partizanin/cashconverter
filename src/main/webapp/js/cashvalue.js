@@ -175,7 +175,7 @@ function validation() {
         setDefaultValues();
     }
 
-    changeIcon(booll);
+    /*changeIcon(booll); dont work*/
 
     return booll;
 

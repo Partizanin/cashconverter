@@ -23,7 +23,7 @@
     <p id="p2">На сумму</p> <label for="inputValue"></label><input value="0.00" onkeypress="return isNumberKey(event)"
                                                     onkeyup="validation(this.value)"
                                                     onfocus="if (this.value == '0.00') this.value='';"
-                                                    onblur="if (this.value == '') {this.value = '0.00'; }  blure()"
+                                                    onblur="if (this.value == '') {this.value = '0.00'; }  "
                                                     id="inputValue" type="text" pattern="\d+\.?\d{0,10}"/>
     <div class="list">
     <select id="selectExchange"

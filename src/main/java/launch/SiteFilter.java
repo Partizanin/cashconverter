@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
  * User: Partizanin
  * Date: 28.08.2014
  * Time:  22:00
- * To change this template use File|Setting|File Templates.
+ * To change this resultlate use File|Setting|File resultlates.
  */
 public class SiteFilter {
 
@@ -36,153 +36,75 @@ public class SiteFilter {
 
         private static String sellRUB() {
 
-            String line = getRUB();
+            String source = getRUB();
 
-            int start = line.indexOf("<Bid>") + 4;
-            int finish = line.indexOf("</Bid>");
+            String result = returnAskValueFromMethod(source, "sell");
 
-            String temp = "";
-
-            for (int i = start; i < line.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += line.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyRUB() {
+
             String source = getRUB();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String sellUSD() {
+
             String source = getUSD();
 
+            String result = returnAskValueFromMethod(source, "sell");
 
-            int start = source.indexOf("<Bid>") + 4;
-            int finish = source.indexOf("</Bid>");
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyUSD() {
+
             String source = getUSD();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String sellEUR() {
+
             String source = getEUR();
 
+            String result = returnAskValueFromMethod(source, "sell");
 
-            int start = source.indexOf("<Bid>") + 4;
-            int finish = source.indexOf("</Bid>");
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyEUR() {
+
             String source = getEUR();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String sellPLN() {
+
             String source = getPLN();
 
+            String result = returnAskValueFromMethod(source, "sell");
 
-            int start = source.indexOf("<Bid>") + 4;
-            int finish = source.indexOf("</Bid>");
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyPLN() {
+
             String source = getPLN();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
-
 
 
         private static String getUSD() {
@@ -264,7 +186,7 @@ public class SiteFilter {
         }
 
 
-        public  String getBuyPLN() {
+        public String getBuyPLN() {
             return buyPLN;
         }
 
@@ -314,152 +236,74 @@ public class SiteFilter {
 
         private static String sellRUB() {
 
-            String line = getRUB();
+            String source = getRUB();
 
-            int start = line.indexOf("<Bid>") + 4;
-            int finish = line.indexOf("</Bid>");
+            String result = returnAskValueFromMethod(source, "sell");
 
-            String temp = "";
-
-            for (int i = start; i < line.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += line.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyRUB() {
+
             String source = getRUB();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String sellUAH() {
+
             String source = getUAH();
 
+            String result = returnAskValueFromMethod(source, "sell");
 
-            int start = source.indexOf("<Bid>") + 4;
-            int finish = source.indexOf("</Bid>");
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyUAH() {
+
             String source = getUAH();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String sellEUR() {
+
             String source = getEUR();
 
+            String result = returnAskValueFromMethod(source, "sell");
 
-            int start = source.indexOf("<Bid>") + 4;
-            int finish = source.indexOf("</Bid>");
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyEUR() {
+
             String source = getEUR();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String sellPLN() {
+
             String source = getPLN();
 
+            String result = returnAskValueFromMethod(source, "sell");
 
-            int start = source.indexOf("<Bid>") + 4;
-            int finish = source.indexOf("</Bid>");
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyPLN() {
+
             String source = getPLN();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
 
@@ -590,155 +434,75 @@ public class SiteFilter {
 
         private static String sellRUB() {
 
-            String line = getRUB();
+            String source = getRUB();
 
-            int start = line.indexOf("<Bid>") + 4;
-            int finish = line.indexOf("</Bid>");
+            String result = returnAskValueFromMethod(source, "sell");
 
-            String temp = "";
-
-            for (int i = start; i < line.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += line.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyRUB() {
+
             String source = getRUB();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String sellUSD() {
+
             String source = getUSD();
 
+            String result = returnAskValueFromMethod(source, "sell");
 
-            int start = source.indexOf("<Bid>") + 4;
-            int finish = source.indexOf("</Bid>");
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyUSD() {
+
             String source = getUSD();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String sellUAH() {
+
             String source = getUAH();
 
+            String result = returnAskValueFromMethod(source, "sell");
 
-            int start = source.indexOf("<Bid>") + 4;
-            int finish = source.indexOf("</Bid>");
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyUAH() {
+
             String source = getUAH();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String sellPLN() {
+
             String source = getPLN();
 
+            String result = returnAskValueFromMethod(source, "sell");
 
-            int start = source.indexOf("<Bid>") + 4;
-            int finish = source.indexOf("</Bid>");
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyPLN() {
+
             String source = getPLN();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
-
-
 
         private static String getUSD() {
             String result = getValues();
@@ -867,152 +631,73 @@ public class SiteFilter {
 
         private static String sellUAH() {
 
-            String line = getUAH();
+            String source = getUAH();
 
-            int start = line.indexOf("<Bid>") + 4;
-            int finish = line.indexOf("</Bid>");
+            String result = returnAskValueFromMethod(source, "sell");
 
-            String temp = "";
-
-            for (int i = start; i < line.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += line.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyUAH() {
+
             String source = getUAH();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String sellUSD() {
+
             String source = getUSD();
 
+            String result = returnAskValueFromMethod(source, "sell");
 
-            int start = source.indexOf("<Bid>") + 4;
-            int finish = source.indexOf("</Bid>");
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyUSD() {
+
             String source = getUSD();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String sellEUR() {
+
             String source = getEUR();
 
+            String result = returnAskValueFromMethod(source, "sell");
 
-            int start = source.indexOf("<Bid>") + 4;
-            int finish = source.indexOf("</Bid>");
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyEUR() {
+
             String source = getEUR();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String sellPLN() {
+
             String source = getPLN();
 
+            String result = returnAskValueFromMethod(source, "sell");
 
-            int start = source.indexOf("<Bid>") + 4;
-            int finish = source.indexOf("</Bid>");
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyPLN() {
             String source = getPLN();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
 
@@ -1095,7 +780,7 @@ public class SiteFilter {
         }
 
 
-        public  String getBuyPLN() {
+        public String getBuyPLN() {
             return buyPLN;
         }
 
@@ -1143,145 +828,75 @@ public class SiteFilter {
         private static String sellRUB = sellRUB();
 
         private static String buyUAH() {
+
             String source = getUAH();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
+
         private static String sellUAH() {
 
-            String line = getUAH();
+            String source = getUAH();
 
-            int start = line.indexOf("<Bid>") + 4;
-            int finish = line.indexOf("</Bid>");
+            String result = returnAskValueFromMethod(source, "sell");
 
-            String temp = "";
-
-            for (int i = start; i < line.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += line.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyRUB() {
+
             String source = getRUB();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
+
         private static String sellRUB() {
 
-            String line = getRUB();
+            String source = getRUB();
 
-            int start = line.indexOf("<Bid>") + 4;
-            int finish = line.indexOf("</Bid>");
+            String result = returnAskValueFromMethod(source, "sell");
 
-            String temp = "";
-
-            for (int i = start; i < line.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += line.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyUSD() {
+
             String source = getUSD();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
+
         private static String sellUSD() {
+
             String source = getUSD();
 
+            String result = returnAskValueFromMethod(source, "sell");
 
-            int start = source.indexOf("<Bid>") + 4;
-            int finish = source.indexOf("</Bid>");
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
         private static String buyEUR() {
+
             String source = getEUR();
 
-            int start = source.indexOf("<Ask>") + 4;
-            int finish = source.indexOf("</Ask>");
+            String result = returnAskValueFromMethod(source, "buy");
 
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
+
         private static String sellEUR() {
+
             String source = getEUR();
 
+            String result = returnAskValueFromMethod(source, "sell");
 
-            int start = source.indexOf("<Bid>") + 4;
-            int finish = source.indexOf("</Bid>");
-
-            String temp = "";
-
-            for (int i = start; i < source.length(); i++) {
-                if (i > start && i < finish) {
-                    temp += source.charAt(i);
-                }
-            }
-
-
-            return String.valueOf(df.format(Double.parseDouble(temp)));
-
+            return String.valueOf(df.format(Double.parseDouble(result)));
         }
 
 
@@ -1384,7 +999,7 @@ public class SiteFilter {
             return result;
         }
 
-        public  String getSellRUB() {
+        public String getSellRUB() {
             return sellRUB;
         }
 
@@ -1437,11 +1052,11 @@ public class SiteFilter {
         return result;
     }
 
-    private static String returnAskValueMethod(String source, String operation){
+    private static String returnAskValueFromMethod(String source, String operation) {
         String returnValue = "";
 
         int start = 0;
-        int finish = 0 ;
+        int finish = 0;
 
         if (operation.equals("buy")) {
 
@@ -1449,7 +1064,7 @@ public class SiteFilter {
             finish = source.indexOf("</Ask>");
 
 
-        }else { /*operation sell*/
+        } else { /*operation sell*/
 
             start = source.indexOf("<Bid>") + 4;
             finish = source.indexOf("</Bid>");

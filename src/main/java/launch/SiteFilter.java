@@ -108,81 +108,19 @@ public class SiteFilter {
 
 
         private static String getUSD() {
-            String source = getValues();
-            String USD = "";
-
-            int start = source.indexOf("<rate id=\"UAHUSD\">");
-            int end = source.indexOf("</rate>", start);
-
-            for (int i = start; i < source.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    USD += source.charAt(i);
-                }
-            }
-            return USD;
+            return getCurrency("UAHUSD");
         }
 
         private static String getEUR() {
-            String result = getValues();
-            String EUR = "";
-
-            int start = result.indexOf("<rate id=\"UAHEUR\">");
-            int end = result.indexOf("</rate>", start);
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    EUR += result.charAt(i);
-                }
-            }
-            return EUR;
+            return getCurrency("UAHEUR");
         }
 
         private static String getRUB() {
-            String result = getValues();
-            String RUB = "";
-
-            int start = result.indexOf("<rate id=\"UAHRUB\">");
-            int end = result.indexOf("</rate>", start);
-
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    RUB += result.charAt(i);
-                }
-            }
-
-
-            return RUB;
+            return getCurrency("UAHRUB");
         }
 
         private static String getPLN() {
-            String result = getValues();
-            String PLN = "";
-
-            int start = result.indexOf("<rate id=\"UAHPLN\">");
-            int end = result.indexOf("</rate>", start);
-
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    PLN += result.charAt(i);
-                }
-            }
-
-
-            return PLN;
+            return getCurrency("UAHPLN");
         }
 
 
@@ -308,81 +246,19 @@ public class SiteFilter {
 
 
         private static String getUAH() {
-            String result = getValues();
-            String USD = "";
-
-            int start = result.indexOf("<rate id=\"USDUAH\">");
-            int end = result.indexOf("</rate>", start);
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    USD += result.charAt(i);
-                }
-            }
-            return USD;
+            return getCurrency("USDUAH");
         }
 
         private static String getEUR() {
-            String result = getValues();
-            String EUR = "";
-
-            int start = result.indexOf("<rate id=\"USDEUR\">");
-            int end = result.indexOf("</rate>", start);
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    EUR += result.charAt(i);
-                }
-            }
-            return EUR;
+            return getCurrency("USDEUR");
         }
 
         private static String getRUB() {
-            String result = getValues();
-            String RUB = "";
-
-            int start = result.indexOf("<rate id=\"USDRUB\">");
-            int end = result.indexOf("</rate>", start);
-
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    RUB += result.charAt(i);
-                }
-            }
-
-
-            return RUB;
+            return getCurrency("USDRUB");
         }
 
         private static String getPLN() {
-            String result = getValues();
-            String PLN = "";
-
-            int start = result.indexOf("<rate id=\"USDPLN\">");
-            int end = result.indexOf("</rate>", start);
-
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    PLN += result.charAt(i);
-                }
-            }
-
-
-            return PLN;
+            return getCurrency("USDPLN");
         }
 
         public String getBuyPLN() {
@@ -505,81 +381,19 @@ public class SiteFilter {
         }
 
         private static String getUSD() {
-            String result = getValues();
-            String USD = "";
-
-            int start = result.indexOf("<rate id=\"EURUSD\">");
-            int end = result.indexOf("</rate>", start);
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    USD += result.charAt(i);
-                }
-            }
-            return USD;
+            return getCurrency("EURUSD");
         }
 
         private static String getUAH() {
-            String result = getValues();
-            String EUR = "";
-
-            int start = result.indexOf("<rate id=\"EURUAH\">");
-            int end = result.indexOf("</rate>", start);
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    EUR += result.charAt(i);
-                }
-            }
-            return EUR;
+            return getCurrency("EURUAH");
         }
 
         private static String getRUB() {
-            String result = getValues();
-            String RUB = "";
-
-            int start = result.indexOf("<rate id=\"EURRUB\">");
-            int end = result.indexOf("</rate>", start);
-
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    RUB += result.charAt(i);
-                }
-            }
-
-
-            return RUB;
+            return getCurrency("EURRUB");
         }
 
         private static String getPLN() {
-            String result = getValues();
-            String PLN = "";
-
-            int start = result.indexOf("<rate id=\"EURPLN\">");
-            int end = result.indexOf("</rate>", start);
-
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    PLN += result.charAt(i);
-                }
-            }
-
-
-            return PLN;
+            return getCurrency("EURPLN");
         }
 
         public String getBuyPLN() {
@@ -702,81 +516,20 @@ public class SiteFilter {
 
 
         private static String getUSD() {
-            String result = getValues();
-            String USD = "";
-
-            int start = result.indexOf("<rate id=\"RUBUSD\">");
-            int end = result.indexOf("</rate>", start);
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    USD += result.charAt(i);
-                }
-            }
-            return USD;
+            return getCurrency("RUBUSD");
         }
 
         private static String getEUR() {
-            String result = getValues();
-            String EUR = "";
-
-            int start = result.indexOf("<rate id=\"RUBEUR\">");
-            int end = result.indexOf("</rate>", start);
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    EUR += result.charAt(i);
-                }
-            }
-            return EUR;
+            return getCurrency("RUBEUR");
         }
 
         private static String getUAH() {
-            String result = getValues();
-            String RUB = "";
-
-            int start = result.indexOf("<rate id=\"RUBUAH\">");
-            int end = result.indexOf("</rate>", start);
-
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    RUB += result.charAt(i);
-                }
-            }
-
-
-            return RUB;
+            return getCurrency("RUBUAH");
         }
 
         private static String getPLN() {
-            String result = getValues();
-            String PLN = "";
 
-            int start = result.indexOf("<rate id=\"RUBPLN\">");
-            int end = result.indexOf("</rate>", start);
-
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    PLN += result.charAt(i);
-                }
-            }
-
-
-            return PLN;
+            return getCurrency("RUBPLN");
         }
 
 
@@ -901,103 +654,21 @@ public class SiteFilter {
 
 
         private static String getUSD() {
-            String result = getValues();
-            String USD = "";
-
-            int start = result.indexOf("<rate id=\"PLNUSD\">");
-            int end = result.indexOf("</rate>", start);
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    USD += result.charAt(i);
-                }
-            }
-            return USD;
+            return getCurrency("PLNUSD");
         }
 
         private static String getEUR() {
-            String result = getValues();
-            String EUR = "";
-
-            int start = result.indexOf("<rate id=\"PLNEUR\">");
-            int end = result.indexOf("</rate>", start);
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    EUR += result.charAt(i);
-                }
-            }
-            return EUR;
+            return getCurrency("PLNEUR");
         }
 
         private static String getUAH() {
-            String result = getValues();
-            String RUB = "";
-
-            int start = result.indexOf("<rate id=\"PLNUAH\">");
-            int end = result.indexOf("</rate>", start);
-
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    RUB += result.charAt(i);
-                }
-            }
-
-
-            return RUB;
+            return getCurrency("PLNUAH");
         }
 
         private static String getRUB() {
-            String result = getValues();
-            String RUB = "";
-
-            int start = result.indexOf("<rate id=\"PLNRUB\">");
-            int end = result.indexOf("</rate>", start);
-
-
-            for (int i = start; i < result.length(); i++) {
-
-                if (i > start && i < end) {
-
-
-                    RUB += result.charAt(i);
-                }
-            }
-
-
-            return RUB;
+            return getCurrency("PLNRUB");
         }
 
-
-        private static String getValues() {
-            String siteSourceCode = siteSource;
-
-            String result = " ";
-
-            int start = siteSourceCode.indexOf("<results>");
-
-            int end = siteSourceCode.indexOf("</results>");
-
-            for (int i = start; i < siteSourceCode.length(); i++) {
-
-                if (i > start && i <= end) {
-
-                    result += siteSourceCode.charAt(i);
-                }
-            }
-
-            return result;
-        }
 
         public String getSellRUB() {
             return sellRUB;
@@ -1079,5 +750,29 @@ public class SiteFilter {
         }
 
         return returnValue;
+    }
+
+    private static String getCurrency(String startPoint) {
+
+        String result = getValues();
+
+        String currencyValue = "";
+
+        int start = result.indexOf("<rate id=" + '"' + startPoint + '"' + ">");
+
+        int end = result.indexOf("</rate>", start);
+
+
+        for (int i = start; i < result.length(); i++) {
+
+            if (i > start && i < end) {
+
+                currencyValue += result.charAt(i);
+
+            }
+        }
+
+        return currencyValue;
+
     }
 }

@@ -20,7 +20,7 @@ public class Main {
         tomcat.setPort(Integer.valueOf(webPort));
 
         tomcat.addWebapp("/", new File(webappDirLocation).getAbsolutePath());
-        System.out.println("configuring app with basedir: " + new File("./" + webappDirLocation).getAbsolutePath());
+         System.out.println("configuring app with basedir: " + new File("./" + webappDirLocation).getAbsolutePath());
 
         tomcat.start();
         tomcat.getServer().await();  

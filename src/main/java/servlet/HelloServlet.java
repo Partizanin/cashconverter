@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(
-        name = "MyServlet", 
+        name = "MyServlet",
         urlPatterns = {"/hello"}
-    )
+)
 public class HelloServlet extends HttpServlet {
 
     @Override
@@ -22,5 +22,5 @@ public class HelloServlet extends HttpServlet {
         out.flush();
         out.close();
     }
-    
+
 }

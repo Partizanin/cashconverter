@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
  * User: Partizanin
  * Date: 28.08.2014
  * Time:  22:00
- * To change this resultlate use File|Setting|File resultlates.
+ * To change this template use File|Setting|File Templates.
  */
 public class SiteFilter {
 

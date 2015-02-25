@@ -1,5 +1,13 @@
+/*add fork banner*/
+#forkLink, image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+}
+
 /* Invalid validation style*/
-.inputValueInvalid{
+.inputValueInvalid {
     background: #fff url(../images/invalid.png) no-repeat 98% center;
     box-shadow: 0 0 5px #d45252;
     border-color: #b03535;
@@ -9,7 +17,7 @@
 }
 
 /* valid validation style*/
-.inputValueValid{
+.inputValueValid {
     background: #fff url(../images/valid.png) no-repeat 98% center;
     box-shadow: 0 0 5px #5cd053;
     border-color: #28921f;
@@ -26,7 +34,7 @@ select#selectExchange, select#selectExchange {
     -webkit-padding-end: 20px;
     -webkit-padding-start: 2px;
     -webkit-user-select: none;
-    background-image: url(../images/arrowDown.png) , -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+    background-image: url(../images/arrowDown.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
     background-position: 97% center;
     background-repeat: no-repeat;
     border: 1px solid #AAA;
@@ -39,7 +47,7 @@ select#selectExchange, select#selectExchange {
     width: 120px;
 }
 
-.list{
+.list {
     position: absolute;
     display: inline;
     margin-top: -2px;
@@ -239,8 +247,6 @@ body {
     background-size: 100%; /* Современные браузеры */
 }
 
-
-
 p {
     display: inline;
     font-family: 'Brush Script MT', cursive;
@@ -266,7 +272,7 @@ ul {
 #value1, #value2, #value3, #value4 {
     color: #bdd264;
     border: none;
-    font: normal normal 20px  sans-serif;
+    font: normal normal 20px sans-serif;
     font-weight: 100;
 }
 

@@ -217,10 +217,10 @@ function count(inputValue) {
 
     if (inputValue != "" && inputValue != "0.00" && inputValue != "0,00") {
 
-        $("#conventUSD").val(($("#exchange1").val() * inputValue).toFixed(4));
-        $("#conventEUR").val(($("#exchange3").val() * inputValue).toFixed(4));
-        $("#conventRUB").val(($("#exchange2").val() * inputValue).toFixed(4));
-        $("#conventUAH").val(($("#exchange4").val() * inputValue).toFixed(4));
+        $("#conventUSD").val(formatOutput(($("#exchange1").val() * inputValue).toFixed(4)));
+        $("#conventEUR").val(formatOutput(($("#exchange3").val() * inputValue).toFixed(4)));
+        $("#conventRUB").val(formatOutput(($("#exchange2").val() * inputValue).toFixed(4)));
+        $("#conventUAH").val(formatOutput(($("#exchange4").val() * inputValue).toFixed(4)));
 
     } else {
         setDefaultValues();
@@ -234,6 +234,13 @@ function setDefaultValues() {
     $("#conventEUR").val(defaultValue);
     $("#conventRUB").val(defaultValue);
     $("#conventUAH").val(defaultValue);
+}
+
+function formatOutput(intputNumm){
+    var parts = intputNumm.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return parts.join(".");
+
 }
 
 

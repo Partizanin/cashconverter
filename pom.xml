@@ -78,7 +78,7 @@
                 <assembleDirectory>target</assembleDirectory>
                 <programs>
                     <program>
-                        <mainClass>launch.Main</mainClass>
+                        <mainClass>launch.ConventerServlet</mainClass>
                         <name>webapp</name>
                     </program>
                 </programs>

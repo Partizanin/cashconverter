@@ -12,9 +12,8 @@ import java.text.DecimalFormat;
  */
 public class SiteFilter {
 
-    private static SiteDownload sd = new SiteDownload();
 
-    private static String siteSource = sd.getSource();
+    private static String siteSource = new SiteDownload().getSource();
 
     private static DecimalFormat df = new DecimalFormat("#.####");
 

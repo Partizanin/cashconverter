@@ -1,3 +1,10 @@
+/*fork me*/
+#forkLink, image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+}
 /* Invalid validation style*/
 .inputValueInvalid{
     background: #fff url(../images/invalid.png) no-repeat 98% center;

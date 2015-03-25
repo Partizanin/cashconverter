@@ -1,712 +1,78 @@
 package launch;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with Intellij IDEA.
- * Project name: proff16
+ * Project name: Partizanin
  * User: Partizanin
  * Date: 28.08.2014
  * Time:  22:00
  * To change this template use File|Setting|File Templates.
  */
 public class SiteFilter {
-
-    private static SiteDownload sd = new SiteDownload();
-
-    private static String siteSource = sd.getSource();
+    public SiteFilter() {
+        createExchangeList();
+    }
 
     private static DecimalFormat df = new DecimalFormat("#.####");
 
+    private static StringBuilder siteSource = new StringBuilder(new SiteDownload().getSource());
 
-    public static class UAH {
+    private static List<Exchange> exchangeList = new ArrayList<>();
 
-        private static String buyUSD = buyUSD();
-        private static String sellUSD = sellUSD();
+    private static Exchange getExchangeById(String id) {
 
-        private static String buyRUB = buyRUB();
-        private static String sellRUB = sellRUB();
-
-        private static String buyEUR = buyEUR();
-        private static String sellEUR = sellEUR();
-
-        private static String buyPLN = buyPLN();
-        private static String sellPLN = sellPLN();
-
-
-        private static String sellRUB() {
-
-            String source = getRUB();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
+        for (Exchange exchange : exchangeList) {
+            if (exchange.getId().equals(id)) {
+                return exchange;
+            }
         }
 
-        private static String buyRUB() {
-
-            String source = getRUB();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String sellUSD() {
-
-            String source = getUSD();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyUSD() {
-
-            String source = getUSD();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String sellEUR() {
-
-            String source = getEUR();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyEUR() {
-
-            String source = getEUR();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String sellPLN() {
-
-            String source = getPLN();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyPLN() {
-
-            String source = getPLN();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-
-        private static String getUSD() {
-            return getCurrency("UAHUSD");
-        }
-
-        private static String getEUR() {
-            return getCurrency("UAHEUR");
-        }
-
-        private static String getRUB() {
-            return getCurrency("UAHRUB");
-        }
-
-        private static String getPLN() {
-            return getCurrency("UAHPLN");
-        }
-
-
-        public String getBuyPLN() {
-            return buyPLN;
-        }
-
-        public String getSellPLN() {
-            return sellPLN;
-        }
-
-        public String getBuyUSD() {
-            return buyUSD;
-        }
-
-        public String getSellUSD() {
-            return sellUSD;
-        }
-
-        public String getBuyRUB() {
-            return buyRUB;
-        }
-
-        public String getSellRUB() {
-            return sellRUB;
-        }
-
-        public String getBuyEUR() {
-            return buyEUR;
-        }
-
-        public String getSellEUR() {
-            return sellEUR;
-        }
+        return null;
     }
 
-    public static class USD {
+    public String getCourse(String exchangeId,String transactionValue) {
 
-        private static String buyUAH = buyUAH();
-        private static String sellUAH = sellUAH();
-
-        private static String buyRUB = buyRUB();
-        private static String sellRUB = sellRUB();
-
-        private static String buyEUR = buyEUR();
-        private static String sellEUR = sellEUR();
-
-        private static String buyPLN = buyPLN();
-        private static String sellPLN = sellPLN();
-
-
-        private static String sellRUB() {
-
-            String source = getRUB();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyRUB() {
-
-            String source = getRUB();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String sellUAH() {
-
-            String source = getUAH();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyUAH() {
-
-            String source = getUAH();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String sellEUR() {
-
-            String source = getEUR();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyEUR() {
-
-            String source = getEUR();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String sellPLN() {
-
-            String source = getPLN();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyPLN() {
-
-            String source = getPLN();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-
-        private static String getUAH() {
-            return getCurrency("USDUAH");
-        }
-
-        private static String getEUR() {
-            return getCurrency("USDEUR");
-        }
-
-        private static String getRUB() {
-            return getCurrency("USDRUB");
-        }
-
-        private static String getPLN() {
-            return getCurrency("USDPLN");
-        }
-
-        public String getBuyPLN() {
-            return buyPLN;
-        }
-
-        public String getSellPLN() {
-            return sellPLN;
-        }
-
-        public String getBuyUAH() {
-            return buyUAH;
-        }
-
-        public String getSellUAH() {
-            return sellUAH;
-        }
-
-        public String getBuyRUB() {
-            return buyRUB;
-        }
-
-        public String getSellRUB() {
-            return sellRUB;
-        }
-
-        public String getBuyEUR() {
-            return buyEUR;
-        }
-
-        public String getSellEUR() {
-            return sellEUR;
-        }
+        return String.valueOf(getExchangeById(exchangeId).getCourse(transactionValue));
     }
 
-    public static class EUR {
+    public String getBuyCourse(String exchangeId) {
 
-        private static String buyUSD = buyUSD();
-        private static String sellUSD = sellUSD();
 
-        private static String buyRUB = buyRUB();
-        private static String sellRUB = sellRUB();
-
-        private static String buyUAH = buyUAH();
-        private static String sellUAH = sellUAH();
-
-        private static String buyPLN = buyPLN();
-        private static String sellPLN = sellPLN();
-
-        private static String sellRUB() {
-
-            String source = getRUB();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyRUB() {
-
-            String source = getRUB();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String sellUSD() {
-
-            String source = getUSD();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyUSD() {
-
-            String source = getUSD();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String sellUAH() {
-
-            String source = getUAH();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyUAH() {
-
-            String source = getUAH();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String sellPLN() {
-
-            String source = getPLN();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyPLN() {
-
-            String source = getPLN();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String getUSD() {
-            return getCurrency("EURUSD");
-        }
-
-        private static String getUAH() {
-            return getCurrency("EURUAH");
-        }
-
-        private static String getRUB() {
-            return getCurrency("EURRUB");
-        }
-
-        private static String getPLN() {
-            return getCurrency("EURPLN");
-        }
-
-        public String getBuyPLN() {
-            return buyPLN;
-        }
-
-        public String getSellPLN() {
-            return sellPLN;
-        }
-
-        public String getBuyUSD() {
-            return buyUSD;
-        }
-
-        public String getSellUSD() {
-            return sellUSD;
-        }
-
-        public String getBuyRUB() {
-            return buyRUB;
-        }
-
-        public String getSellRUB() {
-            return sellRUB;
-        }
-
-        public String getBuyUAH() {
-            return buyUAH;
-        }
-
-        public String getSellUAH() {
-            return sellUAH;
-        }
+        return String.valueOf(getExchangeById(exchangeId).getBuyCourse());
     }
 
-    public static class RUB {
+    public String getSellCourse(String exchangeId) {
 
-        private static String buyUSD = buyUSD();
-        private static String sellUSD = sellUSD();
-
-        private static String buyUAH = buyUAH();
-        private static String sellUAH = sellUAH();
-
-        private static String buyEUR = buyEUR();
-        private static String sellEUR = sellEUR();
-
-        private static String buyPLN = buyPLN();
-        private static String sellPLN = sellPLN();
-
-        private static String sellUAH() {
-
-            String source = getUAH();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyUAH() {
-
-            String source = getUAH();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String sellUSD() {
-
-            String source = getUSD();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyUSD() {
-
-            String source = getUSD();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String sellEUR() {
-
-            String source = getEUR();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyEUR() {
-
-            String source = getEUR();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String sellPLN() {
-
-            String source = getPLN();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyPLN() {
-            String source = getPLN();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-
-        private static String getUSD() {
-            return getCurrency("RUBUSD");
-        }
-
-        private static String getEUR() {
-            return getCurrency("RUBEUR");
-        }
-
-        private static String getUAH() {
-            return getCurrency("RUBUAH");
-        }
-
-        private static String getPLN() {
-
-            return getCurrency("RUBPLN");
-        }
-
-
-        public String getBuyPLN() {
-            return buyPLN;
-        }
-
-        public String getSellPLN() {
-            return sellPLN;
-        }
-
-        public String getBuyUSD() {
-            return buyUSD;
-        }
-
-        public String getSellUSD() {
-            return sellUSD;
-        }
-
-        public String getBuyUAH() {
-            return buyUAH;
-        }
-
-        public String getSellUAH() {
-            return sellUAH;
-        }
-
-        public String getBuyEUR() {
-            return buyEUR;
-        }
-
-        public String getSellEUR() {
-            return sellEUR;
-        }
+        return String.valueOf(getExchangeById(exchangeId).getSellCourse());
     }
 
-    public static class PLN {
+    private static void createExchangeList() {
 
-        private static String buyUSD = buyUSD();
-        private static String sellUSD = sellUSD();
+        List<String> list = getAllCurrency();
 
-        private static String buyUAH = buyUAH();
-        private static String sellUAH = sellUAH();
+        for (String s : list) {
 
-        private static String buyEUR = buyEUR();
-        private static String sellEUR = sellEUR();
+            Exchange exchange = new Exchange();
+            exchange.setName(getName(s));
+            exchange.setBuyCourse(Double.parseDouble(df.format(Double.parseDouble(returnAskValueFromMethod(s, "buy")))));
+            exchange.setId(getId(s));
+            exchange.setSellCourse(Double.parseDouble(df.format(Double.parseDouble(returnAskValueFromMethod(s, "sell")))));
 
-        private static String buyRUB = buyRUB();
-        private static String sellRUB = sellRUB();
-
-        private static String buyUAH() {
-
-            String source = getUAH();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
+            exchangeList.add(exchange);
         }
 
-        private static String sellUAH() {
+        /*createNewExchange();*/
 
-            String source = getUAH();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyRUB() {
-
-            String source = getRUB();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String sellRUB() {
-
-            String source = getRUB();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyUSD() {
-
-            String source = getUSD();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String sellUSD() {
-
-            String source = getUSD();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String buyEUR() {
-
-            String source = getEUR();
-
-            String result = returnAskValueFromMethod(source, "buy");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-        private static String sellEUR() {
-
-            String source = getEUR();
-
-            String result = returnAskValueFromMethod(source, "sell");
-
-            return String.valueOf(df.format(Double.parseDouble(result)));
-        }
-
-
-        private static String getUSD() {
-            return getCurrency("PLNUSD");
-        }
-
-        private static String getEUR() {
-            return getCurrency("PLNEUR");
-        }
-
-        private static String getUAH() {
-            return getCurrency("PLNUAH");
-        }
-
-        private static String getRUB() {
-            return getCurrency("PLNRUB");
-        }
-
-
-        public String getSellRUB() {
-            return sellRUB;
-        }
-
-        public String getBuyRUB() {
-            return buyRUB;
-        }
-
-        public String getBuyUSD() {
-            return buyUSD;
-        }
-
-        public String getSellUSD() {
-            return sellUSD;
-        }
-
-        public String getBuyUAH() {
-            return buyUAH;
-        }
-
-        public String getSellUAH() {
-            return sellUAH;
-        }
-
-        public String getBuyEUR() {
-            return buyEUR;
-        }
-
-        public String getSellEUR() {
-            return sellEUR;
-        }
     }
 
     private static String getValues() {
-        String siteSourceCode = siteSource;
+        StringBuilder siteSourceCode = siteSource;
 
-        String result = " ";
+        StringBuilder result = new StringBuilder();
 
         int start = siteSourceCode.indexOf("<results>");
 
@@ -716,15 +82,15 @@ public class SiteFilter {
 
             if (i > start && i <= end) {
 
-                result += siteSourceCode.charAt(i);
+                result.append(siteSourceCode.charAt(i));
             }
         }
 
-        return result;
+        return String.valueOf(result);
     }
 
     private static String returnAskValueFromMethod(String source, String operation) {
-        String returnValue = "";
+        StringBuilder returnValue = new StringBuilder();
 
         int start = 0;
         int finish = 0;
@@ -745,18 +111,81 @@ public class SiteFilter {
 
             if (i > start && i < finish) {
 
-                returnValue += source.charAt(i);
+                returnValue.append(source.charAt(i));
             }
         }
 
-        return returnValue;
+        return String.valueOf(returnValue);
+    }
+
+    private static String getName(String source) {
+
+        StringBuilder returnName = new StringBuilder(getId(source));
+
+        returnName.insert(3, "  ");
+        returnName.insert(4, "to");
+
+
+        return String.valueOf(returnName);
+
+    }
+
+    private static String getId(String source) {
+
+
+        StringBuilder id = new StringBuilder();
+
+
+        int start = source.indexOf("<rate id=") + 10;
+
+        int end = source.indexOf('"' + ">", start);
+
+
+        id.append(source, start, end);
+
+
+        return String.valueOf(id);
+
+    }
+
+    private static ArrayList<String> getAllCurrency() {
+        ArrayList<String> list = new ArrayList<>();
+        StringBuilder source = new StringBuilder(getValues());
+
+        StringBuilder currency = new StringBuilder();
+
+        while (source.indexOf("<rate id=" + '"') != -1) {
+
+            int start = source.indexOf("<rate id=" + '"') - 1;
+
+            int end = source.indexOf("</rate>", start);
+
+            for (int i = start; i < source.length(); i++) {
+
+                if (i > start && i < end) {
+
+                    currency.append(source.charAt(i));
+
+                } else if (i == end) {
+                    list.add(String.valueOf(currency));
+
+                    source.delete(0, i);
+
+                    currency.setLength(0);
+                    break;
+                }
+            }
+
+        }
+
+        return list;
     }
 
     private static String getCurrency(String startPoint) {
 
-        String result = getValues();
+        StringBuilder result = new StringBuilder(getValues());
 
-        String currencyValue = "";
+        StringBuilder currencyValue = new StringBuilder();
 
         int start = result.indexOf("<rate id=" + '"' + startPoint + '"' + ">");
 
@@ -767,12 +196,43 @@ public class SiteFilter {
 
             if (i > start && i < end) {
 
-                currencyValue += result.charAt(i);
+                currencyValue.append(result.charAt(i));
 
             }
         }
 
-        return currencyValue;
+        return String.valueOf(currencyValue);
 
     }
+
+    private static void createNewExchange() {
+
+        for (Exchange exchange : exchangeList) {
+            Exchange newExchange = new Exchange();
+
+            char[] chars = exchange.getId().toCharArray();
+            StringBuilder id = new StringBuilder();
+            id.append(chars[3]);
+            id.append(chars[4]);
+            id.append(chars[5]);
+            id.append(chars[0]);
+            id.append(chars[1]);
+            id.append(chars[2]);
+
+
+        }
+    }
+
+    private static boolean containOfId(String id) {
+
+        for (Exchange exchange : exchangeList) {
+            if (exchange.getId().equals(id)) {
+                return true;
+            }
+
+        }
+
+        return false;
+    }
+
 }

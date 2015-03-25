@@ -11,21 +11,12 @@ package launch;
 public class Exchange {
 
     private String name;
+
     private String id;
 
     private double buyCourse;
 
     private double sellCourse;
-
-    @Override
-    public String toString() {
-        return "Exchange{" +
-                "name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                ", buyCourse=" + buyCourse +
-                ", sellCourse=" + sellCourse +
-                '}';
-    }
 
     public Exchange() {
     }
@@ -54,8 +45,9 @@ public class Exchange {
     }
 
     public double getCourse(String transactionValue) {
-        return   transactionValue.equals("buy") ? buyCourse : sellCourse;
+        return transactionValue.equals("buy") ? buyCourse : sellCourse;
     }
+
     public double getBuyCourse() {
         return buyCourse;
     }
@@ -70,5 +62,15 @@ public class Exchange {
 
     public void setSellCourse(double sellCourse) {
         this.sellCourse = sellCourse;
+    }
+
+    @Override
+    public String toString() {
+        return "Exchange{" +
+                "name='" + name + '\'' +
+                ", id='" + id + '\'' +
+                ", buyCourse=" + buyCourse +
+                ", sellCourse=" + sellCourse +
+                '}';
     }
 }

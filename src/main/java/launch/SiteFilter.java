@@ -39,17 +39,6 @@ public class SiteFilter {
         return String.valueOf(getExchangeById(exchangeId).getCourse(transactionValue));
     }
 
-    public String getBuyCourse(String exchangeId) {
-
-
-        return String.valueOf(getExchangeById(exchangeId).getBuyCourse());
-    }
-
-    public String getSellCourse(String exchangeId) {
-
-        return String.valueOf(getExchangeById(exchangeId).getSellCourse());
-    }
-
     private static void createExchangeList() {
 
         List<String> list = getAllCurrency();

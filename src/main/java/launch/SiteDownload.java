@@ -59,7 +59,7 @@ public class SiteDownload {
     private static void writeToFile(String source){
         PrintWriter pw = null;
         try {
-             pw = new PrintWriter("source.txt");
+             pw = new PrintWriter("source.xml");
             pw.print(source);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -72,7 +72,7 @@ public class SiteDownload {
 
     private static String readFromFile() throws IOException {
 
-        byte[] encoded = Files.readAllBytes(Paths.get("source.txt"));
+        byte[] encoded = Files.readAllBytes(Paths.get("source.xml"));
         return new String(encoded, StandardCharsets.UTF_8);
     }
 }

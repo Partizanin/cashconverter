@@ -29,19 +29,21 @@ function isNumberKey(evt) {
 function disableButtonOnClick(buttonValue) {
 
     var value = "";
+    var buyButton = $("#buy");
+    var sellButton = $("#sell");
     if (buttonValue == "Купить") {
 
-        $("#buy").addClass("disabled");
-        $("#buy").attr("disabled", true);
-        $("#sell").attr("disabled", false);
-        $("#sell").removeClass("disabled");
+        buyButton.addClass("disabled");
+        buyButton.attr("disabled", true);
+        sellButton.attr("disabled", false);
+        sellButton.removeClass("disabled");
 
         value = "buy";
     } else {
-        $("#buy").attr("disabled", false);
-        $("#sell").attr("disabled", true);
-        $("#sell").addClass("disabled");
-        $("#buy").removeClass("disabled");
+        buyButton.attr("disabled", false);
+        sellButton.attr("disabled", true);
+        sellButton.addClass("disabled");
+        buyButton.removeClass("disabled");
 
         value = "sell";
     }

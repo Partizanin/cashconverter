@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 
 /**
  * Created with Intellij IDEA.
- * Project name: proff16
+ * Project name: Partizanin
  * User: Partizanin
  * Date: 28.08.2014
  * Time:  21:30

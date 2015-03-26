@@ -13,6 +13,7 @@ import java.util.List;
  * To change this template use File|Setting|File Templates.
  */
 public class SiteFilter {
+
     public SiteFilter() {
         createExchangeList();
     }
@@ -23,7 +24,7 @@ public class SiteFilter {
 
     private static List<Exchange> exchangeList = new ArrayList<>();
 
-    private static Exchange getExchangeById(String id) {
+    private Exchange getExchangeById(String id) {
 
         for (Exchange exchange : exchangeList) {
             if (exchange.getId().equals(id)) {
@@ -31,7 +32,7 @@ public class SiteFilter {
             }
         }
 
-        return null;
+        return new Exchange("Null","0",0,0);
     }
 
     public String getCourse(String exchangeId,String transactionValue) {
@@ -136,7 +137,7 @@ public class SiteFilter {
         return String.valueOf(id);
 
     }
-
+    /*Достает xml исходник все х курсов*/
     private static ArrayList<String> getAllCurrency() {
         ArrayList<String> list = new ArrayList<>();
         StringBuilder source = new StringBuilder(getValues());
@@ -170,6 +171,7 @@ public class SiteFilter {
         return list;
     }
 
+    /*Достает xml исходник всего курса*/
     private static String getCurrency(String startPoint) {
 
         StringBuilder result = new StringBuilder(getValues());
@@ -211,7 +213,7 @@ public class SiteFilter {
 
         }
     }
-
+    /*Проверяет существующие курсы по id*/
     private static boolean containOfId(String id) {
 
         for (Exchange exchange : exchangeList) {

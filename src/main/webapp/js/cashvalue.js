@@ -1,13 +1,19 @@
 /**
- * Created by Partizanin on 16.12.2014.
- */
+    * Created with Intellij IDEA.
+    * Project name: cashTestConverter.
+    * User: Partizanin.
+    * Date: 16.12.2014.
+    * Time:  22:31.
+    * To change this template use File|Setting|Editor|File and Code Templates.
+    */
 
 $(document).ready(function () {
 
-    $("#buy").addClass("disabled");
-    $("#buy").attr("disabled", true);
+    var buyButton = $("#buy");
+    buyButton.addClass("disabled");
+    buyButton.attr("disabled", true);
     $("#inputValue").focus();
-    callServeToChangeExchange("uah", "buy");
+    callServeToChangeExchange("UAH", "buy");
 });
 
 function loader(action) {
@@ -29,19 +35,21 @@ function isNumberKey(evt) {
 function disableButtonOnClick(buttonValue) {
 
     var value = "";
+    var buyButton = $("#buy");
+    var sellButton = $("#sell");
     if (buttonValue == "Купить") {
 
-        $("#buy").addClass("disabled");
-        $("#buy").attr("disabled", true);
-        $("#sell").attr("disabled", false);
-        $("#sell").removeClass("disabled");
+        buyButton.addClass("disabled");
+        buyButton.attr("disabled", true);
+        sellButton.attr("disabled", false);
+        sellButton.removeClass("disabled");
 
         value = "buy";
     } else {
-        $("#buy").attr("disabled", false);
-        $("#sell").attr("disabled", true);
-        $("#sell").addClass("disabled");
-        $("#buy").removeClass("disabled");
+        buyButton.attr("disabled", false);
+        sellButton.attr("disabled", true);
+        sellButton.addClass("disabled");
+        buyButton.removeClass("disabled");
 
         value = "sell";
     }
@@ -73,7 +81,7 @@ function changeExchange(exchange) {
 
 function changeShowLable(exchange) {
 
-    if (exchange == "usd") {
+    if (exchange == "USD") {
 
         $("label[id = value1]").text("UAH");
         $("label[id = value2]").text("RUB");
@@ -81,7 +89,7 @@ function changeShowLable(exchange) {
         $("label[id = value4]").text("PLN");
 
     } else
-    if (exchange == "eur") {
+    if (exchange == "EUR") {
 
         $("label[id = value1]").text("UAH");
         $("label[id = value2]").text("RUB");
@@ -89,7 +97,7 @@ function changeShowLable(exchange) {
         $("label[id = value4]").text("PLN");
 
     } else
-    if (exchange == "rub") {
+    if (exchange == "RUB") {
 
         $("label[id = value1]").text("UAH");
         $("label[id = value2]").text("USD");
@@ -97,7 +105,7 @@ function changeShowLable(exchange) {
         $("label[id = value4]").text("PLN");
 
     } else
-    if (exchange == "pln") {
+    if (exchange == "PLN") {
 
         $("label[id = value1]").text("USD");
         $("label[id = value2]").text("RUB");
@@ -105,7 +113,7 @@ function changeShowLable(exchange) {
         $("label[id = value4]").text("UAH");
 
     } else {
-        /*uah*/
+        /*UAH*/
         $("label[id = value1]").text("USD");
         $("label[id = value2]").text("RUB");
         $("label[id = value3]").text("EUR");
@@ -138,7 +146,7 @@ function callServeToChangeExchange(exchange, operation) {
             document.getElementById("exchange3").value = data.exchange3;
             document.getElementById("exchange4").value = data.exchange4;
             count($("#inputValue").val());
-            loader("hide")
+            /*loader("hide")*/
         },
 
         error: function(jqXHR, textStatus, errorThrown) {
@@ -181,46 +189,14 @@ function validation() {
 
 }
 
-function blure(){
-
-    if (validation()) {
-
-        $('#inputValue').removeClass('validationValid');
-    }else{
-
-        $('#inputValue').removeClass('validationInvalid');
-    }
-}
-
-
-function changeIcon(bool) {
-
-    if (bool) {
-
-        $('#inputValue').removeClass('inputValueInvalid');
-
-        $("#inputValue").addClass("inputValueValid");
-
-        console.log("bool in method: " + bool);
-    } else if (!bool) {
-
-        $('#inputValue').removeClass('inputValueValid');
-
-        $('#inputValue').addClass('inputValueInvalid');
-
-        console.log("bool in method: " + bool);
-    }
-}
-
-
 function count(inputValue) {
 
     if (inputValue != "" && inputValue != "0.00" && inputValue != "0,00") {
 
-        $("#conventUSD").val(formatOutput(($("#exchange1").val() * inputValue).toFixed(4)));
-        $("#conventEUR").val(formatOutput(($("#exchange3").val() * inputValue).toFixed(4)));
-        $("#conventRUB").val(formatOutput(($("#exchange2").val() * inputValue).toFixed(4)));
-        $("#conventUAH").val(formatOutput(($("#exchange4").val() * inputValue).toFixed(4)));
+        $("#conventUSD").val(formatOutput((($("#exchange1").val() * inputValue).toFixed(4))));
+        $("#conventEUR").val(formatOutput((($("#exchange3").val() * inputValue).toFixed(4))));
+        $("#conventRUB").val(formatOutput((($("#exchange2").val() * inputValue).toFixed(4))));
+        $("#conventUAH").val(formatOutput((($("#exchange4").val() * inputValue).toFixed(4))));
 
     } else {
         setDefaultValues();

@@ -15,7 +15,7 @@
         <img src="images/forkImage.png"
              alt="Fork me on GitHub">
     </a>
-<div class="Converter">
+    <div class="Converter">
     <div id="mainLabel" >
     <h2 id="mainLabelH2">Конвертер валют</h2>
     <hr id="mainLabelHr">
@@ -30,15 +30,12 @@
                                                     onblur="if (this.value == '') {this.value = '0.00'; }  "
                                                     id="inputValue" type="text" pattern="\d+\.?\d{0,10}"/>
     <div class="list">
-    <select id="selectExchange"
-            onmouseover="this.size=this.options.length"
-            onmouseout="this.size=1"
-            onchange="changeExchange(this.value)">
-        <option value="usd">USD</option>
-        <option value="eur">EUR</option>
-        <option value="rub">RUB</option>
-        <option value="pln">PLN</option>
-        <option selected="" value="uah">UAH</option>
+    <select id="selectExchange" onmouseover="this.size=this.options.length" onmouseout="this.size=1" onchange="changeExchange(this.value)">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="RUB">RUB</option>
+        <option value="PLN">PLN</option>
+        <option selected="" value="UAH">UAH</option>
     </select>
     </div>
     <hr id="someHr2">

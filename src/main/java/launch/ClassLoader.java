@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Created with Intellij IDEA.
- * Project name: cashConverter.
+ * Project name: cashTestConverter.
  * User: Partizanin.
  * Date: 29.03.2015.
  * Time:  17:57.

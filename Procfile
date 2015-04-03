@@ -1,1 +1,1 @@
-web: sh target/bin/web
+web: java -cp target/classes:"target/dependency/*"

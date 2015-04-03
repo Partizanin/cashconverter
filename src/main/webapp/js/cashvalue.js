@@ -1,6 +1,6 @@
 /**
     * Created with Intellij IDEA.
-    * Project name: cashTestConverter.
+    * Project name: cashConverter.
     * User: Partizanin.
     * Date: 16.12.2014.
     * Time:  22:31.

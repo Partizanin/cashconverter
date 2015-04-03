@@ -2,7 +2,7 @@ package launch;
 
 /**
  * Created with Intellij IDEA.
- * Project name: cashTestConverter.
+ * Project name: cashConverter.
  * User: Partizanin.
  * Date: 29.03.2015.
  * Time:  16:35.

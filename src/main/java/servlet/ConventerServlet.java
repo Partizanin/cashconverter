@@ -1,6 +1,6 @@
 package servlet;
 
-import launch.SiteFilter;
+import launch.ClassLoader;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,7 +23,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "ConventerServlet", urlPatterns = "/ConventerServlet")
 
 public class ConventerServlet extends HttpServlet {
-    private static SiteFilter sf = new SiteFilter();
+    private static ClassLoader cl = new ClassLoader();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -56,13 +56,13 @@ public class ConventerServlet extends HttpServlet {
     public static JSONObject setNewRateToJsonObject(String operation, String exchange) {
 
             switch (exchange) {
-                case "usd":
+                case "USD":
                     return USDCourse(operation);
-                case "eur":
+                case "EUR":
                     return EURCourse(operation);
-                case "rub":
+                case "RUB":
                     return RUBCourse(operation);
-                case "pln":
+                case "PLN":
                     return PLNCourse(operation);
                 default:
                 /*uah*/
@@ -74,12 +74,13 @@ public class ConventerServlet extends HttpServlet {
     public static JSONObject UAHCourse(String transactionValue) {
         JSONObject obj = new JSONObject();
 
+
         try {
 
-            obj.put("exchange1", sf.getCourse("UAHUSD", transactionValue));
-            obj.put("exchange2", sf.getCourse("UAHRUB", transactionValue));
-            obj.put("exchange3", sf.getCourse("UAHEUR", transactionValue));
-            obj.put("exchange4", sf.getCourse("UAHPLN", transactionValue));
+            obj.put("exchange1", cl.getCourseByIdAndOperation("UAHUSD", transactionValue));
+            obj.put("exchange2", cl.getCourseByIdAndOperation("UAHRUB", transactionValue));
+            obj.put("exchange3", cl.getCourseByIdAndOperation("UAHEUR", transactionValue));
+            obj.put("exchange4", cl.getCourseByIdAndOperation("UAHPLN", transactionValue));
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -94,10 +95,10 @@ public class ConventerServlet extends HttpServlet {
 
         try {
 
-            obj.put("exchange1", sf.getCourse("USDUAH", transactionValue));
-            obj.put("exchange2", sf.getCourse("USDRUB", transactionValue));
-            obj.put("exchange3", sf.getCourse("USDEUR", transactionValue));
-            obj.put("exchange4", sf.getCourse("USDPLN", transactionValue));
+            obj.put("exchange1", cl.getCourseByIdAndOperation("USDUAH", transactionValue));
+            obj.put("exchange2", cl.getCourseByIdAndOperation("USDRUB", transactionValue));
+            obj.put("exchange3", cl.getCourseByIdAndOperation("USDEUR", transactionValue));
+            obj.put("exchange4", cl.getCourseByIdAndOperation("USDPLN", transactionValue));
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -112,10 +113,10 @@ public class ConventerServlet extends HttpServlet {
 
         try {
 
-            obj.put("exchange1", sf.getCourse("EURUAH", transactionValue));
-            obj.put("exchange2", sf.getCourse("EURRUB", transactionValue));
-            obj.put("exchange3", sf.getCourse("EURUSD", transactionValue));
-            obj.put("exchange4", sf.getCourse("EURPLN", transactionValue));
+            obj.put("exchange1", cl.getCourseByIdAndOperation("EURUAH", transactionValue));
+            obj.put("exchange2", cl.getCourseByIdAndOperation("EURRUB", transactionValue));
+            obj.put("exchange3", cl.getCourseByIdAndOperation("EURUSD", transactionValue));
+            obj.put("exchange4", cl.getCourseByIdAndOperation("EURPLN", transactionValue));
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -130,10 +131,10 @@ public class ConventerServlet extends HttpServlet {
 
         try {
 
-            obj.put("exchange1", sf.getCourse("RUBUAH", transactionValue));
-            obj.put("exchange2", sf.getCourse("RUBUSD", transactionValue));
-            obj.put("exchange3", sf.getCourse("RUBEUR", transactionValue));
-            obj.put("exchange4", sf.getCourse("RUBPLN", transactionValue));
+            obj.put("exchange1", cl.getCourseByIdAndOperation("RUBUAH", transactionValue));
+            obj.put("exchange2", cl.getCourseByIdAndOperation("RUBUSD", transactionValue));
+            obj.put("exchange3", cl.getCourseByIdAndOperation("RUBEUR", transactionValue));
+            obj.put("exchange4", cl.getCourseByIdAndOperation("RUBPLN", transactionValue));
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -148,10 +149,10 @@ public class ConventerServlet extends HttpServlet {
 
         try {
 
-            obj.put("exchange1", sf.getCourse("PLNUSD", transactionValue));
-            obj.put("exchange2", sf.getCourse("PLNRUB", transactionValue));
-            obj.put("exchange3", sf.getCourse("PLNEUR", transactionValue));
-            obj.put("exchange4", sf.getCourse("PLNUAH", transactionValue));
+            obj.put("exchange1", cl.getCourseByIdAndOperation("PLNUSD", transactionValue));
+            obj.put("exchange2", cl.getCourseByIdAndOperation("PLNRUB", transactionValue));
+            obj.put("exchange3", cl.getCourseByIdAndOperation("PLNEUR", transactionValue));
+            obj.put("exchange4", cl.getCourseByIdAndOperation("PLNUAH", transactionValue));
 
         } catch (JSONException e) {
             e.printStackTrace();

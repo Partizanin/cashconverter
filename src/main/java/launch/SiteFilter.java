@@ -1,8 +1,8 @@
 package launch;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created with Intellij IDEA.
@@ -15,71 +15,23 @@ import java.util.List;
 public class SiteFilter {
 
     public SiteFilter() {
-        createExchangeList();
+
     }
 
-    private static DecimalFormat df = new DecimalFormat("#.####");
+    public static void main(String[] args) {
+        SiteFilter sf = new SiteFilter();
 
-    private static StringBuilder siteSource = new StringBuilder(new SiteDownload().getSource());
-
-    private static List<Exchange> exchangeList = new ArrayList<>();
-
-    private Exchange getExchangeById(String id) {
-
-        for (Exchange exchange : exchangeList) {
-            if (exchange.getId().equals(id)) {
-                return exchange;
-            }
+        for (String s : sf.getIdsForExchange()) {
+            System.out.println(s);
         }
 
-        return new Exchange("Null","0",0,0);
     }
 
-    public String getCourse(String exchangeId,String transactionValue) {
 
-        return String.valueOf(getExchangeById(exchangeId).getCourse(transactionValue));
-    }
+    private StringBuilder siteSource = new StringBuilder(new SiteDownload().getSource());
 
-    private static void createExchangeList() {
 
-        List<String> list = getAllCurrency();
-
-        for (String s : list) {
-
-            Exchange exchange = new Exchange();
-            exchange.setName(getName(s));
-            exchange.setBuyCourse(Double.parseDouble(df.format(Double.parseDouble(returnAskValueFromMethod(s, "buy")))));
-            exchange.setId(getId(s));
-            exchange.setSellCourse(Double.parseDouble(df.format(Double.parseDouble(returnAskValueFromMethod(s, "sell")))));
-
-            exchangeList.add(exchange);
-        }
-
-        /*createNewExchange();*/
-
-    }
-
-    private static String getValues() {
-        StringBuilder siteSourceCode = siteSource;
-
-        StringBuilder result = new StringBuilder();
-
-        int start = siteSourceCode.indexOf("<results>");
-
-        int end = siteSourceCode.indexOf("</results>");
-
-        for (int i = start; i < siteSourceCode.length(); i++) {
-
-            if (i > start && i <= end) {
-
-                result.append(siteSourceCode.charAt(i));
-            }
-        }
-
-        return String.valueOf(result);
-    }
-
-    private static String returnAskValueFromMethod(String source, String operation) {
+    protected String returnAskValueBySourceAndOperation(String source, String operation) {
         StringBuilder returnValue = new StringBuilder();
 
         int start = 0;
@@ -108,19 +60,7 @@ public class SiteFilter {
         return String.valueOf(returnValue);
     }
 
-    private static String getName(String source) {
-
-        StringBuilder returnName = new StringBuilder(getId(source));
-
-        returnName.insert(3, "  ");
-        returnName.insert(4, "to");
-
-
-        return String.valueOf(returnName);
-
-    }
-
-    private static String getId(String source) {
+    protected String getId(String source) {
 
 
         StringBuilder id = new StringBuilder();
@@ -137,10 +77,24 @@ public class SiteFilter {
         return String.valueOf(id);
 
     }
-    /*Достает xml исходник все х курсов*/
-    private static ArrayList<String> getAllCurrency() {
+
+    protected Set<String> getIdsForExchange() {
+        Set<String> iDs = new HashSet<>();
+
+        for (String s : getAllCurrency()) {
+
+            String id = getId(s).substring(0, 3);
+            iDs.add(id);
+
+        }
+
+        return iDs;
+    }
+
+    /*Р”РѕСЃС‚Р°РµС‚ xml РёСЃС…РѕРґРЅРёРє РІСЃРµ С… РєСѓСЂСЃРѕРІ*/
+    protected ArrayList<String> getAllCurrency() {
         ArrayList<String> list = new ArrayList<>();
-        StringBuilder source = new StringBuilder(getValues());
+        StringBuilder source = new StringBuilder(siteSource);
 
         StringBuilder currency = new StringBuilder();
 
@@ -171,10 +125,10 @@ public class SiteFilter {
         return list;
     }
 
-    /*Достает xml исходник всего курса*/
-    private static String getCurrency(String startPoint) {
+    /*Р”РѕСЃС‚Р°РµС‚ xml РёСЃС…РѕРґРЅРёРє РІСЃРµРіРѕ РєСѓСЂСЃР°*/
+    private String getCurrencyById(String startPoint) {
 
-        StringBuilder result = new StringBuilder(getValues());
+        StringBuilder result = new StringBuilder(siteSource);
 
         StringBuilder currencyValue = new StringBuilder();
 
@@ -194,36 +148,6 @@ public class SiteFilter {
 
         return String.valueOf(currencyValue);
 
-    }
-
-    private static void createNewExchange() {
-
-        for (Exchange exchange : exchangeList) {
-            Exchange newExchange = new Exchange();
-
-            char[] chars = exchange.getId().toCharArray();
-            StringBuilder id = new StringBuilder();
-            id.append(chars[3]);
-            id.append(chars[4]);
-            id.append(chars[5]);
-            id.append(chars[0]);
-            id.append(chars[1]);
-            id.append(chars[2]);
-
-
-        }
-    }
-    /*Проверяет существующие курсы по id*/
-    private static boolean containOfId(String id) {
-
-        for (Exchange exchange : exchangeList) {
-            if (exchange.getId().equals(id)) {
-                return true;
-            }
-
-        }
-
-        return false;
     }
 
 }

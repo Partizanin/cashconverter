@@ -53,10 +53,12 @@ public class SiteDownload {
             }
 
         }
-        return source.toString();
+
+
+        return getValues(source);
     }
 
-    private static void writeToFile(String source){
+    private void writeToFile(String source){
         PrintWriter pw = null;
         try {
              pw = new PrintWriter("source.xml");
@@ -70,9 +72,28 @@ public class SiteDownload {
         }
     }
 
-    private static String readFromFile() throws IOException {
+    private String readFromFile() throws IOException {
 
         byte[] encoded = Files.readAllBytes(Paths.get("source.xml"));
         return new String(encoded, StandardCharsets.UTF_8);
+    }
+
+    private String getValues(StringBuilder siteSourceCode) {
+
+        StringBuilder result = new StringBuilder();
+
+        int start = siteSourceCode.indexOf("<results>");
+
+        int end = siteSourceCode.indexOf("</results>");
+
+        for (int i = start; i < siteSourceCode.length(); i++) {
+
+            if (i > start && i <= end) {
+
+                result.append(siteSourceCode.charAt(i));
+            }
+        }
+
+        return String.valueOf(result);
     }
 }

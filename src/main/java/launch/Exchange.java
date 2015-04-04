@@ -1,8 +1,11 @@
 package launch;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created with Intellij IDEA.
- * Project name: Partizanin.
+ * Project id: Partizanin.
  * User: Partizanin.
  * Date: 09.03.2015.
  * Time:  18:51.
@@ -10,30 +13,15 @@ package launch;
  */
 public class Exchange {
 
-    private String name;
-
     private String id;
 
-    private double buyCourse;
-
-    private double sellCourse;
+    private List<InnerExchange> exchanges = new ArrayList<>();
 
     public Exchange() {
     }
 
-    public Exchange(String name, String id, double BuyCourse, double sellCourse) {
-        this.name = name;
+    public Exchange(String id) {
         this.id = id;
-        this.buyCourse = BuyCourse;
-        this.sellCourse = sellCourse;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getId() {
@@ -44,33 +32,31 @@ public class Exchange {
         this.id = id;
     }
 
-    public double getCourse(String transactionValue) {
-        return transactionValue.equals("buy") ? buyCourse : sellCourse;
-    }
-
-    public double getBuyCourse() {
-        return buyCourse;
-    }
-
-    public void setBuyCourse(double buyCourse) {
-        this.buyCourse = buyCourse;
-    }
-
-    public double getSellCourse() {
-        return sellCourse;
-    }
-
-    public void setSellCourse(double sellCourse) {
-        this.sellCourse = sellCourse;
-    }
-
     @Override
     public String toString() {
         return "Exchange{" +
-                "name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                ", buyCourse=" + buyCourse +
-                ", sellCourse=" + sellCourse +
+                "id='" + id + '\'' +
+                ", exchanges=" + exchanges +
                 '}';
+    }
+
+    public List<InnerExchange> getExchanges() {
+        return exchanges;
+    }
+
+    public void addExchanges(InnerExchange exchanges) {
+        this.exchanges.add(exchanges);
+    }
+
+    public String getCourseByIdAndOperation(String exchangeId, String transactionValue) {
+
+        for (InnerExchange exchange : exchanges) {
+
+            if (exchange.getId().equals(exchangeId)) {
+                return String.valueOf(exchange.getCourseByTransactionValue(transactionValue));
+            }
+        }
+
+        return null;
     }
 }

@@ -6,11 +6,7 @@ import java.util.Set;
 
 /**
  * Created with Intellij IDEA.
-<<<<<<< HEAD
  * Project name: Partizanin
-=======
- * Project name: proff16
->>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57
  * User: Partizanin
  * Date: 28.08.2014
  * Time:  22:00
@@ -153,4 +149,5 @@ public class SiteFilter {
         return String.valueOf(currencyValue);
 
     }
+
 }

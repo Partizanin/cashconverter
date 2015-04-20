@@ -3,10 +3,6 @@ package launch;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-<<<<<<< HEAD
-import java.util.Set;
-=======
->>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57
 
 /**
  * Created with Intellij IDEA.
@@ -21,14 +17,10 @@ public class ClassLoader {
     public static void main(String[] args) {
         ClassLoader cl = new ClassLoader();
 
-<<<<<<< HEAD
-
-=======
         for (InnerExchange uah : cl.getExchangeById("UAH").getExchanges()) {
 
             System.out.println(uah);
         }
->>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57
     }
 
     public ClassLoader() {
@@ -65,10 +57,7 @@ public class ClassLoader {
 
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57
     private  void createExchangeList() {
 
         List<InnerExchange> innerExchanges = createInnerExchangeList();
@@ -87,10 +76,7 @@ public class ClassLoader {
         }
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57
     public String getCourseByIdAndOperation(String exchangeId, String transactionValue) {
         String id = exchangeId.substring(0, 3);
         for (Exchange exchange : exchangeList) {
@@ -102,10 +88,7 @@ public class ClassLoader {
         return "null";
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57
     public Exchange getExchangeById(String id) {
 
         for (Exchange exchange : exchangeList) {
@@ -117,16 +100,8 @@ public class ClassLoader {
         return new Exchange("Null");
     }
 
-<<<<<<< HEAD
-    public Set<String> getOptions() {
-
-        return sf.getIdsForExchange();
-    }
-
-=======
 
     /*Проверяет существующие курсы по id*/
->>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57
     private boolean containOfId(String id) {
 
         for (Exchange exchange : exchangeList) {

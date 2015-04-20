@@ -135,6 +135,12 @@ li > input {
     box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2), 0 1px 3px rgba(25, 62, 83, 0.1) inset, 0 0 0 8px rgba(155, 180, 195, 0.3);
 }
 
+#inputValue {
+    /*
+background: url(../images/inputIcon.png) no-repeat scroll -10px -10px;
+padding-left:30px;input icon*/
+}
+
 #inputValue:focus {
     outline: none;
 }
@@ -255,7 +261,7 @@ ul {
     list-style-type: none;
 }
 
-.Converter li input:first-child{
+#conventUSD, #conventEUR, #conventRUB, #conventUAH {
     width: 170px;
     height: 25px;
     margin-right: 1px;
@@ -264,8 +270,14 @@ ul {
     padding-left: 5px;
 }
 
+#value1, #value2, #value3, #value4 {
+    color: #bdd264;
+    border: none;
+    font: normal normal 20px  sans-serif;
+    font-weight: 100;
+}
 
-.Converter li input:last-child{
+#exchange1, #exchange2, #exchange3, #exchange4 {
     margin-left: 1px;
     width: 76px;
     height: 25px;
@@ -290,10 +302,6 @@ ul {
 }
 
 label {
-    color: #bdd264;
-    border: none;
-    font: normal normal 20px  sans-serif;
-    font-weight: 100;
     margin-right: 1px;
     margin-left: 1px;
 }

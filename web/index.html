@@ -1,67 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Конвертер валют</title>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
     <script src="js/jquery-2.1.1.min.js"></script>
-    <script src="js/cashvalue.js"></script>
     <link type="text/css" rel="stylesheet" href="styles/buttonStyle.css"/>
     <link type="text/css" rel="stylesheet" href="styles/mainStyle.css"/>
     <link rel="icon" href="images/favicon2.ico" type="image/x-icon">
+    <script src="js/newJs.js"></script>
 </head>
 <body>
 <form id="form" onsubmit="return false">
-    <a id="forkLink" href="https://github.com/Partizanin/cashconverter" target="_blank">
-        <img src="images/forkImage.png"
-             alt="Fork me on GitHub">
-    </a>
     <div class="Converter">
-    <div id="mainLabel" >
-    <h2 id="mainLabelH2">Конвертер валют</h2>
-    <hr id="mainLabelHr">
+        <div id="mainLabel" >
+            <h2 id="mainLabelH2">Конвертер валют</h2>
+            <hr id="mainLabelHr">
+        </div>
+        <input style="visibility: hidden" type="submit" class="hide" id="inputButton"><!--todo remove this buttond and make validation without button-->
+        <p id="p1">Я хочу</p> <input class="button" onclick="changedListener(this)" type="button" value="Купить" id="buy">
+        <input class="button" onclick="changedListener(this)" type="button" value="Продать" id="sell">
+        <hr id="someHr1">
+        <p id="p2">На сумму</p> <label for="inputValue"></label><input value="0.00" onkeypress="return isNumberKey(event)"
+                                                                       onkeyup="changedListener(this)"
+                                                                       onfocus="if (this.value == '0.00') this.value='';"
+                                                                       onblur="if (this.value == '') {this.value = '0.00'; }  "
+                                                                       id="inputValue" type="text" pattern="\d+\.?\d{0,10}"/>
+        <div class="list">
+            <select id="selectExchange" onmouseover="this.size=this.options.length" onmouseout="this.size=1" onchange="changedListener(this)">
+
+            </select>
+        </div>
+        <hr id="someHr2">
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+        </div>
+        <p id="p3">Результат</p>
+        <ul id="personDataTable">
+
+        </ul>
     </div>
-    <input style="visibility: hidden" type="submit" class="hide" id="inputButton">
-   <p id="p1">Я хочу</p> <input class="button" onclick="changeOperation(this.value)" type="button" value="Купить" id="buy">
-    <input class="button" onclick="changeOperation(this.value)" type="button" value="Продать" id="sell">
-    <hr id="someHr1">
-    <p id="p2">На сумму</p> <label for="inputValue"></label><input value="0.00" onkeypress="return isNumberKey(event)"
-                                                    onkeyup="validation(this.value)"
-                                                    onfocus="if (this.value == '0.00') this.value='';"
-                                                    onblur="if (this.value == '') {this.value = '0.00'; }  "
-                                                    id="inputValue" type="text" pattern="\d+\.?\d{0,10}"/>
-    <div class="list">
-    <select id="selectExchange" onmouseover="this.size=this.options.length" onmouseout="this.size=1" onchange="changeExchange(this.value)">
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
-        <option value="RUB">RUB</option>
-        <option value="PLN">PLN</option>
-        <option selected="" value="UAH">UAH</option>
-    </select>
-    </div>
-    <hr id="someHr2">
-    <div id="loader-wrapper">
-        <div id="loader"></div>
-    </div>
-    <p id="p3">Результат</p>
-    <ul>
-        <li><input type="text" readonly value="0.00"
-                   onblur="if (this.value == '') {this.value = '0.00'; }" id="conventUSD">
-            <label id="value1" >USD</label>
-            <input  readonly id="exchange1"></li>
-        <li><input type="text" readonly value="0.00"
-                   onblur="if (this.value == '') {this.value = '0.00'; }" id="conventRUB">
-            <label id="value2">RUB</label>
-            <input readonly id="exchange2"></li>
-        <li><input type="text" readonly value="0.00"
-                   onblur="if (this.value == '') {this.value = '0.00'; }" id="conventEUR">
-            <label id="value3">EUR</label>
-            <input  readonly id="exchange3"></li>
-        <li><input type="text" readonly value="0.00"
-                   onblur="if (this.value == '') {this.value = '0.00'; }" id="conventUAH">
-            <label id="value4">PLN</label>
-            <input readonly id="exchange4"></li>
-    </ul>
-</div>
-    </form>
+</form>
+
 </body>
 </html>

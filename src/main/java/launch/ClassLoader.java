@@ -3,6 +3,7 @@ package launch;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created with Intellij IDEA.
@@ -17,10 +18,7 @@ public class ClassLoader {
     public static void main(String[] args) {
         ClassLoader cl = new ClassLoader();
 
-        for (InnerExchange uah : cl.getExchangeById("UAH").getExchanges()) {
 
-            System.out.println(uah);
-        }
     }
 
     public ClassLoader() {
@@ -57,7 +55,10 @@ public class ClassLoader {
 
     }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57
     private  void createExchangeList() {
 
         List<InnerExchange> innerExchanges = createInnerExchangeList();
@@ -76,7 +77,6 @@ public class ClassLoader {
         }
     }
 
-
     public String getCourseByIdAndOperation(String exchangeId, String transactionValue) {
         String id = exchangeId.substring(0, 3);
         for (Exchange exchange : exchangeList) {
@@ -87,7 +87,6 @@ public class ClassLoader {
         }
         return "null";
     }
-
 
     public Exchange getExchangeById(String id) {
 
@@ -100,8 +99,11 @@ public class ClassLoader {
         return new Exchange("Null");
     }
 
+    public Set<String> getOptions() {
 
-    /*Проверяет существующие курсы по id*/
+        return sf.getIdsForExchange();
+    }
+
     private boolean containOfId(String id) {
 
         for (Exchange exchange : exchangeList) {

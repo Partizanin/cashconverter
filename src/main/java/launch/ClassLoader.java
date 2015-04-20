@@ -55,10 +55,6 @@ public class ClassLoader {
 
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57
     private  void createExchangeList() {
 
         List<InnerExchange> innerExchanges = createInnerExchangeList();

@@ -111,7 +111,6 @@ function changedListener(object) {
             count();
         });
 
-        count();
 
     } else if (object.type == "button") {
 
@@ -119,8 +118,8 @@ function changedListener(object) {
 
 
         changContent($("#selectExchange").val(), object.id, "changeOperation").then(function(){
-            count();
-        });
+            count();//fixme fix bug (after change currency if you click button, value not changed, value changed after second click)
+         });
 
 
         buttonOperation(object.id, "disabled");

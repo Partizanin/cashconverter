@@ -25,11 +25,7 @@ Create a folder to hold your app and create a file called pom.xml in the root of
       <groupId>com.heroku.sample</groupId>
       <artifactId>embeddedTomcatSample</artifactId>
       <version>1.0-SNAPSHOT</version>
-<<<<<<< HEAD
       <id>embeddedTomcatSample Maven Webapp</id>
-=======
-      <name>embeddedTomcatSample Maven Webapp</name>
->>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57
       <url>http://maven.apache.org</url>
       <properties>
         <tomcat.version>7.0.34</tomcat.version>
@@ -78,11 +74,7 @@ Create a folder to hold your app and create a file called pom.xml in the root of
                     <programs>
                         <program>
                             <mainClass>launch.Main</mainClass>
-<<<<<<< HEAD
                             <id>webapp</id>
-=======
-                            <name>webapp</name>
->>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57
                         </program>
                     </programs>
                 </configuration>
@@ -156,11 +148,7 @@ Create a file called HelloServlet.java in the src/main/java/servlet directory an
     import javax.servlet.http.HttpServletResponse;
     
     @WebServlet(
-<<<<<<< HEAD
             id = "MyServlet",
-=======
-            name = "MyServlet", 
->>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57
             urlPatterns = {"/hello"}
         )
     public class HelloServlet extends HttpServlet {

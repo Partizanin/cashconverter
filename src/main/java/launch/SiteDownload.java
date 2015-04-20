@@ -8,11 +8,7 @@ import java.nio.file.Paths;
 
 /**
  * Created with Intellij IDEA.
-<<<<<<< HEAD
  * Project name: Partizanin
-=======
- * Project name: proff16
->>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57
  * User: Partizanin
  * Date: 28.08.2014
  * Time:  21:30
@@ -57,7 +53,6 @@ public class SiteDownload {
             }
 
         }
-<<<<<<< HEAD
 
 
         return getValues(source);
@@ -67,15 +62,6 @@ public class SiteDownload {
         PrintWriter pw = null;
         try {
              pw = new PrintWriter("source.xml");
-=======
-        return source.toString();
-    }
-
-    private static void writeToFile(String source){
-        PrintWriter pw = null;
-        try {
-             pw = new PrintWriter("source.txt");
->>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57
             pw.print(source);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -86,7 +72,6 @@ public class SiteDownload {
         }
     }
 
-<<<<<<< HEAD
     private String readFromFile() throws IOException {
 
         byte[] encoded = Files.readAllBytes(Paths.get("source.xml"));
@@ -111,11 +96,4 @@ public class SiteDownload {
 
         return String.valueOf(result);
     }
-=======
-    private static String readFromFile() throws IOException {
-
-        byte[] encoded = Files.readAllBytes(Paths.get("source.txt"));
-        return new String(encoded, StandardCharsets.UTF_8);
-    }
->>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57
 }

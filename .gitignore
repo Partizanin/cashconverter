@@ -1,5 +1,12 @@
 target
 tomcat.8080
 tomcat.5000
+<<<<<<< HEAD
 cashTestConverter.iml
 .idea
+=======
+.idea
+cashConverter.iml
+classes
+META-INF
+>>>>>>> f22dc58137c88b20b01febf6162ff54b82423d57

@@ -105,16 +105,12 @@ function changedListener(object) {
 
     if (object.type == "select-one") {
 
-        console.log("ChangeListener:" + object.value);
-
-        changContent(object.value, "default", "changeCourse").then(function () {
+        changContent(object.value, pressedButton, "changeCourse").then(function () {
             count();
         });
 
 
     } else if (object.type == "button") {
-
-        console.log("ChangeListener:" + object.id);
 
 
         changContent($("#selectExchange").val(), object.id, "changeOperation").then(function(){
@@ -159,6 +155,10 @@ function changedListener(object) {
 
     }
 
+    var pressedButton = getPressedButton();
+    var selectedValue= $( "#selectExchange" ).val();
+
+    console.log("ChangeListener:" + selectedValue + " " + pressedButton );
 }
 
 function changContent(exchange, operation, action) {
@@ -271,6 +271,12 @@ function buttonOperation(buttonId, operation) {
     }
 
     $("#inputValue").focus();
+
+}
+
+function getPressedButton(){
+
+    return $( "#buy" ).is(":disabled") ? "buy"  : "sell"
 
 }
 

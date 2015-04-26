@@ -12,10 +12,9 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <!--
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
         <welcome-file>calc.jsp</welcome-file>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>x
         <welcome-file>firs.jsp</welcome-file>
         <welcome-file>ajaxTutorial.jsp</welcome-file>
            <welcome-file>index.htm</welcome-file>

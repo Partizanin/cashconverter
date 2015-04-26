@@ -12,34 +12,34 @@
 <body>
 <form id="form" onsubmit="return false">
     <div class="Converter">
-        <div id="mainLabel" >
-            <h2 id="mainLabelH2">Конвертер валют</h2>
-            <hr id="mainLabelHr">
-        </div>
+    <div id="mainLabel" >
+    <h2 id="mainLabelH2">Конвертер валют</h2>
+    <hr id="mainLabelHr">
+    </div>
         <input style="visibility: hidden" type="submit" class="hide" id="inputButton"><!--todo remove this buttond and make validation without button-->
         <p id="p1">Я хочу</p> <input class="button" onclick="changedListener(this)" type="button" value="Купить" id="buy">
         <input class="button" onclick="changedListener(this)" type="button" value="Продать" id="sell">
-        <hr id="someHr1">
-        <p id="p2">На сумму</p> <label for="inputValue"></label><input value="0.00" onkeypress="return isNumberKey(event)"
+    <hr id="someHr1">
+    <p id="p2">На сумму</p> <label for="inputValue"></label><input value="0.00" onkeypress="return isNumberKey(event)"
                                                                        onkeyup="changedListener(this)"
-                                                                       onfocus="if (this.value == '0.00') this.value='';"
-                                                                       onblur="if (this.value == '') {this.value = '0.00'; }  "
-                                                                       id="inputValue" type="text" pattern="\d+\.?\d{0,10}"/>
-        <div class="list">
+                                                    onfocus="if (this.value == '0.00') this.value='';"
+                                                    onblur="if (this.value == '') {this.value = '0.00'; }  "
+                                                    id="inputValue" type="text" pattern="\d+\.?\d{0,10}"/>
+    <div class="list">
             <select id="selectExchange" onmouseover="this.size=this.options.length" onmouseout="this.size=1" onchange="changedListener(this)">
 
-            </select>
-        </div>
-        <hr id="someHr2">
-        <div id="loader-wrapper">
-            <div id="loader"></div>
-        </div>
-        <p id="p3">Результат</p>
+    </select>
+    </div>
+    <hr id="someHr2">
+      <!--  <div id="loader-wrapper">
+        <div id="loader"></div>
+        </div>-->
+    <p id="p3">Результат</p>
         <ul id="personDataTable">
 
-        </ul>
-    </div>
-</form>
+    </ul>
+</div>
+    </form>
 
 </body>
 </html>

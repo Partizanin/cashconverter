@@ -9,7 +9,7 @@
 
 
 $(window).load(function fill() {
-
+    loader("show");
     callToServer("load").then(function (data) {
 
         var jsonData = data;
@@ -66,9 +66,11 @@ $(window).load(function fill() {
         }
     });
     buttonOperation("buy", "disabled");
+    loader("show");
 });
 
 function callToServer(request) {
+    loader("show");
     var myData = {"operationCall": request};
     var defer = $.Deferred();
     $.ajax({
@@ -87,7 +89,7 @@ function callToServer(request) {
         },
 
         complete: function () {
-
+            loader("hide");
         }
 
     }).done(function (data) {
@@ -98,6 +100,7 @@ function callToServer(request) {
         console.log("Status: " + status);
         console.dir(xhr);
     });
+
     return defer.promise();
 }
 
@@ -281,6 +284,7 @@ function getPressedButton(){
 }
 
 function count() {
+    loader("show");
     var inputValue = $("#inputValue").val();
     $('#personDataTable').find('li').each(function () {
 //todo edith if method and remove duplicate code
@@ -297,11 +301,21 @@ function count() {
         return parts.join(".");
 
     }
-
+    loader("hide");
 }
 
 function isNumberKey(evt) {
     var charCode = ((evt.which) ? evt.which : event.keyCode);
     return !(charCode > 31 && (charCode != 46 && charCode != 44 && (charCode < 48 || charCode > 57)));
 
+}
+
+function loader(action) {
+
+    if (action == "show") {
+
+        $("#loader-wrapper").show();
+    } else {/*hide*/
+        $("#loader-wrapper").hide();
+    }
 }

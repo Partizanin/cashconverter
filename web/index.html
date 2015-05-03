@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/redmond/jquery-ui.css"/>
     <link type="text/css" rel="stylesheet" href="styles/buttonStyle.css"/>
     <link type="text/css" rel="stylesheet" href="styles/mainStyle.css"/>
     <link rel="icon" href="images/favicon2.ico" type="image/x-icon">
     <script src="js/newJs.js"></script>
+    <script src="js/uiDialog.js"></script>
 </head>
 <body>
 <form id="form" onsubmit="return false">
@@ -19,6 +22,23 @@
         <input style="visibility: hidden" type="submit" class="hide" id="inputButton"><!--todo remove this buttond and make validation without button-->
         <p id="p1">Я хочу</p> <input class="button" onclick="changedListener(this)" type="button" value="Купить" id="buy">
         <input class="button" onclick="changedListener(this)" type="button" value="Продать" id="sell">
+        <a href="#openModal">Выбрать валюту</a>
+        <div id="openModal" class="modalDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Валюты</h2>
+                <ul id="checkBoxTable">
+                    <li><input type="checkbox" name="a" value="USD"/><label>USD</label>
+                        <input type="checkbox" name="a" value="EUR"/><label>EUR</label>
+                        </li>
+                    <li><input type="checkbox" name="a" value="USD"/><label>USD</label>
+                        <input type="checkbox" name="a" value="EUR"/><label>EUR</label>
+                        </li>
+                </ul>
+            </div>
+        </div>
+
+
     <hr id="someHr1">
     <p id="p2">На сумму</p> <label for="inputValue"></label><input value="0.00" onkeypress="return isNumberKey(event)"
                                                                        onkeyup="changedListener(this)"

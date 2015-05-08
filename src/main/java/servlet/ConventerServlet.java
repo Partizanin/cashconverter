@@ -1,6 +1,6 @@
 package servlet;
 
-import launch.ClassLoader;
+import launch.ClassLoaderY;
 import launch.Exchange;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,7 +24,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "ConventerServlet", urlPatterns = "/ConventerServlet")
 
 public class ConventerServlet extends HttpServlet {
-    private static ClassLoader cl = new ClassLoader();
+    private static ClassLoaderY cl = new ClassLoaderY();
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

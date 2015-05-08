@@ -103,7 +103,6 @@ public class SiteFilterNBU  {
         return list;
     }
 
-
     protected Set<String> getIdsForExchange() {
         Set<String> iDs = new HashSet<>();
 
@@ -117,6 +116,7 @@ public class SiteFilterNBU  {
         return iDs;
     }
 
+
     protected String getCurrencyById(String id) {
 
         StringBuilder result = new StringBuilder(siteSource);
@@ -125,11 +125,9 @@ public class SiteFilterNBU  {
 
         StringBuilder currencyValue = new StringBuilder();
 
-        int start = result.indexOf("</item>");
+        int start = result.indexOf("<item>");
 
         int end = result.indexOf("</item>", start);
-
-
         while (result.length() > 0) {
 
             test.append(result, start, end);
@@ -140,9 +138,10 @@ public class SiteFilterNBU  {
                 break;
             } else {
 
-                result.delete(end, result.length());
+                test.setLength(0);
+                result.delete(start, end);
 
-                start = result.indexOf("</item>");
+                start = result.indexOf("<item>");
 
                 end = result.indexOf("</item>", start);
 

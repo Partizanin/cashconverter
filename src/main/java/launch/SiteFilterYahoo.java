@@ -14,63 +14,44 @@ import java.util.Set;
  */
 public class SiteFilterYahoo {
 
+    private StringBuilder siteSource = new StringBuilder(new SiteDownload().getSource("yahoo"));
+
     public SiteFilterYahoo() {
 
     }
 
+
     public static void main(String[] args) {
         SiteFilterYahoo sf = new SiteFilterYahoo();
-        System.out.println(sf.getCurrencyById("UAHUSD"));
+        for (String s : sf.getAllCurrency()) {
+            System.out.println(s);
+        }
+
     }
 
 
-    private StringBuilder siteSource = new StringBuilder(new SiteDownload().getSource("yahoo"));
-
-
     protected String returnAskValueBySourceAndOperation(String source, String operation) {
-        StringBuilder returnValue = new StringBuilder();
 
-        int start = 0;
-        int finish = 0;
+        int beginIndex = source.indexOf("<Bid>") + 5;
+        int endIndex = source.indexOf("</Bid>");
 
         if (operation.equals("buy")) {
 
-            start = source.indexOf("<Ask>") + 4;
-            finish = source.indexOf("</Ask>");
-
-
-        } else { /*operation sell*/
-
-            start = source.indexOf("<Bid>") + 4;
-            finish = source.indexOf("</Bid>");
+            beginIndex = source.indexOf("<Ask>") + 5;
+            endIndex = source.indexOf("</Ask>");
         }
 
-        for (int i = start; i < source.length(); i++) {
-
-            if (i > start && i < finish) {
-
-                returnValue.append(source.charAt(i));
-            }
-        }
-
-        return String.valueOf(returnValue);
+        return source.substring(beginIndex, endIndex);
     }
 
     protected String getId(String source) {
 
+        int beginIndex = source.indexOf("<rate id=") + 10;
 
-        StringBuilder id = new StringBuilder();
-
-
-        int start = source.indexOf("<rate id=") + 10;
-
-        int end = source.indexOf('"' + ">", start);
+        int endIndex = source.indexOf('"' + ">", beginIndex);
 
 
-        id.append(source, start, end);
-
-
-        return String.valueOf(id);
+        return source.substring(beginIndex,endIndex);
 
     }
 
@@ -80,8 +61,8 @@ public class SiteFilterYahoo {
         for (String s : getAllCurrency()) {
 
             String id = getId(s).substring(0, 3);
-            iDs.add(id);
 
+            iDs.add(id);
         }
 
         return iDs;
@@ -96,26 +77,17 @@ public class SiteFilterYahoo {
 
         while (source.indexOf("<rate id=" + '"') != -1) {
 
-            int start = source.indexOf("<rate id=" + '"') - 1;
+            int start = source.indexOf("<rate id=" + '"');
 
             int end = source.indexOf("</rate>", start);
 
-            for (int i = start; i < source.length(); i++) {
+            currency.append(source, start, end);
 
-                if (i > start && i < end) {
+            list.add(String.valueOf(currency));
 
-                    currency.append(source.charAt(i));
+            source.delete(0, end);
 
-                } else if (i == end) {
-                    list.add(String.valueOf(currency));
-
-                    source.delete(0, i);
-
-                    currency.setLength(0);
-                    break;
-                }
-            }
-
+            currency.setLength(0);
         }
 
         return list;

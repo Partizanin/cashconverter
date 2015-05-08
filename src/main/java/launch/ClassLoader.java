@@ -25,7 +25,7 @@ public class ClassLoader {
         createExchangeList();
     }
 
-    private SiteFilter sf = new SiteFilter();
+    private SiteFilterYahoo sf = new SiteFilterYahoo();
 
     private List<Exchange> exchangeList = new ArrayList<Exchange>();
 

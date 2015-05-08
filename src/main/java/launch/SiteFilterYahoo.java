@@ -19,8 +19,8 @@ public class SiteFilterYahoo extends SiteFilter {
     }
 
     public static void main(String[] args) {
-        SiteFilter sf = new SiteFilterYahoo();
-        System.out.println(sf.getCurrencyById("USD"));
+        SiteFilterYahoo sf = new SiteFilterYahoo();
+        System.out.println(sf.getCurrencyById("UAHUSD"));
     }
 
 
@@ -128,26 +128,11 @@ public class SiteFilterYahoo extends SiteFilter {
     /*Достает xml исходник всего курса*/
     @Override
     protected String getCurrencyById(String startPoint) {
+        int start = siteSource.indexOf("<rate id=" + '"' + startPoint + '"' + ">");
 
-        StringBuilder result = new StringBuilder(siteSource);
+        int end = siteSource.indexOf("</rate>", start);
 
-        StringBuilder currencyValue = new StringBuilder();
-
-        int start = result.indexOf("<rate id=" + '"' + startPoint + '"' + ">") + 8;
-
-        int end = result.indexOf("</rate>", start);
-
-
-        for (int i = start; i < result.length(); i++) {
-
-            if (i > start && i < end) {
-
-                currencyValue.append(result.charAt(i));
-
-            }
-        }
-
-        return String.valueOf(currencyValue);
+        return siteSource.substring(start, end);
 
     }
 

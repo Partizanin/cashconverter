@@ -12,7 +12,7 @@ import java.util.Set;
  * Time:  22:00
  * To change this template use File|Setting|File Templates.
  */
-public class SiteFilterYahoo extends SiteFilter {
+public class SiteFilterYahoo {
 
     public SiteFilterYahoo() {
 
@@ -27,7 +27,6 @@ public class SiteFilterYahoo extends SiteFilter {
     private StringBuilder siteSource = new StringBuilder(new SiteDownload().getSource("yahoo"));
 
 
-    @Override
     protected String returnAskValueBySourceAndOperation(String source, String operation) {
         StringBuilder returnValue = new StringBuilder();
 
@@ -57,7 +56,6 @@ public class SiteFilterYahoo extends SiteFilter {
         return String.valueOf(returnValue);
     }
 
-    @Override
     protected String getId(String source) {
 
 
@@ -76,7 +74,6 @@ public class SiteFilterYahoo extends SiteFilter {
 
     }
 
-    @Override
     protected Set<String> getIdsForExchange() {
         Set<String> iDs = new HashSet<>();
 
@@ -91,7 +88,6 @@ public class SiteFilterYahoo extends SiteFilter {
     }
 
     /*Достает xml исходник все х курсов*/
-    @Override
     protected ArrayList<String> getAllCurrency() {
         ArrayList<String> list = new ArrayList<>();
         StringBuilder source = new StringBuilder(siteSource);
@@ -126,7 +122,7 @@ public class SiteFilterYahoo extends SiteFilter {
     }
 
     /*Достает xml исходник всего курса*/
-    @Override
+
     protected String getCurrencyById(String startPoint) {
         int start = siteSource.indexOf("<rate id=" + '"' + startPoint + '"' + ">");
 

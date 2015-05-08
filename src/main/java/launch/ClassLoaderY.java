@@ -13,15 +13,18 @@ import java.util.Set;
  * Time:  17:57.
  * To change this template use File|Setting|Editor|File and Code Templates.
  */
-public class ClassLoader {
+public class ClassLoaderY {
 
     public static void main(String[] args) {
-        ClassLoader cl = new ClassLoader();
+        ClassLoaderY cl = new ClassLoaderY();
 
+        for (Exchange exchange : cl.exchangeList) {
+            System.out.println(exchange);
+        }
 
     }
 
-    public ClassLoader() {
+    public ClassLoaderY() {
         createExchangeList();
     }
 
@@ -57,12 +60,11 @@ public class ClassLoader {
 
     private  void createExchangeList() {
 
-        List<InnerExchange> innerExchanges = createInnerExchangeList();
         for (String exchangeId : sf.getIdsForExchange()) {
             Exchange exchange = new Exchange(exchangeId);
 
 
-            for (InnerExchange innerExchange : innerExchanges) {
+            for (InnerExchange innerExchange : createInnerExchangeList()) {
 
                 if (innerExchange.getId().substring(0, 3).equals(exchangeId)) {
                     exchange.addExchanges(innerExchange);

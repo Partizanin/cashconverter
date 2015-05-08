@@ -8,13 +8,13 @@ import java.util.Set;
  * Created by Partizanin on 07.05.2015.
  */
 
-public class SiteFilterNBU  {
+public class SiteFilterNBU {
 
     public static void main(String[] args) {
 
         SiteFilterNBU sf = new SiteFilterNBU();
 
-        System.out.println("sf.getCurrencyById(\"USD\") = " + sf.getCurrencyById("USD"));
+        System.out.println(sf.returnAskValueBySourceAndOperation(sf.getCurrencyById("USD"),"buy"));
     }
 
     private StringBuilder siteSource = new StringBuilder(new SiteDownload().getSource("NBU"));
@@ -24,49 +24,28 @@ public class SiteFilterNBU  {
 
 
     protected String returnAskValueBySourceAndOperation(String source, String operation) {
-        StringBuilder returnValue = new StringBuilder();
 
-        int start = 0;
-        int finish = 0;
+        int beginIndex = source.indexOf("<rate>") + 6;
+        int endIndex = source.indexOf("</rate>");
 
-        if (operation.equals("buy")) {
+        if (!operation.equals("buy")) {
 
-            start = source.indexOf("<rateBuy>") + 4;
-            finish = source.indexOf("</rateBuy>");
-
-
-        } else { /*operation sell*/
-
-            start = source.indexOf("<rateSale>") + 4;
-            finish = source.indexOf("</rateSale>");
+            return "1";
         }
 
-        for (int i = start; i < source.length(); i++) {
 
-            if (i > start && i < finish) {
-
-                returnValue.append(source.charAt(i));
-            }
-        }
-
-        return String.valueOf(returnValue);
+        return source.substring(beginIndex, endIndex);
 
     }
 
 
     protected String getId(String source) {
-        StringBuilder id = new StringBuilder();
 
+        int beginIndex = source.indexOf("<char3>") + 7;
 
-        int start = source.indexOf("<codeAlpha>") + 10;
+        int endIndex = source.indexOf("</char3>", beginIndex);
 
-        int end = source.indexOf("</codeAlpha>", start);
-
-
-        id.append(source, start, end);
-
-
-        return String.valueOf(id);
+        return source.substring(beginIndex, endIndex);
     }
 
 
@@ -76,27 +55,19 @@ public class SiteFilterNBU  {
 
         StringBuilder currency = new StringBuilder();
 
-        while (source.indexOf("<chapter>") != -1) {
+        while (source.indexOf("<item>") != -1) {
 
-            int start = source.indexOf("<chapter>") - 1;
+            int start = source.indexOf("<item>");
 
-            int end = source.indexOf("</chapter>", start);
+            int end = source.indexOf("</item>", start);
 
-            for (int i = start; i < source.length(); i++) {
+            currency.append(source, start, end);
 
-                if (i > start && i < end) {
+            list.add(String.valueOf(currency));
 
-                    currency.append(source.charAt(i));
+            source.delete(0, end);
 
-                } else if (i == end) {
-                    list.add(String.valueOf(currency));
-
-                    source.delete(0, i);
-
-                    currency.setLength(0);
-                    break;
-                }
-            }
+            currency.setLength(0);
 
         }
 
@@ -137,8 +108,8 @@ public class SiteFilterNBU  {
                 currencyValue.append(result, start, end);
                 break;
             } else {
-
                 test.setLength(0);
+
                 result.delete(start, end);
 
                 start = result.indexOf("<item>");

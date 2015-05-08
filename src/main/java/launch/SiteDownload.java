@@ -58,8 +58,12 @@ public class SiteDownload {
 
         }
 
+        if (name.equals("yahoo")) {
 
-        return getValues(source);
+            return getValues(source);
+        }else {
+            return String.valueOf(source);
+        }
     }
 
     private void writeToFile(String source){

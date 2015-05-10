@@ -13,21 +13,17 @@ import java.util.Set;
  * Time:  17:57.
  * To change this template use File|Setting|Editor|File and Code Templates.
  */
-public class ClassLoaderNBU {
+public class ClassLoaderYahoo {
 
     public static void main(String[] args) {
-        ClassLoaderNBU cl = new ClassLoaderNBU();
 
-        for (Exchange innerExchange : cl.exchangeList) {
-            System.out.println(innerExchange);
-        }
     }
 
-    public ClassLoaderNBU() {
+    public ClassLoaderYahoo() {
         createExchangeList();
     }
 
-    private SiteFilterNBU sf = new SiteFilterNBU();
+    private SiteFilterYahoo sf = new SiteFilterYahoo();
 
     private List<Exchange> exchangeList = new ArrayList<Exchange>();
 
@@ -59,12 +55,11 @@ public class ClassLoaderNBU {
 
     private  void createExchangeList() {
 
-        List<InnerExchange> innerExchanges = createInnerExchangeList();
         for (String exchangeId : sf.getIdsForExchange()) {
             Exchange exchange = new Exchange(exchangeId);
 
 
-            for (InnerExchange innerExchange : innerExchanges) {
+            for (InnerExchange innerExchange : createInnerExchangeList()) {
 
                 if (innerExchange.getId().substring(0, 3).equals(exchangeId)) {
                     exchange.addExchanges(innerExchange);
@@ -97,10 +92,11 @@ public class ClassLoaderNBU {
         return new Exchange("Null");
     }
 
-    public Set<String> getOptions() {
+    public Set<String> getOptionsValute() {
 
         return sf.getIdsForExchange();
     }
+
 
     private boolean containOfId(String id) {
 

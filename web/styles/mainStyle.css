@@ -30,7 +30,7 @@
 
 /*select box style*/
 
-select#selectExchange, select#selectExchange {
+select#selectExchange,#selectCourse {
     -webkit-appearance: button;
     -webkit-border-radius: 2px;
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -58,7 +58,7 @@ select#selectExchange, select#selectExchange {
     margin-bottom: auto;
 }
 
-select#selectExchange {
+select#selectExchange,#selectCourse {
     color: #fff;
     background-image: url(../images/arrowDown.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
     background-color: #779126;
@@ -68,6 +68,9 @@ select#selectExchange {
     padding-left: 15px;
 }
 
+#selectCourse{
+    margin-left: -400px;
+}
 /*Input fields style*/
 
 li > input {
@@ -91,7 +94,7 @@ li > input {
     height: 3px;
 }
 
-#someHr1, #someHr2 {
+.someHr{
     margin-top: 10px;
     margin-bottom: 20px;
     border: none;
@@ -292,6 +295,11 @@ ul {
 #p3 {
     margin-right: 255px;
 }
+
+#p4{
+    margin-right: 255px;
+}
+
 
 label {
     color: #bdd264;

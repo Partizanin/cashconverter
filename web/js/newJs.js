@@ -20,15 +20,21 @@ $(window).load(function fill() {
 
         }
 
-        for (var i = 0; i < jsonData.options.length; i++) {
+        /** @namespace jsonData.optionsValute */
+        for (var i = 0; i < jsonData.optionsValute.length; i++) {
 
-            drawOptions(jsonData.options[i]);
+            drawOptions(jsonData.optionsValute[i],"selectExchange");
 
         }
         $("select#selectExchange").val(jsonData.id);
 
-        function drawOptions(optionValue) {
-            $("#selectExchange").append(
+        /** @namespace jsonData.optionsCourse */
+        for(var i = 0; i < jsonData.optionsCourse.length; i++) {
+            drawOptions(jsonData.optionsCourse[i],"selectCourse");
+        }
+        $("select#selectCourse").val("Yahoo");
+        function drawOptions(optionValue,id) {
+            $("#" + id).append(
                 $("<option></option>")
                     .attr("value", optionValue).text(optionValue)
             );
@@ -77,6 +83,7 @@ function callToServer(request) {
         type: "GET",
         url: "/ConventerServlet",
         data: {jsonData: JSON.stringify(myData)},
+        contentType:"application/json; charset=utf-8",
         dataType: "json",
 
         //if received a response from the server
@@ -105,8 +112,8 @@ function callToServer(request) {
 }
 
 function changedListener(object) {
-
-    if (object.type == "select-one") {
+    var pressedButton = getPressedButton();
+    if (object.type == "select-one" && object.id == "selectExchange") {
 
         changContent(object.value, pressedButton, "changeCourse").then(function () {
             count();
@@ -158,7 +165,7 @@ function changedListener(object) {
 
     }
 
-    var pressedButton = getPressedButton();
+
     var selectedValue= $( "#selectExchange" ).val();
 
     console.log("ChangeListener:" + selectedValue + " " + pressedButton );
@@ -183,7 +190,7 @@ function changContent(exchange, operation, action) {
 
     function changOperation(exchange, operation) {
         var defer = $.Deferred();
-        callToServer(exchange).then(function (data) {
+        callToServer(exchange + "/YAHOO").then(function (data) {
 
             /** @namespace rows[index].sellCourse */
 
@@ -213,7 +220,7 @@ function changContent(exchange, operation, action) {
 
     function changRows(exchange, operation) {
         var defer = $.Deferred();
-        callToServer(exchange).then(function (data) {
+        callToServer(exchange + "/YAHOO").then(function (data) {
 
             /** @namespace rows[index].sellCourse */
 

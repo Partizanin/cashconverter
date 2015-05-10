@@ -8,29 +8,31 @@ import java.util.Set;
  * Created by Partizanin on 07.05.2015.
  */
 
-public class SiteFilterNBU {
+public class SiteFilterBanks {
 
     public static void main(String[] args) {
 
-        SiteFilterNBU sf = new SiteFilterNBU();
+        SiteFilterBanks sf = new SiteFilterBanks();
 
-        System.out.println(sf.returnAskValueBySourceAndOperation(sf.getCurrencyById("USD"),"buy"));
+        System.out.println(sf.returnAskValueBySourceAndOperation(sf.getCurrencyById("EUR"),"buy"));
     }
 
     private StringBuilder siteSource = new StringBuilder(new SiteDownload().getSource("NBU"));
 
-    public SiteFilterNBU() {
+    public SiteFilterBanks() {
     }
 
 
     protected String returnAskValueBySourceAndOperation(String source, String operation) {
 
-        int beginIndex = source.indexOf("<rate>") + 6;
-        int endIndex = source.indexOf("</rate>");
+        int beginIndex = source.indexOf("<rateSale>") + 10;
+        int endIndex = source.indexOf("</rateSale>");
 
-        if (!operation.equals("buy")) {
+        if (operation.equals("buy")) {/**/
 
-            return "1";
+            beginIndex = source.indexOf("<rateBuy>") + 9;
+            endIndex = source.indexOf("</rateBuy>");
+
         }
 
 
@@ -38,16 +40,14 @@ public class SiteFilterNBU {
 
     }
 
-
     protected String getId(String source) {
 
-        int beginIndex = source.indexOf("<char3>") + 7;
+        int beginIndex = source.indexOf("<codeAlpha>") + 11;
 
-        int endIndex = source.indexOf("</char3>", beginIndex);
+        int endIndex = source.indexOf("</codeAlpha>", beginIndex);
 
         return source.substring(beginIndex, endIndex);
     }
-
 
     protected ArrayList<String> getAllCurrency() {
         ArrayList<String> list = new ArrayList<>();
@@ -87,12 +87,11 @@ public class SiteFilterNBU {
         return iDs;
     }
 
-
     protected String getCurrencyById(String id) {
 
         StringBuilder result = new StringBuilder(siteSource);
 
-        StringBuilder test = new StringBuilder();
+        StringBuilder temp = new StringBuilder();
 
         StringBuilder currencyValue = new StringBuilder();
 
@@ -101,14 +100,14 @@ public class SiteFilterNBU {
         int end = result.indexOf("</item>", start);
         while (result.length() > 0) {
 
-            test.append(result, start, end);
+            temp.append(result, start, end);
 
-            if (test.toString().contains(id)) {
+            if (temp.toString().contains(id)) {
 
                 currencyValue.append(result, start, end);
                 break;
             } else {
-                test.setLength(0);
+                temp.setLength(0);
 
                 result.delete(start, end);
 
@@ -120,5 +119,13 @@ public class SiteFilterNBU {
         }
         return String.valueOf(currencyValue);
 
+    }
+
+    public String returnBankName(String source) {
+
+        int start = source.indexOf("<bankName>") + 10;
+        int end = source.indexOf("</bankName>");
+
+        return source.substring(start, end);
     }
 }

@@ -2,6 +2,7 @@ package launch;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -13,22 +14,21 @@ import java.util.Set;
  * Time:  17:57.
  * To change this template use File|Setting|Editor|File and Code Templates.
  */
-public class ClassLoaderY {
+public class ClassLoaderBanks {
 
     public static void main(String[] args) {
-        ClassLoaderY cl = new ClassLoaderY();
+        ClassLoaderBanks cl = new ClassLoaderBanks();
 
-        for (Exchange exchange : cl.exchangeList) {
-            System.out.println(exchange);
+        for (Exchange innerExchange : cl.exchangeList) {
+            System.out.println(innerExchange);
         }
-
     }
 
-    public ClassLoaderY() {
+    public ClassLoaderBanks() {
         createExchangeList();
     }
 
-    private SiteFilterYahoo sf = new SiteFilterYahoo();
+    private SiteFilterBanks sf = new SiteFilterBanks();
 
     private List<Exchange> exchangeList = new ArrayList<Exchange>();
 
@@ -43,11 +43,15 @@ public class ClassLoaderY {
 
             InnerExchange exchange = new InnerExchange();
 
-            exchange.setId(sf.getId(s));
+
 
             String askVelue = sf.returnAskValueBySourceAndOperation(s, "buy");
+            String bankName = sf.returnBankName(s);
             double parsedValue = Double.parseDouble(askVelue);
             String formatValue = df.format(parsedValue);
+
+            exchange.setBankName(bankName);
+            exchange.setId(sf.getId(s));
             exchange.setBuyCourse(Double.parseDouble(formatValue));
             exchange.setSellCourse(Double.parseDouble(df.format(Double.parseDouble(sf.returnAskValueBySourceAndOperation(s, "sell")))));
 
@@ -60,19 +64,18 @@ public class ClassLoaderY {
 
     private  void createExchangeList() {
 
-        for (String exchangeId : sf.getIdsForExchange()) {
-            Exchange exchange = new Exchange(exchangeId);
+        List<InnerExchange> innerExchanges = createInnerExchangeList();
+            Exchange exchange = new Exchange("UAH");
 
 
-            for (InnerExchange innerExchange : createInnerExchangeList()) {
+            for (InnerExchange innerExchange : innerExchanges) {
 
-                if (innerExchange.getId().substring(0, 3).equals(exchangeId)) {
                     exchange.addExchanges(innerExchange);
-                }
+
             }
 
             exchangeList.add(exchange);
-        }
+
     }
 
     public String getCourseByIdAndOperation(String exchangeId, String transactionValue) {
@@ -97,9 +100,22 @@ public class ClassLoaderY {
         return new Exchange("Null");
     }
 
-    public Set<String> getOptions() {
+    public Set<String> getOptionsValute() {
 
         return sf.getIdsForExchange();
+    }
+
+    public Set<String> getOptionsCourse() {
+        Set<String> stringSet = new HashSet<>();
+        stringSet.add("Yahoo");
+
+        for (Exchange exchange : exchangeList) {
+            for (InnerExchange innerExchange : exchange.getExchanges()) {
+
+                stringSet.add(innerExchange.getBankName());
+            }
+        }
+        return stringSet;
     }
 
     private boolean containOfId(String id) {

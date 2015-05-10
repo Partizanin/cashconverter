@@ -1,6 +1,7 @@
 package servlet;
 
-import launch.ClassLoaderY;
+import launch.ClassLoaderBanks;
+import launch.ClassLoaderYahoo;
 import launch.Exchange;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,7 +25,10 @@ import java.io.PrintWriter;
 @WebServlet(name = "ConventerServlet", urlPatterns = "/ConventerServlet")
 
 public class ConventerServlet extends HttpServlet {
-    private static ClassLoaderY cl = new ClassLoaderY();
+
+    private ClassLoaderYahoo clY = new ClassLoaderYahoo();
+
+    private ClassLoaderBanks clB = new ClassLoaderBanks();
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,7 +38,10 @@ public class ConventerServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        response.setContentType("text/plain; charset=utf-8");
+        response.setCharacterEncoding("UTF-8");
         PrintWriter writer = response.getWriter();
+
 
         JSONObject catchObject = new JSONObject();
         JSONObject sendObject = new JSONObject();
@@ -45,8 +52,7 @@ public class ConventerServlet extends HttpServlet {
             catchObject = new JSONObject(request.getParameter("jsonData"));
             requestValue = catchObject.getString("operationCall");
 
-
-                sendObject = setNewRateToJsonObject(requestValue); //fixme : add to constructor new variable
+            sendObject = setNewRateToJsonObject(requestValue); //fixme : add to constructor new variable
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -54,6 +60,8 @@ public class ConventerServlet extends HttpServlet {
 
         writer.println(sendObject);
         writer.flush();
+
+        System.out.println(writer.toString());
     }
 
     private JSONObject setNewRateToJsonObject(String request) {
@@ -70,22 +78,37 @@ public class ConventerServlet extends HttpServlet {
     private JSONObject onLoad() {
         JSONObject obj = new JSONObject();
 
+
         try {
-            Exchange exchange = cl.getExchangeById("UAH");
+            Exchange exchange = clY.getExchangeById("UAH");
             obj.put("id", exchange.getId());
-            obj.put("options", cl.getOptions());
+            obj.put("optionsValute", clY.getOptionsValute());
+            obj.put("optionsCourse", clB.getOptionsCourse());
             obj.put("rows", exchange.getExchanges());
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+         }
 
         return obj;
     }
 
     private JSONObject Course(String exchangeValue) {
         JSONObject obj = new JSONObject();
+
+
+        String[] requvest = exchangeValue.split("/");
+        String valuta = requvest[0];
+        String course = requvest[1];
+
+        Exchange exchange = clY.getExchangeById(valuta);
+
+        if (course.equals("NBU")) {
+
+            exchange = clB.getExchangeById(valuta);
+        }
+
+
         try {
-            Exchange exchange = cl.getExchangeById(exchangeValue);
             obj.put("id", exchange.getId());
             obj.put("rows", exchange.getExchanges());
         } catch (JSONException e) {

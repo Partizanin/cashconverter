@@ -38,7 +38,7 @@ public class SiteDownload {
         } catch (IOException e) {
             System.err.println(e.getClass());
             try {
-                source.append(readFromFile());
+                source.append(readFromFile(name));
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
@@ -48,7 +48,7 @@ public class SiteDownload {
                 try {
                     is.close();
                     if (br != null) {
-                        writeToFile(source.toString());
+                        writeToFile(source.toString(),name);
                         br.close();
                     }
                 } catch (IOException e) {
@@ -66,10 +66,15 @@ public class SiteDownload {
         }
     }
 
-    private void writeToFile(String source){
+    private void writeToFile(String source,String name){
         PrintWriter pw = null;
+        if (name.equals("yahoo")) {
+            name = "yahooSource.xml";
+        }else {
+            name = "nbuSource.xml";
+        }
         try {
-             pw = new PrintWriter("source.xml");
+             pw = new PrintWriter(name);
             pw.print(source);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -80,9 +85,13 @@ public class SiteDownload {
         }
     }
 
-    private String readFromFile() throws IOException {
-
-        byte[] encoded = Files.readAllBytes(Paths.get("source.xml"));
+    private String readFromFile(String name) throws IOException {
+        if (name.equals("yahoo")) {
+            name = "yahooSource.xml";
+        }else {
+            name = "bankSource.xml";
+        }
+        byte[] encoded = Files.readAllBytes(Paths.get(name));
         return new String(encoded, StandardCharsets.UTF_8);
     }
 

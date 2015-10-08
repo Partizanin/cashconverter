@@ -26,6 +26,7 @@ $(window).load(function fill() {
             drawOptions(jsonData.optionsValute[i],"selectExchange");
 
         }
+
         $("select#selectExchange").val(jsonData.id);
 
         /** @namespace jsonData.optionsCourse */

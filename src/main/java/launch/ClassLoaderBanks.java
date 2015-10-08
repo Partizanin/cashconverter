@@ -51,7 +51,7 @@ public class ClassLoaderBanks {
             String formatValue = df.format(parsedValue);
 
             exchange.setBankName(bankName);
-            exchange.setId(sf.getId(s));
+            exchange.setId("UAH" + sf.getId(s));
             exchange.setBuyCourse(Double.parseDouble(formatValue));
             exchange.setSellCourse(Double.parseDouble(df.format(Double.parseDouble(sf.returnAskValueBySourceAndOperation(s, "sell")))));
 
@@ -107,7 +107,7 @@ public class ClassLoaderBanks {
 
     public Set<String> getOptionsCourse() {
         Set<String> stringSet = new HashSet<>();
-        stringSet.add("Yahoo");
+        stringSet.add("Yahoo");/*Добавляем курс яху потому что его в списке нету*/
 
         for (Exchange exchange : exchangeList) {
             for (InnerExchange innerExchange : exchange.getExchanges()) {

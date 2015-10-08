@@ -15,10 +15,6 @@ import java.util.Set;
  */
 public class ClassLoaderYahoo {
 
-    public static void main(String[] args) {
-
-    }
-
     public ClassLoaderYahoo() {
         createExchangeList();
     }
@@ -40,8 +36,8 @@ public class ClassLoaderYahoo {
 
             exchange.setId(sf.getId(s));
 
-            String askVelue = sf.returnAskValueBySourceAndOperation(s, "buy");
-            double parsedValue = Double.parseDouble(askVelue);
+            String askValue = sf.returnAskValueBySourceAndOperation(s, "buy");
+            double parsedValue = Double.parseDouble(askValue);
             String formatValue = df.format(parsedValue);
             exchange.setBuyCourse(Double.parseDouble(formatValue));
             exchange.setSellCourse(Double.parseDouble(df.format(Double.parseDouble(sf.returnAskValueBySourceAndOperation(s, "sell")))));
@@ -96,7 +92,6 @@ public class ClassLoaderYahoo {
 
         return sf.getIdsForExchange();
     }
-
 
     private boolean containOfId(String id) {
 

@@ -17,10 +17,6 @@ import java.nio.file.Paths;
  */
 public class SiteDownload {
 
-    public static void main(String[] args) throws IOException {
-
-        System.out.println(System.getProperty("user.dir"));
-    }
     public String getSource(String name) {
         StringBuilder source = new StringBuilder();
         URL url;
@@ -71,6 +67,7 @@ public class SiteDownload {
             return String.valueOf(source);
         }
     }
+
     public String getPath() throws UnsupportedEncodingException {
         String path = this.getClass().getClassLoader().getResource("").getPath();
         String result = "";
@@ -89,7 +86,6 @@ public class SiteDownload {
         }
         String path = getPath();
 
-        System.out.println(path);
         File file = new File(path + "\\" + name);
         if (!file.exists() || file.isDirectory()) {
             try {

@@ -5,7 +5,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by Partizanin on 07.05.2015.
+ * Created with Intellij IDEA.
+ * Project name: cashTestConverter.
+ * Date: 07.05.2015.
+ * Time: 20:43.
+ * To change this template use File|Setting|Editor|File and Code Templates.
  */
 
 public class SiteFilterBanks {
@@ -21,7 +25,6 @@ public class SiteFilterBanks {
 
     public SiteFilterBanks() {
     }
-
 
     protected String returnAskValueBySourceAndOperation(String source, String operation) {
 

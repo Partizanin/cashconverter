@@ -99,17 +99,28 @@ public class ConventerServlet extends HttpServlet {
         String valuta = requvest[0];
         String course = requvest[1];
 
-        Exchange exchange = clY.getExchangeById(valuta);
+        Exchange exchange ;
 
-        if (course.equals("NBU")) {
+        if (!course.equals("Yahoo")) {
 
             exchange = clB.getExchangeById(valuta);
+        } else {
+           exchange = clY.getExchangeById(valuta);
         }
 
 
         try {
+
             obj.put("id", exchange.getId());
-            obj.put("rows", exchange.getExchanges());
+
+            if (!course.equals("Yahoo")) {
+                obj.put("rows", exchange.getExchangesByBankName(course));
+            }else {
+
+                obj.put("rows", exchange.getExchanges());
+            }
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

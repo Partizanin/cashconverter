@@ -113,17 +113,25 @@ function callToServer(request) {
 
 function changedListener(object) {
     var pressedButton = getPressedButton();
+    var selectedExchange = getSelectedExchange();
+    var selectedCourse = getSelectedCourse();
     if (object.type == "select-one" && object.id == "selectExchange") {
 
-        changContent(object.value, pressedButton, "changeCourse").then(function () {
+        changContent(object.value, pressedButton, "changeExchange",selectedCourse).then(function () {
             count();
         });
 
 
+    } else if (object.type == "select-one" && object.id == "selectCourse") {
+        console.log("Select Course");
+
+        changContent(selectedExchange, pressedButton, "changeCourse",object.value).then(function () {
+            count();
+        });
     } else if (object.type == "button") {
 
 
-        changContent($("#selectExchange").val(), object.id, "changeOperation").then(function(){
+        changContent(selectedExchange, object.id, "changeOperation",selectedCourse).then(function(){
             count();//fixme fix bug (after change currency if you click button, value not changed, value changed after second click)
          });
 
@@ -166,31 +174,37 @@ function changedListener(object) {
     }
 
 
-    var selectedValue= $( "#selectExchange" ).val();
 
-    console.log("ChangeListener:" + selectedValue + " " + pressedButton );
+
+    console.log("ChangeListener:" + getSelectedExchange() + " " + pressedButton );
 }
 
-function changContent(exchange, operation, action) {
+function changContent(exchange, operation, action,courseName) {
     var defer = $.Deferred();
 
 
-    if (action == "changeCourse") {
+    if (action == "changeExchange") {
 
-      changRows(exchange, operation).done(function(){
+      changRows(exchange, operation,courseName).done(function(){
           defer.resolve();
       });
 
-    } else {
-        changOperation(exchange, operation).done(function(){
+    } else if(action == "changeCourse") {
+
+        changRows(exchange, operation,courseName).done(function(){
+            defer.resolve();
+        });
+
+    }else{
+        changOperation(exchange, operation,courseName).done(function(){
             defer.resolve();
         });
 
     }
 
-    function changOperation(exchange, operation) {
+     function changOperation(exchange, operation,courseName) {
         var defer = $.Deferred();
-        callToServer(exchange + "/YAHOO").then(function (data) {
+        callToServer(exchange + "/" + courseName).then(function (data) {
 
             /** @namespace rows[index].sellCourse */
 
@@ -218,15 +232,13 @@ function changContent(exchange, operation, action) {
     }
 
 
-    function changRows(exchange, operation) {
+    function changRows(exchange, operation,courseName) {
         var defer = $.Deferred();
-        callToServer(exchange + "/YAHOO").then(function (data) {
+        callToServer(exchange + "/" + courseName).then(function (data) {
 
             /** @namespace rows[index].sellCourse */
 
             var rows = data.rows;
-
-            for (var i = 0; i < rows.length; i++) {
 
                 $('#personDataTable').find('li').each(function (index) {
 //todo edith if method and remove duplicate code
@@ -238,8 +250,6 @@ function changContent(exchange, operation, action) {
                     $(this).find('label').text(rows[index].id.substr(3, 5));
                 });
 
-
-            }
 
         }).done(function () {
             defer.resolve();
@@ -290,6 +300,18 @@ function getPressedButton(){
 
 }
 
+function getSelectedCourse(){
+
+    return $( "#selectCourse" ).val();
+
+}
+
+function getSelectedExchange(){
+
+    return $( "#selectExchange" ).val();
+
+}
+
 function count() {
     loader("show");
     var inputValue = $("#inputValue").val();
@@ -321,8 +343,8 @@ function loader(action) {
 
     if (action == "show") {
 
-        $("#loader-wrapper").show();
+        //$("#loader-wrapper").show();
     } else {/*hide*/
-        $("#loader-wrapper").hide();
+       $("#loader-wrapper").hide();
     }
 }

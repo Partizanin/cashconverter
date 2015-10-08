@@ -61,7 +61,6 @@ public class ConventerServlet extends HttpServlet {
         writer.println(sendObject);
         writer.flush();
 
-        System.out.println(writer.toString());
     }
 
     private JSONObject setNewRateToJsonObject(String request) {

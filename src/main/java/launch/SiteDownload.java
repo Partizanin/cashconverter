@@ -2,6 +2,7 @@ package launch;
 
 import java.io.*;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -15,6 +16,11 @@ import java.nio.file.Paths;
  * To change this template use File|Setting|File Templates.
  */
 public class SiteDownload {
+
+    public static void main(String[] args) throws IOException {
+
+        System.out.println(System.getProperty("user.dir"));
+    }
     public String getSource(String name) {
         StringBuilder source = new StringBuilder();
         URL url;
@@ -65,16 +71,35 @@ public class SiteDownload {
             return String.valueOf(source);
         }
     }
+    public String getPath() throws UnsupportedEncodingException {
+        String path = this.getClass().getClassLoader().getResource("").getPath();
+        String result = "";
 
-    private void writeToFile(String source,String name){
+        int finish = path.indexOf("cashTestConverter") + 17;
+        result = path.substring(0, finish);
+        return result;
+    }
+
+    private void writeToFile(String source, String name) throws IOException {
         PrintWriter pw = null;
         if (name.equals("yahoo")) {
             name = "yahooSource.xml";
         }else {
             name = "nbuSource.xml";
         }
+        String path = getPath();
+
+        System.out.println(path);
+        File file = new File(path + "\\" + name);
+        if (!file.exists() || file.isDirectory()) {
+            try {
+                file.createNewFile();
+            } catch (IOException  e) {
+                e.printStackTrace();
+            }
+        }
         try {
-             pw = new PrintWriter(name);
+             pw = new PrintWriter(file);
             pw.print(source);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -85,7 +110,7 @@ public class SiteDownload {
         }
     }
 
-    private String readFromFile(String name) throws IOException {
+    private static String readFromFile(String name) throws IOException {
         if (name.equals("yahoo")) {
             name = "yahooSource.xml";
         }else {

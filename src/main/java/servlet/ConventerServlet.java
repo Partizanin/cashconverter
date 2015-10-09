@@ -77,7 +77,6 @@ public class ConventerServlet extends HttpServlet {
 
 
         try {
-
             obj.put("exchange1", cl.getCourseByIdAndOperation("UAHUSD", transactionValue));
             obj.put("exchange2", cl.getCourseByIdAndOperation("UAHRUB", transactionValue));
             obj.put("exchange3", cl.getCourseByIdAndOperation("UAHEUR", transactionValue));

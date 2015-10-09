@@ -101,7 +101,7 @@ public class ClassLoader {
     }
 
 
-    /*Проверяет существующие курсы по id*/
+    /*РџСЂРѕРІРµСЂСЏРµС‚ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ РєСѓСЂСЃС‹ РїРѕ id*/
     private boolean containOfId(String id) {
 
         for (Exchange exchange : exchangeList) {

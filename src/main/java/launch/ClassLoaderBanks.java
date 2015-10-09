@@ -101,8 +101,9 @@ public class ClassLoaderBanks {
     }
 
     public Set<String> getOptionsValute() {
-
-        return sf.getIdsForExchange();
+        HashSet<String> result = new HashSet<>();
+        result.add("UAH");
+        return result;
     }
 
     public Set<String> getOptionsCourse() {

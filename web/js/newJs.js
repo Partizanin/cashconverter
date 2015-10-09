@@ -10,30 +10,66 @@
 
 $(window).load(function fill() {
     loader("show");
-    callToServer("load").then(function (data) {
+    changeCourse("load");
+    buttonOperation("buy", "disabled");
+    loader("show");
+});
+
+function changeCourse(request){
+    callToServer(request).then(function (data) {
 
         var jsonData = data;
+
+        var personDataTable = $('#personDataTable');
+
+        if (personDataTable.find('li').length > 0 ) {/*remove all rows*/
+            personDataTable.find('li').each(function () {
+                $(this).remove();
+            });
+        }
 
         for (var i = 0; i < jsonData.rows.length; i++) {
 
             drawRows(jsonData.rows[i]);
 
         }
+        var selectExchange = $('#selectExchange');
+
+        if (selectExchange.find('option').length > 0 ) {/*remove all options*/
+            selectExchange.find('option').each(function () {
+                $(this).remove();
+            });
+        }
+
 
         /** @namespace jsonData.optionsValute */
         for (var i = 0; i < jsonData.optionsValute.length; i++) {
 
-            drawOptions(jsonData.optionsValute[i],"selectExchange");
+           drawOptions(jsonData.optionsValute[i],"selectExchange");
 
         }
 
         $("select#selectExchange").val(jsonData.id);
 
+        var selectCourse = $('#selectCourse');
+
+        if (selectCourse.find('option').length > 0 ) {/*remove all options*/
+            selectCourse.find('option').each(function () {
+                $(this).remove();
+            });
+        }
+
+
         /** @namespace jsonData.optionsCourse */
         for(var i = 0; i < jsonData.optionsCourse.length; i++) {
             drawOptions(jsonData.optionsCourse[i],"selectCourse");
         }
-        $("select#selectCourse").val("Yahoo");
+        if (request == "load") {
+            $("select#selectCourse").val("Yahoo");
+        }else{
+            $("select#selectCourse").val(request.split('/')[1]);
+        }
+
         function drawOptions(optionValue,id) {
             $("#" + id).append(
                 $("<option></option>")
@@ -71,10 +107,11 @@ $(window).load(function fill() {
                 })
             );
         }
+
     });
-    buttonOperation("buy", "disabled");
-    loader("show");
-});
+
+
+}
 
 function callToServer(request) {
     loader("show");
@@ -192,9 +229,7 @@ function changContent(exchange, operation, action,courseName) {
 
     } else if(action == "changeCourse") {
 
-        changRows(exchange, operation,courseName).done(function(){
-            defer.resolve();
-        });
+        changeCourse(exchange + "/" +courseName);
 
     }else{
         changOperation(exchange, operation,courseName).done(function(){

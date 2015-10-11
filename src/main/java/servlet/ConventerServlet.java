@@ -1,6 +1,8 @@
 package servlet;
 
-import launch.ClassLoader;
+import launch.ClassLoaderBanks;
+import launch.ClassLoaderYahoo;
+import launch.Exchange;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,7 +25,10 @@ import java.io.PrintWriter;
 @WebServlet(name = "ConventerServlet", urlPatterns = "/ConventerServlet")
 
 public class ConventerServlet extends HttpServlet {
-    private static launch.ClassLoader cl = new ClassLoader();
+
+    private ClassLoaderYahoo clY = new ClassLoaderYahoo();
+
+    private ClassLoaderBanks clB = new ClassLoaderBanks();
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,133 +38,95 @@ public class ConventerServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        response.setContentType("text/plain; charset=utf-8");
+        response.setCharacterEncoding("UTF-8");
         PrintWriter writer = response.getWriter();
 
-        JSONObject catchObject = new JSONObject();
 
-        String operation = "";
-        String exchange = "";
+        JSONObject catchObject = new JSONObject();
+        JSONObject sendObject = new JSONObject();
+        String requestValue = "";
+
 
         try {
             catchObject = new JSONObject(request.getParameter("jsonData"));
-            operation = catchObject.getString("operationCall");
-            exchange = catchObject.getString("exchange");
+            requestValue = catchObject.getString("operationCall");
+
+            sendObject = setNewRateToJsonObject(requestValue); //fixme : add to constructor new variable
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        JSONObject sendObject = setNewRateToJsonObject(operation, exchange);
 
         writer.println(sendObject);
         writer.flush();
+
     }
 
-    public static JSONObject setNewRateToJsonObject(String operation, String exchange) {
+    private JSONObject setNewRateToJsonObject(String request) {
+//improve test this new method with nested switch case!!! set better name for input parameter
 
-        switch (exchange) {
-            case "USD":
-                return USDCourse(operation);
-            case "EUR":
-                return EURCourse(operation);
-            case "RUB":
-                return RUBCourse(operation);
-            case "PLN":
-                return PLNCourse(operation);
+        switch (request) {
+            case "load":
+                return onLoad();
             default:
-                /*uah*/
-                return UAHCourse(operation);
+                return changeExchange(request);
         }
     }
 
-
-    public static JSONObject UAHCourse(String transactionValue) {
+    private JSONObject onLoad() {
         JSONObject obj = new JSONObject();
 
 
         try {
-            obj.put("exchange1", cl.getCourseByIdAndOperation("UAHUSD", transactionValue));
-            obj.put("exchange2", cl.getCourseByIdAndOperation("UAHRUB", transactionValue));
-            obj.put("exchange3", cl.getCourseByIdAndOperation("UAHEUR", transactionValue));
-            obj.put("exchange4", cl.getCourseByIdAndOperation("UAHPLN", transactionValue));
-
+            Exchange exchange = clY.getExchangeById("UAH");
+            obj.put("id", exchange.getId());
+            obj.put("optionsValute", clY.getOptionsValute());
+            obj.put("optionsCourse", clB.getOptionsCourse());
+            obj.put("rows", exchange.getExchanges());
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+         }
 
         return obj;
-
     }
 
-    public static JSONObject USDCourse(String transactionValue) {
+    private JSONObject changeExchange(String exchangeValue) {
         JSONObject obj = new JSONObject();
+
+
+        String[] requvest = exchangeValue.split("/");
+        String valuta = requvest[0];
+        String course = requvest[1];
+
+        Exchange exchange ;
+
+        if (!course.equals("Yahoo")) {
+
+            exchange = clB.getExchangeById(valuta);
+        } else {
+           exchange = clY.getExchangeById(valuta);
+        }
+
 
         try {
 
-            obj.put("exchange1", cl.getCourseByIdAndOperation("USDUAH", transactionValue));
-            obj.put("exchange2", cl.getCourseByIdAndOperation("USDRUB", transactionValue));
-            obj.put("exchange3", cl.getCourseByIdAndOperation("USDEUR", transactionValue));
-            obj.put("exchange4", cl.getCourseByIdAndOperation("USDPLN", transactionValue));
+            obj.put("id", exchange.getId());
+
+            if (!course.equals("Yahoo")) {
+                obj.put("rows", exchange.getExchangesByBankName(course));
+                obj.put("optionsValute", clB.getOptionsValute());
+                obj.put("optionsCourse", clB.getOptionsCourse());
+            }else {
+                obj.put("optionsValute", clY.getOptionsValute());
+                obj.put("rows", exchange.getExchanges());
+                obj.put("optionsCourse", clB.getOptionsCourse());
+            }
+
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         return obj;
-
     }
-
-    public static JSONObject EURCourse(String transactionValue) {
-        JSONObject obj = new JSONObject();
-
-        try {
-
-            obj.put("exchange1", cl.getCourseByIdAndOperation("EURUAH", transactionValue));
-            obj.put("exchange2", cl.getCourseByIdAndOperation("EURRUB", transactionValue));
-            obj.put("exchange3", cl.getCourseByIdAndOperation("EURUSD", transactionValue));
-            obj.put("exchange4", cl.getCourseByIdAndOperation("EURPLN", transactionValue));
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        return obj;
-
-    }
-
-    public static JSONObject RUBCourse(String transactionValue) {
-        JSONObject obj = new JSONObject();
-
-        try {
-
-            obj.put("exchange1", cl.getCourseByIdAndOperation("RUBUAH", transactionValue));
-            obj.put("exchange2", cl.getCourseByIdAndOperation("RUBUSD", transactionValue));
-            obj.put("exchange3", cl.getCourseByIdAndOperation("RUBEUR", transactionValue));
-            obj.put("exchange4", cl.getCourseByIdAndOperation("RUBPLN", transactionValue));
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        return obj;
-
-    }
-
-    public static JSONObject PLNCourse(String transactionValue) {
-        JSONObject obj = new JSONObject();
-
-        try {
-
-            obj.put("exchange1", cl.getCourseByIdAndOperation("PLNUSD", transactionValue));
-            obj.put("exchange2", cl.getCourseByIdAndOperation("PLNRUB", transactionValue));
-            obj.put("exchange3", cl.getCourseByIdAndOperation("PLNEUR", transactionValue));
-            obj.put("exchange4", cl.getCourseByIdAndOperation("PLNUAH", transactionValue));
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        return obj;
-
-    }
-
 }

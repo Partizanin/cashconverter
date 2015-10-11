@@ -44,6 +44,18 @@ public class Exchange {
         return exchanges;
     }
 
+    public List<InnerExchange> getExchangesByBankName(String bankName) {
+        ArrayList<InnerExchange> result = new ArrayList<>();
+
+        for (InnerExchange exchange : exchanges) {
+            if (exchange.getBankName().equals(bankName)) {
+                result.add(exchange);
+            }
+        }
+
+        return result;
+    }
+
     public void addExchanges(InnerExchange exchanges) {
         this.exchanges.add(exchanges);
     }

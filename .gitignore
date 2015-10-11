@@ -5,3 +5,5 @@ tomcat.5000
 cashConverter.iml
 classes
 META-INF
+*iml
+out

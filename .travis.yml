@@ -4,3 +4,4 @@ after_success: codecov
 
 # need to override travis 'install' since it will try gpg sign and fail.
 install: mvn clean package -DskipTests=true
+# need to override travis

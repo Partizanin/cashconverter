@@ -86,7 +86,7 @@ public class SiteDownload {
         }
         String path = getPath();
 
-        File file = new File(path + "\\" + name);
+        File file = new File(path  + name);
         if (!file.exists() || file.isDirectory()) {
             try {
                 file.createNewFile();

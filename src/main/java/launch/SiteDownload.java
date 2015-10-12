@@ -72,7 +72,7 @@ public class SiteDownload {
         String path = this.getClass().getClassLoader().getResource("").getPath();
         String result = "";
 
-        int finish = path.indexOf("cashTestConverter") + 17;
+        int finish = path.indexOf("cashConverter") + 17;
         result = path.substring(0, finish);
         return result;
     }

@@ -50,7 +50,7 @@ public class SiteDownload {
                 try {
                     is.close();
                     if (br != null) {
-                       // writeToFile(source.toString(),name);
+                        writeToFile(source.toString(),name);
                         br.close();
                     }
                 } catch (IOException e) {

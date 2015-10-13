@@ -86,6 +86,7 @@ function changeCourse(request){
             var row = $("<li/>");
 
             $("#personDataTable").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
+            console.log("data : " + data );
             console.log("data ID: " + data.id);
             console.log("\ndata.id.substring(3, data.id.length): " +  data.id.substring(3, data.id.length));
             /** @namespace data.buyCourse */

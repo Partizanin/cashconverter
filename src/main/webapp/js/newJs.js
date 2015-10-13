@@ -96,6 +96,7 @@ function changeCourse(request){
                     onblur: "if (this.value == '') {this.value = '0.00'; }",
                     id: "input1" + data.id
                 }),
+                console.log("data ID: " + data.id + "\n data.id.substring(3, data.id.length): " + data.id.substring(3, data.id.length))
                 $('<label>', {
                     "id": data.id,
                     "text": data.id.substring(3, data.id.length)

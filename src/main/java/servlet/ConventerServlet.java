@@ -102,7 +102,7 @@ public class ConventerServlet extends HttpServlet {
         Exchange exchange ;
 
         if (!course.equals("Yahoo")) {
-            valuta = "UAH";
+
             exchange = clB.getExchangeById(valuta);
         } else {
            exchange = clY.getExchangeById(valuta);

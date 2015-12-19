@@ -156,15 +156,16 @@ function changedListener(object) {
     if (object.type == "select-one" && object.id == "selectExchange") {
 
         changContent(object.value, pressedButton, "changeExchange",selectedCourse).then(function () {
-
+            count();
         });
 
 
     } else if (object.type == "select-one" && object.id == "selectCourse") {
         console.log("Select Course");
 
-       changContent(selectedExchange, pressedButton, "changeCourse",object.value);
-
+        changContent(selectedExchange, pressedButton, "changeCourse",object.value).then(function () {
+            count();
+        });
     } else if (object.type == "button") {
 
 
@@ -210,8 +211,10 @@ function changedListener(object) {
 
     }
 
+
+
+
     console.log("ChangeListener:" + getSelectedExchange() + " " + pressedButton );
-    validation();
 }
 
 function changContent(exchange, operation, action,courseName) {

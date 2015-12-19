@@ -50,7 +50,7 @@ public class SiteDownload {
                 try {
                     is.close();
                     if (br != null) {
-                     //   writeToFile(source.toString(),name);
+                        writeToFile(source.toString(),name);
                         br.close();
                     }
                 } catch (IOException e) {
@@ -72,7 +72,7 @@ public class SiteDownload {
         String path = this.getClass().getClassLoader().getResource("").getPath();
         String result = "";
 
-        int finish = path.indexOf("cashConverter") + 17;
+        int finish = path.indexOf("cashTestConverter") + 17;
         result = path.substring(0, finish);
         return result;
     }
@@ -86,7 +86,7 @@ public class SiteDownload {
         }
         String path = getPath();
 
-        File file = new File(path  + name);
+        File file = new File(path + "\\" + name);
         if (!file.exists() || file.isDirectory()) {
             try {
                 file.createNewFile();

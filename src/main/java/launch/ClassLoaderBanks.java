@@ -16,6 +16,14 @@ import java.util.Set;
  */
 public class ClassLoaderBanks {
 
+    public static void main(String[] args) {
+        ClassLoaderBanks cl = new ClassLoaderBanks();
+
+        for (Exchange innerExchange : cl.exchangeList) {
+            System.out.println(innerExchange);
+        }
+    }
+
     public ClassLoaderBanks() {
         createExchangeList();
     }

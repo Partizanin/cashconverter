@@ -86,9 +86,7 @@ function changeCourse(request){
             var row = $("<li/>");
 
             $("#personDataTable").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
-            console.log("data : " + data );
-            console.log("data ID: " + data.id);
-            console.log("\ndata.id.substring(3, data.id.length): " +  data.id.substring(3, data.id.length));
+
             /** @namespace data.buyCourse */
             row.append(
                 $('<input>', {
@@ -158,16 +156,15 @@ function changedListener(object) {
     if (object.type == "select-one" && object.id == "selectExchange") {
 
         changContent(object.value, pressedButton, "changeExchange",selectedCourse).then(function () {
-            count();
+
         });
 
 
     } else if (object.type == "select-one" && object.id == "selectCourse") {
         console.log("Select Course");
 
-        changContent(selectedExchange, pressedButton, "changeCourse",object.value).then(function () {
-            count();
-        });
+       changContent(selectedExchange, pressedButton, "changeCourse",object.value);
+
     } else if (object.type == "button") {
 
 
@@ -213,10 +210,8 @@ function changedListener(object) {
 
     }
 
-
-
-
     console.log("ChangeListener:" + getSelectedExchange() + " " + pressedButton );
+    validation();
 }
 
 function changContent(exchange, operation, action,courseName) {

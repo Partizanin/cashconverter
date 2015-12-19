@@ -2,9 +2,9 @@ package launch;
 
 import java.io.*;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
@@ -39,11 +39,7 @@ public class SiteDownload {
 
         } catch (IOException e) {
             System.err.println(e.getClass());
-            try {
-                source.append(readFromFile(name));
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
+            /*source.append(readFromFile(name));*/
 
         } finally {
             if (is != null) {
@@ -68,7 +64,7 @@ public class SiteDownload {
         }
     }
 
-    public String getPath() throws UnsupportedEncodingException {
+    public String getPath()  {
         String path = this.getClass().getClassLoader().getResource("").getPath();
         String result = "";
 
@@ -106,13 +102,20 @@ public class SiteDownload {
         }
     }
 
-    private static String readFromFile(String name) throws IOException {
+    private  String readFromFile(String name)  {
         if (name.equals("yahoo")) {
             name = "yahooSource.xml";
         }else {
             name = "bankSource.xml";
         }
-        byte[] encoded = Files.readAllBytes(Paths.get(name));
+        byte[] encoded = new byte[0];
+        try {
+
+            Path path = Paths.get(getPath() + name);
+            encoded = Files.readAllBytes(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return new String(encoded, StandardCharsets.UTF_8);
     }
 

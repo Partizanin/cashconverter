@@ -9,3 +9,8 @@ before_install:
   - pip install --user codecov
 after_success:
   - codecov
+before_script:
+  - pip install --user codecov
+
+after_success:
+  - codecov

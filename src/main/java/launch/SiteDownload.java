@@ -2,9 +2,9 @@ package launch;
 
 import java.io.*;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
@@ -39,14 +39,18 @@ public class SiteDownload {
 
         } catch (IOException e) {
             System.err.println(e.getClass());
-            /*source.append(readFromFile(name));*/
+            try {
+                source.append(readFromFile(name));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
 
         } finally {
             if (is != null) {
                 try {
                     is.close();
                     if (br != null) {
-                     //   writeToFile(source.toString(),name);
+                        writeToFile(source.toString(),name);
                         br.close();
                     }
                 } catch (IOException e) {
@@ -64,11 +68,11 @@ public class SiteDownload {
         }
     }
 
-    public String getPath()  {
+    public String getPath() throws UnsupportedEncodingException {
         String path = this.getClass().getClassLoader().getResource("").getPath();
         String result = "";
 
-        int finish = path.indexOf("cashConverter") + 17;
+        int finish = path.indexOf("cashTestConverter") + 17;
         result = path.substring(0, finish);
         return result;
     }
@@ -82,7 +86,7 @@ public class SiteDownload {
         }
         String path = getPath();
 
-        File file = new File(path  + name);
+        File file = new File(path + "\\" + name);
         if (!file.exists() || file.isDirectory()) {
             try {
                 file.createNewFile();
@@ -102,20 +106,13 @@ public class SiteDownload {
         }
     }
 
-    private  String readFromFile(String name)  {
+    private static String readFromFile(String name) throws IOException {
         if (name.equals("yahoo")) {
             name = "yahooSource.xml";
         }else {
             name = "bankSource.xml";
         }
-        byte[] encoded = new byte[0];
-        try {
-
-            Path path = Paths.get(getPath() + name);
-            encoded = Files.readAllBytes(path);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        byte[] encoded = Files.readAllBytes(Paths.get(name));
         return new String(encoded, StandardCharsets.UTF_8);
     }
 

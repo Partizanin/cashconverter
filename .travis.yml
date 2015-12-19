@@ -5,12 +5,15 @@ after_success: codecov
 # need to override travis 'install' since it will try gpg sign and fail.
 install: mvn clean package -DskipTests=true
 
-before_install:
-  - pip install --user codecov
-after_success:
-  - codecov
 before_script:
   - pip install --user codecov
 
-after_success:
-  - codecov
+ env:
+   global:
+     - CODECOV_TOKEN=:c22ba301-cfae-46c7-b54b-6749bacf1af4
+
+ before_script:
+   - pip install --user codecov
+
+ after_success:
+   - codecov

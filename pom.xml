@@ -85,7 +85,7 @@
                 <programs>
                     <program>
                         <mainClass>launch.Main</mainClass>
-                        <id>webapp</id>
+                        <name>webapp</name>
                     </program>
                 </programs>
             </configuration>

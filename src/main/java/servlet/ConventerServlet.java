@@ -70,7 +70,7 @@ public class ConventerServlet extends HttpServlet {
             case "load":
                 return onLoad();
             default:
-                return changeExchange(request);
+                return Course(request);
         }
     }
 
@@ -91,7 +91,7 @@ public class ConventerServlet extends HttpServlet {
         return obj;
     }
 
-    private JSONObject changeExchange(String exchangeValue) {
+    private JSONObject Course(String exchangeValue) {
         JSONObject obj = new JSONObject();
 
 
@@ -115,12 +115,9 @@ public class ConventerServlet extends HttpServlet {
 
             if (!course.equals("Yahoo")) {
                 obj.put("rows", exchange.getExchangesByBankName(course));
-                obj.put("optionsValute", clB.getOptionsValute());
-                obj.put("optionsCourse", clB.getOptionsCourse());
             }else {
-                obj.put("optionsValute", clY.getOptionsValute());
+
                 obj.put("rows", exchange.getExchanges());
-                obj.put("optionsCourse", clB.getOptionsCourse());
             }
 
 

@@ -108,7 +108,6 @@ public class ConventerServlet extends HttpServlet {
            exchange = clY.getExchangeById(valuta);
         }
 
-
         try {
 
             obj.put("id", exchange.getId());

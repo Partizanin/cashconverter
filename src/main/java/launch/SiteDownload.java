@@ -33,18 +33,14 @@ public class SiteDownload {
 
         } catch (IOException e) {
             System.err.println(e.getClass());
-            try {
-                source.append(readFromFile());
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
+            // source.append(readFromFile());
 
         } finally {
             if (is != null) {
                 try {
                     is.close();
                     if (br != null) {
-                        writeToFile(source.toString());
+                       // writeToFile(source.toString());
                         br.close();
                     }
                 } catch (IOException e) {

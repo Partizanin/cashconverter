@@ -2,7 +2,6 @@ package launch;
 
 import java.io.*;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -39,18 +38,14 @@ public class SiteDownload {
 
         } catch (IOException e) {
             System.err.println(e.getClass());
-            try {
-                source.append(readFromFile(name));
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
+            //     source.append(readFromFile(name));
 
         } finally {
             if (is != null) {
                 try {
                     is.close();
                     if (br != null) {
-                        writeToFile(source.toString(),name);
+                     //   writeToFile(source.toString(),name);
                         br.close();
                     }
                 } catch (IOException e) {

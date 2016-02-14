@@ -16,9 +16,8 @@ $(window).load(function fill() {
 });
 
 function changeCourse(request){
-    callToServer(request).then(function (data) {
+    callToServer(request).then(function (jsonData) {
 
-        var jsonData = data;
 
         var personDataTable = $('#personDataTable');
 

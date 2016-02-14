@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  * Created with Intellij IDEA.
@@ -113,7 +114,12 @@ public class ConventerServlet extends HttpServlet {
             obj.put("id", exchange.getId());
 
             if (!course.equals("Yahoo")) {
+                ArrayList<String> valutes = new ArrayList<>(1);
+                valutes.add("UAH");
                 obj.put("rows", exchange.getExchangesByBankName(course));
+                obj.put("optionsValute",valutes);
+                obj.put("optionsCourse", clB.getOptionsCourse());
+                /*todo: don`t change course secondary, course always one*/
             }else {
 
                 obj.put("rows", exchange.getExchanges());

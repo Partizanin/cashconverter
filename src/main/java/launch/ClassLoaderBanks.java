@@ -97,7 +97,7 @@ public class ClassLoaderBanks {
             }
         }
 
-        return new Exchange("Null");
+        return new Exchange("UAH");
     }
 
     public Set<String> getOptionsValute() {

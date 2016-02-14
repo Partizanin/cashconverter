@@ -123,9 +123,8 @@ public class ConventerServlet extends HttpServlet {
             }else {
 
                 obj.put("rows", exchange.getExchanges());
+                obj.put("optionsValute", clY.getOptionsValute());
             }
-
-
         } catch (JSONException e) {
             e.printStackTrace();
         }

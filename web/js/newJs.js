@@ -42,28 +42,31 @@ function changeCourse(request){
 
 
         /** @namespace jsonData.optionsValute */
-        for (var i = 0; i < jsonData.optionsValute.length; i++) {
+            for (var i = 0; i < jsonData.optionsValute.length; i++) {
 
-           drawOptions(jsonData.optionsValute[i],"selectExchange");
+                drawOptions(jsonData.optionsValute[i], "selectExchange");
 
-        }
+            }
 
-        $("select#selectExchange").val(jsonData.id);
+            $("select#selectExchange").val(jsonData.id);
 
-        var selectCourse = $('#selectCourse');
 
-        if (selectCourse.find('option').length > 0 ) {/*remove all options*/
+    /*    var selectCourse = $('#selectCourse');
+
+        if (selectCourse.find('option').length > 0 ) {/!*remove all options*!/
             selectCourse.find('option').each(function () {
                 $(this).remove();
             });
         }
+*/
 
+
+        if (request === "load") {
 
         /** @namespace jsonData.optionsCourse */
         for(var i = 0; i < jsonData.optionsCourse.length; i++) {
             drawOptions(jsonData.optionsCourse[i],"selectCourse");
         }
-        if (request == "load") {
             $("select#selectCourse").val("Yahoo");
         }else{
             $("select#selectCourse").val(request.split('/')[1]);
@@ -107,7 +110,9 @@ function changeCourse(request){
             );
         }
 
+
     });
+
 
 
 }
@@ -166,7 +171,6 @@ function changedListener(object) {
             count();
         });
     } else if (object.type == "button") {
-
 
         changContent(selectedExchange, object.id, "changeOperation",selectedCourse).then(function(){
             count();//fixme fix bug (after change currency if you click button, value not changed, value changed after second click)

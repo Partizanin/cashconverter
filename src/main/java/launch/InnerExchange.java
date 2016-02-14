@@ -2,7 +2,7 @@ package launch;
 
 /**
  * Created with Intellij IDEA.
- * Project name: cashConverter.
+ * Project name: cashTestConverter.
  * User: Partizanin.
  * Date: 29.03.2015.
  * Time:  16:35.
@@ -12,6 +12,8 @@ public class InnerExchange {
 
     private String id;
 
+    private String bankName;
+
     private double buyCourse;
 
     private double sellCourse;
@@ -19,8 +21,9 @@ public class InnerExchange {
     public InnerExchange() {
     }
 
-    public InnerExchange(String id, double buyCourse, double sellCourse) {
+    public InnerExchange(String id, String bankName, double buyCourse, double sellCourse) {
         this.id = id;
+        this.bankName = bankName;
         this.buyCourse = buyCourse;
         this.sellCourse = sellCourse;
     }
@@ -57,8 +60,17 @@ public class InnerExchange {
     public String toString() {
         return "InnerExchange{" +
                 "id='" + id + '\'' +
+                ", bankName='" + bankName + '\'' +
                 ", buyCourse=" + buyCourse +
                 ", sellCourse=" + sellCourse +
                 '}';
+    }
+
+    public String getBankName() {
+        return bankName;
+    }
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
     }
 }

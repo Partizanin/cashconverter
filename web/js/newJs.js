@@ -18,7 +18,6 @@ $(window).load(function fill() {
 function changeCourse(request){
     callToServer(request).then(function (jsonData) {
 
-
         var personDataTable = $('#personDataTable');
 
         if (personDataTable.find('li').length > 0 ) {/*remove all rows*/
@@ -381,8 +380,7 @@ function isNumberKey(evt) {
 function loader(action) {
 
     if (action == "show") {
-
-        //$("#loader-wrapper").show();
+        $("#loader-wrapper").show();
     } else {/*hide*/
        $("#loader-wrapper").hide();
     }

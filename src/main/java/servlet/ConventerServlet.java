@@ -103,8 +103,7 @@ public class ConventerServlet extends HttpServlet {
         Exchange exchange ;
 
         if (!course.equals("Yahoo")) {
-
-            exchange = clB.getExchangeById(valuta);
+            exchange = clB.getExchangeById("UAH");
         } else {
            exchange = clY.getExchangeById(valuta);
         }
@@ -118,7 +117,6 @@ public class ConventerServlet extends HttpServlet {
                 valutes.add("UAH");
                 obj.put("rows", exchange.getExchangesByBankName(course));
                 obj.put("optionsValute",valutes);
-                obj.put("optionsCourse", clB.getOptionsCourse());
                 /*todo: don`t change course secondary, course always one*/
             }else {
 

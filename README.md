@@ -1,7 +1,6 @@
 # java-getting-started
 
-[![Build Status](https://travis-ci.org/travis-ci/docs-travis-ci-com.svg?branch=ha-feature-standalone)](https://travis-ci.org/travis-ci/docs-travis-ci-com)
-
+[![Build Status](https://travis-ci.org/Partizanin/cashconverter.svg?branch=master)](https://travis-ci.org/Partizanin/cashconverter)
 [![CircleCI](https://circleci.com/gh/heroku/java-getting-started.svg?style=svg)](https://circleci.com/gh/heroku/java-getting-started)
 
 A barebones Java app, which can easily be deployed to Heroku.

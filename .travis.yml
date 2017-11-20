@@ -1,0 +1,12 @@
+language: java
+jdk:
+  - oraclejdk8
+before_install: sudo pip install codecov
+after_success: codecov
+
+# need to override travis 'install' since it will try gpg sign and fail.
+
+#install: mvn clean package -DskipTests=true
+install: mvn install -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8 -DskipTests=true
+script: mvn test -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8
+# need to override traviss

@@ -16,23 +16,13 @@ import java.util.Set;
  */
 public class ClassLoaderBanks {
 
-    public static void main(String[] args) {
-        ClassLoaderBanks cl = new ClassLoaderBanks();
-
-        for (Exchange innerExchange : cl.exchangeList) {
-            System.out.println(innerExchange);
-        }
-    }
+    private static DecimalFormat df = new DecimalFormat("#.####");
+    private SiteFilterBanks sf = new SiteFilterBanks();
+    private List<Exchange> exchangeList = new ArrayList<Exchange>();
 
     public ClassLoaderBanks() {
         createExchangeList();
     }
-
-    private SiteFilterBanks sf = new SiteFilterBanks();
-
-    private List<Exchange> exchangeList = new ArrayList<Exchange>();
-
-    private static DecimalFormat df = new DecimalFormat("#.####");
 
     private List<InnerExchange> createInnerExchangeList() {
 
@@ -44,16 +34,15 @@ public class ClassLoaderBanks {
             InnerExchange exchange = new InnerExchange();
 
 
-
-            String askVelue = sf.returnAskValueBySourceAndOperation(s, "buy");
+            String askValue = sf.returnAskValueBySourceAndOperation(s, "buy");
             String bankName = sf.returnBankName(s);
-            double parsedValue = Double.parseDouble(askVelue);
+            double parsedValue = Double.parseDouble(askValue);
             String formatValue = df.format(parsedValue);
 
             exchange.setBankName(bankName);
             exchange.setId("UAH" + sf.getId(s));
-            exchange.setBuyCourse(Double.parseDouble(formatValue));
-            exchange.setSellCourse(Double.parseDouble(df.format(Double.parseDouble(sf.returnAskValueBySourceAndOperation(s, "sell")))));
+            exchange.setBuyCourse(Double.parseDouble(formatValue.replaceAll(",", ".")));
+            exchange.setSellCourse(Double.parseDouble(df.format(Double.parseDouble(sf.returnAskValueBySourceAndOperation(s, "sell"))).replaceAll(",", ".")));
 
             innerExchanges.add(exchange);
         }
@@ -62,19 +51,19 @@ public class ClassLoaderBanks {
 
     }
 
-    private  void createExchangeList() {
+    private void createExchangeList() {
 
         List<InnerExchange> innerExchanges = createInnerExchangeList();
-            Exchange exchange = new Exchange("UAH");
+        Exchange exchange = new Exchange("UAH");
 
 
-            for (InnerExchange innerExchange : innerExchanges) {
+        for (InnerExchange innerExchange : innerExchanges) {
 
-                    exchange.addExchanges(innerExchange);
+            exchange.addExchanges(innerExchange);
 
-            }
+        }
 
-            exchangeList.add(exchange);
+        exchangeList.add(exchange);
 
     }
 
@@ -107,7 +96,7 @@ public class ClassLoaderBanks {
 
     public Set<String> getOptionsCourse() {
         Set<String> stringSet = new HashSet<>();
-        stringSet.add("Yahoo");/*Добавляем курс яху потому что его в списке нету*/
+        stringSet.add("Google");/*Добавляем курс яху потому что его в списке нету*/
 
         for (Exchange exchange : exchangeList) {
             for (InnerExchange innerExchange : exchange.getExchanges()) {

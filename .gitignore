@@ -1,10 +1,4 @@
 target
-tomcat.8080
-tomcat.5000
-cashTestConverter.iml
-.idea
-classes
-*iml
-source.xml
-bankSource.xml
-yahooSource.xml
+.env
+.idea/
+*.iml

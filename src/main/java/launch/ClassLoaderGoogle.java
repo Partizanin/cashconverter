@@ -13,17 +13,16 @@ import java.util.Set;
  * Time:  17:57.
  * To change this template use File|Setting|Editor|File and Code Templates.
  */
-public class ClassLoaderYahoo {
+public class ClassLoaderGoogle {
 
-    public ClassLoaderYahoo() {
-        createExchangeList();
-    }
-
-    private SiteFilterYahoo sf = new SiteFilterYahoo();
+    private static DecimalFormat df = new DecimalFormat("#.####");
+    private SiteFilterGoogle sf = new SiteFilterGoogle();
 
     private List<Exchange> exchangeList = new ArrayList<Exchange>();
 
-    private static DecimalFormat df = new DecimalFormat("#.####");
+    public ClassLoaderGoogle() {
+        createExchangeList();
+    }
 
     private List<InnerExchange> createInnerExchangeList() {
 
@@ -37,19 +36,22 @@ public class ClassLoaderYahoo {
             exchange.setId(sf.getId(s));
 
             String askValue = sf.returnAskValueBySourceAndOperation(s, "buy");
-            double parsedValue = Double.parseDouble(askValue);
-            String formatValue = df.format(parsedValue);
+            double parsedValue = Double.parseDouble(askValue.replaceAll(",", "."));
+            String formatValue = df.format(parsedValue).replaceAll(",", ".");
             exchange.setBuyCourse(Double.parseDouble(formatValue));
-            exchange.setSellCourse(Double.parseDouble(df.format(Double.parseDouble(sf.returnAskValueBySourceAndOperation(s, "sell")))));
+            String sell = sf.returnAskValueBySourceAndOperation(s, "sell");
+            String format = df.format(Double.parseDouble(sell));
+            double sellCourse = Double.parseDouble(format.replaceAll(",", "."));
+            exchange.setSellCourse(sellCourse);
 
             innerExchanges.add(exchange);
         }
 
         return innerExchanges;
-
     }
 
-    private  void createExchangeList() {
+
+    private void createExchangeList() {
 
         for (String exchangeId : sf.getIdsForExchange()) {
             Exchange exchange = new Exchange(exchangeId);

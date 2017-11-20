@@ -44,8 +44,9 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#20ade4', endColorstr='#0678b2', GradientType=0); /* IE6-9 */
 
 }
+
 /*add hover style for disable button*/
-.disabled:hover{
+.disabled:hover {
     -moz-box-shadow: inset 4px 4px 5px #0678b2;
     -webkit-box-shadow: inset 4px 4px 5px #0678b2;
     box-shadow: inset 4px 4px 5px #0678b2;
@@ -58,7 +59,6 @@
     background: -ms-linear-gradient(top, #1392cb 50%, #0678b2 100%); /* IE10+ */
     background: linear-gradient(top, #1392cb 50%, #0678b2 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#20ade4', endColorstr='#0678b2', GradientType=0); /* IE6-9 */
-
 
 }
 

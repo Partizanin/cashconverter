@@ -20,7 +20,7 @@ public class Exchange {
     public Exchange() {
     }
 
-    public Exchange(String id) {
+    Exchange(String id) {
         this.id = id;
     }
 
@@ -56,11 +56,11 @@ public class Exchange {
         return result;
     }
 
-    public void addExchanges(InnerExchange exchanges) {
+    void addExchanges(InnerExchange exchanges) {
         this.exchanges.add(exchanges);
     }
 
-    public String getCourseByIdAndOperation(String exchangeId, String transactionValue) {
+    String getCourseByIdAndOperation(String exchangeId, String transactionValue) {
 
         for (InnerExchange exchange : exchanges) {
 

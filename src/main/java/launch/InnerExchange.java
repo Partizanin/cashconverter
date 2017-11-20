@@ -40,20 +40,20 @@ public class InnerExchange {
         this.id = id;
     }
 
-    public void setBuyCourse(double buyCourse) {
-        this.buyCourse = buyCourse;
-    }
-
-    public void setSellCourse(double sellCourse) {
-        this.sellCourse = sellCourse;
-    }
-
     public double getBuyCourse() {
         return buyCourse;
     }
 
+    public void setBuyCourse(double buyCourse) {
+        this.buyCourse = buyCourse;
+    }
+
     public double getSellCourse() {
         return sellCourse;
+    }
+
+    public void setSellCourse(double sellCourse) {
+        this.sellCourse = sellCourse;
     }
 
     @Override

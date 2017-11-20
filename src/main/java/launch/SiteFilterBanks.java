@@ -14,19 +14,12 @@ import java.util.Set;
 
 public class SiteFilterBanks {
 
-    public static void main(String[] args) {
-
-        SiteFilterBanks sf = new SiteFilterBanks();
-
-        System.out.println(sf.returnAskValueBySourceAndOperation(sf.getCurrencyById("EUR"),"buy"));
-    }
-
     private StringBuilder siteSource = new StringBuilder(new SiteDownload().getSource("NBU"));
 
-    public SiteFilterBanks() {
+    SiteFilterBanks() {
     }
 
-    protected String returnAskValueBySourceAndOperation(String source, String operation) {
+    String returnAskValueBySourceAndOperation(String source, String operation) {
 
         int beginIndex = source.indexOf("<rateSale>") + 10;
         int endIndex = source.indexOf("</rateSale>");
@@ -43,7 +36,7 @@ public class SiteFilterBanks {
 
     }
 
-    protected String getId(String source) {
+    String getId(String source) {
 
         int beginIndex = source.indexOf("<codeAlpha>") + 11;
 
@@ -52,7 +45,7 @@ public class SiteFilterBanks {
         return source.substring(beginIndex, endIndex);
     }
 
-    protected ArrayList<String> getAllCurrency() {
+    ArrayList<String> getAllCurrency() {
         ArrayList<String> list = new ArrayList<>();
         StringBuilder source = new StringBuilder(siteSource);
 
@@ -77,7 +70,7 @@ public class SiteFilterBanks {
         return list;
     }
 
-    protected Set<String> getIdsForExchange() {
+    Set<String> getIdsForExchange() {
         Set<String> iDs = new HashSet<>();
 
         for (String s : getAllCurrency()) {
@@ -124,7 +117,7 @@ public class SiteFilterBanks {
 
     }
 
-    public String returnBankName(String source) {
+    String returnBankName(String source) {
 
         int start = source.indexOf("<bankName>") + 10;
         int end = source.indexOf("</bankName>");

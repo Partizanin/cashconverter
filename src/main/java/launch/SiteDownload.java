@@ -1,12 +1,12 @@
 package launch;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -19,16 +19,6 @@ import java.util.Iterator;
  * To change this template use File|Setting|File Templates.
  */
 class SiteDownload {
-
-    private static String readFromFile(String name) throws IOException {
-        if (name.equals("yahoo")) {
-            name = "yahooSource.xml";
-        } else {
-            name = "bankSource.xml";
-        }
-        byte[] encoded = Files.readAllBytes(Paths.get(name));
-        return new String(encoded, StandardCharsets.UTF_8);
-    }
 
     private String getUrlSource(String url) {
         StringBuilder sb = new StringBuilder("");
@@ -209,14 +199,6 @@ class SiteDownload {
         return source;
     }
 
-    private String getPath() throws UnsupportedEncodingException {
-        String path = this.getClass().getClassLoader().getResource("").getPath();
-        String result = "";
-
-        int finish = path.indexOf("cashTestConverter") + 17;
-        result = path.substring(0, finish);
-        return result;
-    }
 
     private String getValues(StringBuilder siteSourceCode) {
 
@@ -237,32 +219,6 @@ class SiteDownload {
         return String.valueOf(result);
     }
 
-    private void writeToFile(String source, String name) throws IOException {
-        PrintWriter pw = null;
-
-        name = "nbuSource.xml";
-
-        String path = getPath();
-
-        File file = new File(path + "\\" + name);
-        if (!file.exists() || file.isDirectory()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        try {
-            pw = new PrintWriter(file);
-            pw.print(source);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            if (pw != null) {
-                pw.close();
-            }
-        }
-    }
 
     String getSource(String name) {
         URL url = null;

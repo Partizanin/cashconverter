@@ -1,3 +1,6 @@
+#selectExchangeDiv {
+    margin-left: 15px;
+}
 #personDataTable {
     margin-top: -65px;
 }
@@ -260,9 +263,9 @@ body {
 
 p {
     display: inline;
-    font-family: 'Brush Script MT', cursive;
     color: #fe7aaa;
-    font-size: 18px;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 ul {

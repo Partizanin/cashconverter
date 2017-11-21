@@ -2,7 +2,7 @@
 <html ng-app="converterApp">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Конвертер Валют 2</title>
+    <title>Cash Converter 2</title>
 
     <script src="/js/jquery-2.1.1.min.js"></script>
 
@@ -26,20 +26,20 @@
 
     <div class="Converter">
         <div id="mainLabel">
-            <h2 id="mainLabelH2">Конвертер Валют 2</h2>
+            <h2 id="mainLabelH2">Cash Converter 2</h2>
             <hr id="mainLabelHr">
         </div>
-        <p id="p1">Я хочу</p> <input class="button" ng-class="{disabled: buttonDisable}" ng-disabled="buttonDisable"
+        <p id="p1">I want</p> <input class="button" ng-class="{disabled: buttonDisable}" ng-disabled="buttonDisable"
                                      ng-click="buttonClick()" type="button"
-                                     value="Купить"
+                                     value="Buy"
                                      id="buy">
         <input class="button" type="button" ng-class="{disabled: !buttonDisable}" ng-click="buttonClick()"
-               ng-disabled="!buttonDisable" value="Продать"
+               ng-disabled="!buttonDisable" value="Sell"
                id="sell">
 
 
         <hr class="someHr">
-        <p id="p2">На сумму</p> <label for="inputValue"></label>
+        <p id="p2">For the amount of</p> <label for="inputValue"></label>
 
         <input value="0.00"
                onfocus="if (this.value == '0.00')
@@ -49,7 +49,7 @@
                id="inputValue" type="text"
                ng-model="inputValue"/>
 
-        <div class="list">
+        <div class="list" id="selectExchangeDiv">
 
             <select id="selectExchange" ng-change="selectExchange()" ng-model="selectedExchangeValue"
                     onmouseover="this.size=this.options.length" onmouseout="this.size=1">
@@ -61,7 +61,7 @@
         </div>
 
         <hr class="someHr">
-        <p id="p4">По курсу</p>
+        <p id="p4">At the exchange rate</p>
         <div class="list">
 
             <select id="selectCourse" ng-change="selectCourse()" ng-model="selectCourseValue" onmouseover="this.size=10"
@@ -76,7 +76,7 @@
         <div id="loader-wrapper" ng-show="loaderStatus">
             <div id="loader"></div>
         </div>
-        <p id="p3">Результат</p>
+        <p id="p3">Results</p>
 
         <div id="personDataTable">
             <ul ng-repeat="row in rows">

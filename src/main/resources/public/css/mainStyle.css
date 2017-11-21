@@ -254,6 +254,7 @@ li > input {
 }
 
 body {
+    font-family: helvetica, serif;
     background: url(../img/background8small.jpg) no-repeat;
     -moz-background-size: 100%; /* Firefox 3.6+ */
     -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */

@@ -34,9 +34,9 @@ public class ClassLoaderBanks {
             InnerExchange exchange = new InnerExchange();
 
 
-            String askValue = sf.returnAskValueBySourceAndOperation(s, "buy");
+            String askVelue = sf.returnAskValueBySourceAndOperation(s, "buy");
             String bankName = sf.returnBankName(s);
-            double parsedValue = Double.parseDouble(askValue);
+            double parsedValue = Double.parseDouble(askVelue);
             String formatValue = df.format(parsedValue);
 
             exchange.setBankName(bankName);
